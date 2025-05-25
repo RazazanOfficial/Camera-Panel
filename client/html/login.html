@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - MyCompany</title>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/login.css" />
+      <link rel="icon" type="image/x-icon" href="/imgs/Shahaab-Logo.webp">
+  </head>
+  <body>
+    <div class="background-overlay">
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center min-vh-100"
+      >
+        <div class="login-box p-4 rounded shadow">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <span class="company-name">SHAHAB</span>
+              <img
+                src="/imgs/Shahaab-Logo.webp"
+                alt="Logo"
+                style="width: 40px; height: 40px"
+              />
+            </div>
+            <div class="language-select">
+              <select
+                class="form-select form-select-sm"
+                aria-label="Select language"
+              >
+                <option selected>English</option>
+              </select>
+            </div>
+          </div>
+          <h3 class="text-center mb-4">Login</h3>
+          <form>
+            <div class="mb-3">
+              <div class="d-flex align-items-center">
+                <img src="/icons/userName.svg" alt="UserName" class="icon" />
+                <label for="User Name" class="form-label">User Name</label>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="User Name"
+                placeholder="User Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <div class="d-flex align-items-center">
+                <img src="/icons/lock.svg" alt="Lock" class="icon" />
+                <label for="password" class="form-label">Password</label>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="password"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <a href="/html/forget-password.html" class="link"
+                >Forget Password?</a
+              >
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+        <span
+          class="text-white"
+          style="position: absolute; bottom: 3%; font-weight: bold"
+          >© 2025 SHAHAB™. All rights reserved.
+        </span>
+      </div>
+    </div>
+    <script src="/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>
