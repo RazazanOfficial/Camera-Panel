@@ -1,0 +1,93 @@
+main {
+  height: 90vh;
+}
+.sidebar {
+  background-color: #ced1c5; /* خاکستری Bootstrap */
+  padding: 20px 0px 0px 10px;
+  color: white;
+  overflow-y: auto;
+}
+aside .nav-link,
+aside .nav-link:hover,
+aside .submenu,
+aside .sub-link,
+aside .sub-link.active {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+/* General Nav Link */
+aside .nav-link {
+  color: black;
+  padding: 12px 16px;
+  border-bottom: 1px solid #a7aa9db4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+aside .nav-link:hover {
+  background-color: #a7aa9db4;
+  color: black;
+}
+.main-link.active {
+  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #acb198b4;
+  font-weight: bold;
+}
+
+/* Submenu Container */
+aside .submenu {
+  align-self: end;
+  width: 95%;
+}
+
+/* Sub-link Styling */
+aside .sub-link {
+  display: inline-block;
+  width: 100%;
+  padding-left: 3rem;
+  font-size: 0.95rem;
+  color: black;
+}
+
+aside .sub-link.active {
+  /* background-color: #dc3545; */
+  background: white;
+  border-left: 7px solid #dc3545;
+  color: #dc3545;
+  font-weight: bold;
+  padding-left: 40px;
+}
+/* Content Sections */
+.content-box {
+  display: none;
+}
+
+.content-box.active {
+  display: block;
+}
+
+/*! =-=-=-=-=-= Image Section =-=-=-=-=-= !*/
+.image-nav-sec a{
+  color: black;
+  text-decoration: none;
+  
+}
+.image-nav-sec-active {
+  position: relative;
+  color: red;
+  text-decoration: none;
+}
+.image-nav-sec-active::before {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 3px;
+  background-color: red;
+  display: block;
+  bottom: 0;
+  left: 0;
+}

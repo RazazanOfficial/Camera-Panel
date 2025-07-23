@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Controll - SHAHAB</title>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/viewControll.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
+  </head>
+  <body class="bg-dark-subtle">
+    <header>
+      <nav class="cnav navbar navbar-expand-lg bg-dark-subtle py-0">
+        <div class="container-fluid">
+          <div
+            class="navbar-brand d-flex justify-content-center align-items-center gap-2"
+          >
+            <img
+              src="../imgs/Shahaab-Logo.webp"
+              alt="logo"
+              width="38"
+              height="38"
+            />
+            <h3 class="fst-italic company-name">SHAHAB</h3>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-5" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center activeLink">
+                <img
+                  src="../icons/live.svg"
+                  alt="live"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="#">Live View</a>
+              </li>
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/config.svg"
+                  alt="config"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="../html/configuration.html"
+                  >Configuration</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/help.svg"
+                  alt="help"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="../html/Help.html">Help</a>
+              </li>
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/logout.svg"
+                  alt="logout"
+                  width="20"
+                  height="20"
+                />
+                <a class="nav-link" href="../html/login.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="row flex-lg-nowrap m-3 px-2 py-4">
+      <!-- Green Box with Video -->
+      <div
+        class="col-lg-9 py-0 px-3 d-flex flex-column align-items-center justify-content-center position-relative"
+      >
+        <video
+          id="myVideo"
+          src="../video/SampleVideo_1280x720_1mb.mp4"
+          autoplay
+          muted
+          playsinline
+          class="w-100 h-100"
+        ></video>
+        <!-- Video Tools  -->
+        <div id="videoTools" class="d-flex justify-content-between w-100 px-5">
+          <div
+            class="d-flex justify-content-center align-items-center gap-2 my-2"
+          >
+            <button id="playPauseBtn">Pause</button>
+            <button id="fullscreenBtn">Fullscreen</button>
+            <div class="volume-container">
+              <button id="muteUnmuteBtn">Unmute</button>
+              <input
+                id="volumeSlider"
+                class="volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value="0"
+              />
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-center align-items-center gap-2 my-2"
+          >
+            <button id="captureBtn">Capture</button>
+            <button id="recordBtn">Record</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Box with Collapsible Menu -->
+      <div
+        class="col-lg-3 p-0 d-lg-flex d-none flex-column text-center side-menu gap-1"
+      >
+        <!-- Div One  -->
+        <div class="w-100">
+          <div class="m-1 px-4 py-2 box mx-2 mt-2">
+            <p>Camera rotation</p>
+            <div>
+              <!-- Top -->
+              <div class="d-flex justify-content-center gap-2 mb-2">
+                <button class="btns">
+                  <!-- Arrow Up Left -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-up-left-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.096 8.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707z"
+                    />
+                  </svg>
+                </button>
+                <button class="btns">
+                  <!-- Arrow Up -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-up-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+                    />
+                  </svg>
+                </button>
+                <button class="btns">
+                  <!-- Arrow Up Right -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-up-right-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Mid -->
+              <div class="d-flex justify-content-center gap-2 mb-2">
+                <button class="btns">
+                  <!-- Arrow Left -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-left-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+                    />
+                  </svg>
+                </button>
+                <button class="btn-rotate">
+                  <!-- Rotate -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-repeat"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"
+                    />
+                  </svg>
+                </button>
+                <button class="btns">
+                  <!-- Arrow Right -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Bottom -->
+              <div class="d-flex justify-content-center gap-2">
+                <button class="btns">
+                  <!-- Arrow Down Left -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-down-left-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.096 3.146a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768z"
+                    />
+                  </svg>
+                </button>
+                <button class="btns">
+                  <!-- Arrow Down -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-down-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                    />
+                  </svg>
+                </button>
+                <button class="btns">
+                  <!-- Arrow Down Right -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-arrow-down-right-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 3.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Div Two  -->
+        <div class="w-100">
+          <div class="m-1 py-1 px-3 box mx-2">
+            <p class="overflow-y-hidden mb-1">Focus adjustment</p>
+            <div class="slider-container mt-2">
+              <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+              <input
+                type="range"
+                id="rangeSlider"
+                min="1"
+                max="4000"
+                value="2000"
+              />
+              <button id="increaseBtn" class="btn btn-success btn">+</button>
+            </div>
+
+            <div class="mt-2">
+              <label for="stepInput" class="form-label"
+                >Variable value (from 1 to 4000)</label
+              >
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                id="stepInput"
+                min="1"
+                max="4000"
+                value="200"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Div Three  -->
+        <div class="w-100">
+          <div class="m-1 py-1 px-3 box mx-2">
+            <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
+            <div class="slider-container mt-2">
+              <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+              <input
+                type="range"
+                id="rangeSlider"
+                min="1"
+                max="4000"
+                value="2000"
+              />
+              <button id="increaseBtn" class="btn btn-success btn">+</button>
+            </div>
+
+            <div class="mt-2">
+              <label for="stepInput" class="form-label"
+                >Variable value (from 1 to 4000)</label
+              >
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                id="stepInput"
+                min="1"
+                max="4000"
+                value="200"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Div Four  -->
+        <div class="w-100">
+          <div class="m-1 py-1 px-3 box mx-2">
+            <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
+            <div class="slider-container mt-2">
+              <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+              <input
+                type="range"
+                id="rangeSlider"
+                min="1"
+                max="4000"
+                value="2000"
+              />
+              <button id="increaseBtn" class="btn btn-success btn">+</button>
+            </div>
+
+            <div class="mt-2">
+              <label for="stepInput" class="form-label"
+                >Variable value (from 1 to 4000)</label
+              >
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                id="stepInput"
+                min="1"
+                max="4000"
+                value="200"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hamburger for smaller screens -->
+      <div class="d-lg-none col-12 p-0">
+        <button
+          class="btn btn-danger w-100"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mobilePanel"
+        >
+          Show the menu
+        </button>
+        <div class="collapse side-menu" id="mobilePanel">
+          <!-- Div One  -->
+          <div class="w-100">
+            <div class="m-1 py-1 px-3 box mx-2">
+              <p class="overflow-y-hidden mb-1">Focus adjustment</p>
+              <div class="slider-container mt-2">
+                <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+                <input
+                  type="range"
+                  id="rangeSlider"
+                  min="1"
+                  max="4000"
+                  value="2000"
+                />
+                <button id="increaseBtn" class="btn btn-success btn">+</button>
+              </div>
+
+              <div class="mt-2">
+                <label for="stepInput" class="form-label"
+                  >Variable value (from 1 to 4000)</label
+                >
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="stepInput"
+                  min="1"
+                  max="4000"
+                  value="200"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Div Two  -->
+          <div class="w-100">
+            <div class="m-1 py-1 px-3 box mx-2">
+              <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
+              <div class="slider-container mt-2">
+                <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+                <input
+                  type="range"
+                  id="rangeSlider"
+                  min="1"
+                  max="4000"
+                  value="2000"
+                />
+                <button id="increaseBtn" class="btn btn-success btn">+</button>
+              </div>
+
+              <div class="mt-2">
+                <label for="stepInput" class="form-label"
+                  >Variable value (from 1 to 4000)</label
+                >
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="stepInput"
+                  min="1"
+                  max="4000"
+                  value="200"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Div Three  -->
+          <div class="w-100">
+            <div class="m-1 py-1 px-3 box mx-2">
+              <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
+              <div class="slider-container mt-2">
+                <button id="decreaseBtn" class="btn btn-danger btn">−</button>
+                <input
+                  type="range"
+                  id="rangeSlider"
+                  min="1"
+                  max="4000"
+                  value="2000"
+                />
+                <button id="increaseBtn" class="btn btn-success btn">+</button>
+              </div>
+
+              <div class="mt-2">
+                <label for="stepInput" class="form-label"
+                  >Variable value (from 1 to 4000)</label
+                >
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="stepInput"
+                  min="1"
+                  max="4000"
+                  value="200"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Div Four  -->
+          <div class="w-100">
+            <div class="m-1 px-4 py-2 box mx-2 mt-2">
+              <p>Camera rotation</p>
+              <div>
+                <!-- Top -->
+                <div class="d-flex justify-content-center gap-2 mb-2">
+                  <button class="btns">
+                    <!-- Arrow Up Left -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-up-left-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.096 8.803a.5.5 0 1 0 .707-.707L6.707 6h2.768a.5.5 0 1 0 0-1H5.5a.5.5 0 0 0-.5.5v3.975a.5.5 0 0 0 1 0V6.707z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btns">
+                    <!-- Arrow Up -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-up-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btns">
+                    <!-- Arrow Up Right -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-up-right-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Mid -->
+                <div class="d-flex justify-content-center gap-2 mb-2">
+                  <button class="btns">
+                    <!-- Arrow Left -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-left-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btn-rotate">
+                    <!-- Rotate -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-repeat"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btns">
+                    <!-- Arrow Right -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Bottom -->
+                <div class="d-flex justify-content-center gap-2">
+                  <button class="btns">
+                    <!-- Arrow Down Left -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-left-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.096 3.146a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btns">
+                    <!-- Arrow Down -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                      />
+                    </svg>
+                  </button>
+                  <button class="btns">
+                    <!-- Arrow Down Right -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-right-square"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 3.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/viewControll.js"></script>
+  </body>
+</html>

@@ -86,6 +86,7 @@ html {
   height: 20px;
   margin-right: 5px;
 }
+
 @media (max-width: 768px) {
   .login-box {
     padding: 2rem 1.5rem;

@@ -1,0 +1,51 @@
+* {
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.cnav {
+  height: 10vh;
+  border: 2px solid #abb1b6;
+}
+.cnav .activeLink {
+  font-weight: bold;
+  position: relative;
+}
+.cnav .activeLink::before {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 3px;
+  background-color: red;
+  display: block;
+  bottom: 0;
+  left: 0;
+}
+.cnav .normalLink {
+  position: relative;
+  font-weight: bold;
+}
+.cnav .normalLink::before {
+  position: absolute;
+  content: " ";
+  width: 0%;
+  height: 3px;
+  background-color: rgb(196, 0, 0);
+  display: block;
+  bottom: 0;
+  left: 0;
+  transition: ease-in-out 0.75s;
+}
+.cnav .normalLink:hover::before {
+  width: 100%;
+}
+.company-name {
+  font-weight: bold;
+  color: #7c044c;
+  overflow: hidden;
+}
+.border-radius {
+  border-radius: 25px;
+}

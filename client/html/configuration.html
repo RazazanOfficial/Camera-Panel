@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuration - SHAHAB</title>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/configuration.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
+  </head>
+  <body>
+    <header>
+      <nav class="cnav navbar navbar-expand-lg bg-dark-subtle py-0">
+        <div class="container-fluid">
+          <div
+            class="navbar-brand d-flex justify-content-center align-items-center gap-2"
+          >
+            <img
+              src="../imgs/Shahaab-Logo.webp"
+              alt="logo"
+              width="38"
+              height="38"
+            />
+            <h3 class="fst-italic company-name">SHAHAB</h3>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-5" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/live.svg"
+                  alt="live"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="viewControll.html">Live View</a>
+              </li>
+              <li class="nav-item d-flex align-items-center activeLink">
+                <img
+                  src="../icons/config.svg"
+                  alt="config"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="../html/configuration.html"
+                  >Configuration</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/help.svg"
+                  alt="help"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="../html/Help.html">Help</a>
+              </li>
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/logout.svg"
+                  alt="logout"
+                  width="20"
+                  height="20"
+                />
+                <a class="nav-link" href="../html/login.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+          <aside class="col-md-3 col-lg-2 sidebar">
+            <nav class="nav flex-column" id="sidebar-menu">
+              <!-- Main Item 1 -->
+              <a class="nav-link main-link" data-target="system">
+                <img
+                  src="../icons/system.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="System Icon"
+                />
+                <span>System</span>
+              </a>
+              <div class="submenu d-none" data-submenu="system">
+                <a class="nav-link sub-link" data-content="something1"
+                  >Something1</a
+                >
+                <a class="nav-link sub-link" data-content="something2"
+                  >something2</a
+                >
+              </div>
+              <!-- Main Item 2 -->
+              <a class="nav-link main-link" data-target="network">
+                <img
+                  src="../icons/network.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="Network Icon"
+                />
+                <span>Network</span>
+              </a>
+              <div class="submenu d-none" data-submenu="network">
+                <a class="nav-link sub-link" data-content="something3"
+                  >Something3</a
+                >
+                <a class="nav-link sub-link" data-content="something4"
+                  >something4</a
+                >
+              </div>
+              <!-- Main Item 3 -->
+              <a class="nav-link main-link" data-target="video/audio">
+                <img
+                  src="../icons/mic.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="video/audio Icon"
+                />
+                <span>Video/Audio</span>
+              </a>
+              <div class="submenu d-none" data-submenu="video/audio">
+                <a class="nav-link sub-link" data-content="something5"
+                  >Something5</a
+                >
+                <a class="nav-link sub-link" data-content="something6"
+                  >something6</a
+                >
+              </div>
+              <!-- Main Item 4 -->
+              <a class="nav-link main-link" data-target="image">
+                <img
+                  src="../icons/image.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="Image Icon"
+                />
+                <span>Image</span>
+              </a>
+              <div class="submenu d-none" data-submenu="image">
+                <a class="nav-link sub-link" data-content="imageSettings"
+                  >Image Settings</a
+                >
+              </div>
+              <!-- Main Item 5 -->
+              <a class="nav-link main-link" data-target="event">
+                <img
+                  src="../icons/event.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="Event Icon"
+                />
+                <span>Event</span>
+              </a>
+              <div class="submenu d-none" data-submenu="event">
+                <a class="nav-link sub-link" data-content="something9"
+                  >Something9</a
+                >
+                <a class="nav-link sub-link" data-content="something10"
+                  >something10</a
+                >
+              </div>
+              <!-- Main Item 6 -->
+              <a class="nav-link main-link" data-target="storage">
+                <img
+                  src="../icons/storage.svg"
+                  width="27"
+                  height="27"
+                  class="icon"
+                  alt="Storage Icon"
+                />
+                <span>Storage</span>
+              </a>
+              <div class="submenu d-none" data-submenu="storage">
+                <a class="nav-link sub-link" data-content="something11"
+                  >Something11</a
+                >
+                <a class="nav-link sub-link" data-content="something12"
+                  >something12</a
+                >
+              </div>
+            </nav>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="col-md-9 col-lg-10 p-4" id="main-content">
+            <!-- Static Content Divs -->
+            <div class="content-box" id="something1">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="content-box" id="something2">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="content-box" id="something3">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="content-box" id="something4">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something5">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something6">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="imageSettings">
+              <div class="image-nav-sec w-100">
+                <div
+                  class="fw-bold d-flex gap-3 align-items-center"
+                  style="border-bottom: 1px solid #c9c9c9"
+                >
+                  <a class="" data-target="displaySettings"
+                    >Display Settings</a
+                  >
+                  <a class="" data-target="osdSettings"
+                    >OSD Settings</a
+                  >
+                  <a class="image-nav-sec-active" data-target="privacyMask"
+                    >Privacy Mask</a
+                  >
+                </div>
+              </div>
+              <div class="image-content-sec"></div>
+            </div>
+            <div class="content-box" id="something8">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something9">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something10">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something11">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="content-box" id="something12">
+              <h2>Lorem, ipsum.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </main>
+        </div>
+      </div>
+    </main>
+    <!-- JS -->
+    <script src="../js/configuration.js"></script>
+  </body>
+</html>
