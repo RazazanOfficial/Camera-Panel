@@ -38,3 +38,63 @@ document.querySelectorAll('.sub-link').forEach(link => {
 });
 
 //! =-=-=-=-=-= Image Section =-=-=-=-=-= !//
+document.querySelectorAll('.image-tab-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.tab;
+
+    // فعال‌سازی دکمه
+    document.querySelectorAll('.image-tab-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // نمایش محتوا
+    document.querySelectorAll('.image-tab-content').forEach(content => {
+      if (content.dataset.tabContent === tab) {
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
+      }
+    });
+  });
+});
+
+// Toggle dropdowns
+document.querySelectorAll('.dropdown-toggle-box').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    toggle.parentElement.classList.toggle('open');
+  });
+});
+
+// Switch between Scheduled and Auto sections
+document.getElementById('switchType').addEventListener('change', function () {
+  const isScheduled = this.value === 'scheduled';
+  document.querySelector('.scheduled-section').classList.toggle('d-none', !isScheduled);
+  document.querySelector('.auto-section').classList.toggle('d-none', isScheduled);
+});
+
+// Toggle mode buttons
+document.querySelectorAll('.mode-toggle .btn').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.mode-toggle .btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  });
+});
+// 
+document.querySelectorAll('.iris-range').forEach((range, i) => {
+  const number = document.querySelectorAll('.iris-number')[i];
+  range.addEventListener('input', () => number.value = range.value);
+  number.addEventListener('input', () => {
+    const val = Math.min(100, Math.max(0, number.value));
+    number.value = val;
+    range.value = val;
+  });
+});
+document.querySelectorAll('.auto-range').forEach((range, i) => {
+  const number = document.querySelectorAll('.auto-number')[i];
+  range.addEventListener('input', () => number.value = range.value);
+  number.addEventListener('input', () => {
+    const val = Math.min(100, Math.max(0, number.value));
+    number.value = val;
+    range.value = val;
+  });
+});
+
