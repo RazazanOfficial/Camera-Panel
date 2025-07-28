@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configuration - SHAHAB</title>
-
-    <!-- Bootstrap -->
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/configuration.css" />
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/configuration.css" />
     <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
   </head>
   <body>
+    <!-- TODO: Header Section -->
     <header>
       <nav class="cnav navbar navbar-expand-lg bg-dark-subtle py-0">
         <div class="container-fluid">
@@ -87,771 +84,353 @@
         </div>
       </nav>
     </header>
+    <!-- TODO: Main Section -->
     <main>
       <div class="container-fluid">
         <div class="row">
-          <!-- Sidebar -->
+          <!--* **** Sidebar **** *-->
           <aside class="col-md-3 col-lg-2 sidebar">
             <nav class="nav flex-column" id="sidebar-menu">
-              <!-- Main Item 1 -->
-              <a class="nav-link main-link" data-target="system">
-                <img
-                  src="../icons/system.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="System Icon"
-                />
-                <span>System</span>
-              </a>
-              <div class="submenu d-none" data-submenu="system">
-                <a class="nav-link sub-link" data-content="something1"
-                  >Something1</a
-                >
-                <a class="nav-link sub-link" data-content="something2"
-                  >something2</a
-                >
+              <!--* **** System **** *-->
+              <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="system">
+                  <img
+                    src="../icons/system.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="System Icon"
+                  />
+                  <span>System</span>
+                </a>
+                <div class="submenu d-none" data-submenu="system">
+                  <a class="nav-link sub-link" data-content="something1"
+                    >Something1</a
+                  >
+                  <a class="nav-link sub-link" data-content="something2"
+                    >something2</a
+                  >
+                </div>
               </div>
-              <!-- Main Item 2 -->
-              <a class="nav-link main-link" data-target="network">
-                <img
-                  src="../icons/network.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="Network Icon"
-                />
-                <span>Network</span>
-              </a>
-              <div class="submenu d-none" data-submenu="network">
-                <a class="nav-link sub-link" data-content="something3"
-                  >Something3</a
-                >
-                <a class="nav-link sub-link" data-content="something4"
-                  >something4</a
-                >
+              <!--* **** NetWork **** *-->
+              <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="network">
+                  <img
+                    src="../icons/network.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Network Icon"
+                  />
+                  <span>Network</span>
+                </a>
+                <div class="submenu d-none" data-submenu="network">
+                  <a class="nav-link sub-link" data-content="basicSettings"
+                    >Basic Settings</a
+                  >
+                  <!-- <a class="nav-link sub-link" data-content="advancedSettings"
+                    >Advanced Settings</a
+                  > -->
+                </div>
               </div>
-              <!-- Main Item 3 -->
-              <a class="nav-link main-link" data-target="video/audio">
-                <img
-                  src="../icons/mic.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="video/audio Icon"
-                />
-                <span>Video/Audio</span>
-              </a>
-              <div class="submenu d-none" data-submenu="video/audio">
-                <a class="nav-link sub-link" data-content="something5"
-                  >Something5</a
-                >
-                <a class="nav-link sub-link" data-content="something6"
-                  >something6</a
-                >
+              <!--* **** Video/Audio **** *-->
+              <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="video/audio">
+                  <img
+                    src="../icons/mic.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="video/audio Icon"
+                  />
+                  <span>Video/Audio</span>
+                </a>
+                <div class="submenu d-none" data-submenu="video/audio">
+                  <a class="nav-link sub-link" data-content="video/audio"
+                    >Video/Audio</a
+                  >
+                </div>
               </div>
-              <!-- Main Item 4 -->
-              <a class="nav-link main-link" data-target="image">
-                <img
-                  src="../icons/image.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="Image Icon"
-                />
-                <span>Image</span>
-              </a>
-              <div class="submenu d-none" data-submenu="image">
-                <a class="nav-link sub-link" data-content="imageSettings"
-                  >Image Settings</a
-                >
+              <!--* **** Image **** *-->
+              <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="image">
+                  <img
+                    src="../icons/image.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Image Icon"
+                  />
+                  <span>Image</span>
+                </a>
+                <div class="submenu d-none" data-submenu="image">
+                  <a class="nav-link sub-link" data-content="imageSettings"
+                    >Image Settings</a
+                  >
+                </div>
               </div>
-              <!-- Main Item 5 -->
-              <a class="nav-link main-link" data-target="event">
-                <img
-                  src="../icons/event.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="Event Icon"
-                />
-                <span>Event</span>
-              </a>
-              <div class="submenu d-none" data-submenu="event">
-                <a class="nav-link sub-link" data-content="something9"
-                  >Something9</a
-                >
-                <a class="nav-link sub-link" data-content="something10"
-                  >something10</a
-                >
-              </div>
-              <!-- Main Item 6 -->
-              <a class="nav-link main-link" data-target="storage">
-                <img
-                  src="../icons/storage.svg"
-                  width="27"
-                  height="27"
-                  class="icon"
-                  alt="Storage Icon"
-                />
-                <span>Storage</span>
-              </a>
-              <div class="submenu d-none" data-submenu="storage">
-                <a class="nav-link sub-link" data-content="something11"
-                  >Something11</a
-                >
-                <a class="nav-link sub-link" data-content="something12"
-                  >something12</a
-                >
-              </div>
+              <!--* **** Event **** *-->
+              <!-- <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="event">
+                  <img
+                    src="../icons/event.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Event Icon"
+                  />
+                  <span>Event</span>
+                </a>
+                <div class="submenu d-none" data-submenu="event">
+                  <a class="nav-link sub-link" data-content="something9"
+                    >Something9</a
+                  >
+                  <a class="nav-link sub-link" data-content="something10"
+                    >something10</a
+                  >
+                </div>
+              </div> -->
+              <!--* **** Storage **** *-->
+              <!-- <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="storage">
+                  <img
+                    src="../icons/storage.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Storage Icon"
+                  />
+                  <span>Storage</span>
+                </a>
+                <div class="submenu d-none" data-submenu="storage">
+                  <a class="nav-link sub-link" data-content="something11"
+                    >Something11</a
+                  >
+                  <a class="nav-link sub-link" data-content="something12"
+                    >something12</a
+                  >
+                </div>
+              </div> -->
             </nav>
           </aside>
 
-          <!-- Main Content -->
+          <!--* **** Main Box **** *-->
           <main class="col-md-9 col-lg-10 p-4" id="main-content">
-            <!-- Static Content Divs -->
-            <div class="content-box" id="something1">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="content-box" id="something2">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="content-box" id="something3">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="content-box" id="something4">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box" id="something5">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box" id="something6">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box image-sec" id="imageSettings">
-              <!-- Top Buttons -->
-              <div class="image-nav-sec w-100 d-flex">
-                <button class="image-tab-btn active" data-tab="display">
-                  Display Settings
-                </button>
-                <button class="image-tab-btn" data-tab="osd">
-                  OSD Settings
-                </button>
-                <button class="image-tab-btn" data-tab="privacy">
-                  Privacy Mask
-                </button>
+            <!--* **** System **** *-->
+            <div>
+              <div class="content-box" id="something1">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
               </div>
-
-              <!-- Bottom Section -->
-              <div class="image-content-sec mt-3 d-flex gap-4">
-                <!-- Left preview box (green) -->
-                <div class="image-preview-box">
-                  <div class="video-placeholder">Live Video</div>
+              <div class="content-box" id="something2">
+                <h2>Lorem2, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+            <!--* **** NetWork **** *-->
+            <div class="network-sec">
+              <!--? **** Basic Settings Box **** ?-->
+              <div
+                class="content-box basic-network-sec global-sec"
+                id="basicSettings"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button class="global-tab-btn active" data-tab="tcp/ip">
+                    TCP/IP
+                  </button>
+                  <!-- <button class="global-tab-btn" data-tab="ddns">DDNS</button> -->
+                  <!-- <button class="global-tab-btn" data-tab="pppoe">PPPoE</button> -->
+                  <button class="global-tab-btn" data-tab="port">Port</button>
+                  <!-- <button class="global-tab-btn" data-tab="nat">NAT</button> -->
+                  <!-- <button class="global-tab-btn" data-tab="multicast">MultiCast</button> -->
                 </div>
-                <!-- Right form content -->
-                <div
-                  class="image-tab-content active"
-                  data-tab-content="display"
-                >
-                  <div class="image-form-box">
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="switchType"
-                        >Scheduled Image Settings:</label
-                      >
-                      <select id="switchType" class="form-control">
-                        <option value="scheduled">Scheduled-Switch</option>
-                        <option value="auto">Auto-Switch</option>
-                      </select>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** TCP/IP Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="tcp/ip"
+                  >
+                    <div
+                      class="check-box-div mb-3 align-items-center"
+                      style="gap: 8rem"
+                    >
+                      <label for="dhcp" class="label-select">DHCP:</label>
+                      <input type="checkbox" id="dhcp" class="" />
                     </div>
-
-                    <!-- Scheduled Section -->
-                    <div class="scheduled-section">
-                      <div class="d-flex gap-3 mb-3 flex-column">
-                        <div class="form-row">
-                          <label for="startTime">Start Time:</label>
-                          <input
-                            type="time"
-                            id="startTime"
-                            class="form-control"
-                            step="1"
-                          />
-                        </div>
-                        <div class="form-row">
-                          <label for="endTime">End Time:</label>
-                          <input
-                            type="time"
-                            id="endTime"
-                            class="form-control"
-                            step="1"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="btn-group mode-toggle mb-3" role="group">
-                        <button
-                          type="button"
-                          class="btn btn-outline-danger active"
-                          data-mode="common"
-                        >
-                          Common
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-outline-danger"
-                          data-mode="day"
-                        >
-                          Day
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-outline-danger"
-                          data-mode="night"
-                        >
-                          Night
-                        </button>
-                      </div>
-
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Exposure Settings</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label for="iris-mode">Iris Mode:</label>
-                            <select id="iris-mode" class="form-control">
-                              <option value="Auto">Auto</option>
-                            </select>
-                          </div>
-
-                          <div class="form-row align-items-center">
-                            <label>Auto Iris Level:</label>
-                            <input
-                              type="range"
-                              class="form-range iris-range"
-                              min="0"
-                              max="100"
-                              value="50"
-                            />
-                            <input
-                              type="number"
-                              class="form-control iris-number"
-                              min="0"
-                              max="100"
-                              value="50"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Day/Night Switch</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label for="day-night">Day/Night Switch:</label>
-                            <select id="day-night" class="form-control">
-                              <option value="Scheduled-Switch">
-                                Scheduled-Switch
-                              </option>
-                              <option value="Auto">Auto</option>
-                            </select>
-                          </div>
-
-                          <div class="d-flex gap-3 mb-3 flex-column">
-                            <div class="form-row">
-                              <label for="dayNightStartTime">Start Time:</label>
-                              <input
-                                type="time"
-                                id="dayNightStartTime"
-                                class="form-control"
-                                step="1"
-                              />
-                            </div>
-                            <div class="form-row">
-                              <label for="dayNightEndTime">End Time:</label>
-                              <input
-                                type="time"
-                                id="dayNightEndTime"
-                                class="form-control"
-                                step="1"
-                              />
-                            </div>
-                          </div>
-
-                          <div class="form-row">
-                            <label for="smart-supplement"
-                              >Smart Supplement Light:</label
-                            >
-                            <select id="smart-supplement" class="form-control">
-                              <option value="OFF">OFF</option>
-                              <option value="ON">ON</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Video Adjustment</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label for="mirror">Mirror:</label>
-                            <select id="mirror" class="form-control">
-                              <option value="OFF">OFF</option>
-                              <option value="ON">ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label for="rotate">Rotate:</label>
-                            <select id="rotate" class="form-control">
-                              <option value="OFF">OFF</option>
-                              <option value="ON">ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label for="scene-mode">Scene Mode:</label>
-                            <select id="scene-mode" class="form-control">
-                              <option value="Outdoor">Outdoor</option>
-                              <option value="Indoor">Indoor</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label for="video-standard">Video Standard:</label>
-                            <select id="video-standard" class="form-control">
-                              <option value="PAL(50HZ)">PAL(50HZ)</option>
-                              <option value="NTSC(50HZ)">NTSC(50HZ)</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Auto Section -->
-                    <div class="auto-section d-none">
-                      <!-- Repeat 7 dropdowns like below -->
-                      <!-- Auto: 1. Image Adjustment -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Image Adjustment</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>Brightness:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                          <div class="form-row">
-                            <label>Contrast:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                          <div class="form-row">
-                            <label>Saturation:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                          <div class="form-row">
-                            <label>Sharpness:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 2. Exposure Settings -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Exposure Settings</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>Iris Mode:</label>
-                            <select class="form-control">
-                              <option>Auto</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Auto Iris Level:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                          <div class="form-row">
-                            <label>Exposure Time:</label>
-                            <select class="form-control">
-                              <option>1/25</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 3. Day/Night Switch -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Day/Night Switch</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>Day/Night Switch:</label>
-                            <select class="form-control">
-                              <option>Auto</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Start Time:</label>
-                            <input type="time" class="form-control" step="1" />
-                          </div>
-                          <div class="form-row">
-                            <label>End Time:</label>
-                            <input type="time" class="form-control" step="1" />
-                          </div>
-                          <div class="form-row">
-                            <label>Smart Supplement Light:</label>
-                            <select class="form-control">
-                              <option>On</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Mode:</label>
-                            <select class="form-control">
-                              <option>Manual</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Low Beam Light Distance:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                          <div class="form-row">
-                            <label>High Beam Light Distance:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 4. BackLight Settings -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">
-                          BackLight Settings
-                        </div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>BLC Area:</label>
-                            <select class="form-control">
-                              <option>OFF</option>
-                              <option>ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>WDR:</label>
-                            <select class="form-control">
-                              <option>OFF</option>
-                              <option>ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>HLC:</label>
-                            <select class="form-control">
-                              <option>OFF</option>
-                              <option>ON</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 5. White Balance -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">White Balance</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>White Balance:</label>
-                            <select class="form-control">
-                              <option>MWB</option>
-                              <option>AWB1</option>
-                              <option>Locked WB</option>
-                              <option>Fluorescent Lamp</option>
-                              <option>Incadescent Lamp</option>
-                              <option>Warm Light Lamp</option>
-                              <option>Natural Lamp</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 6. Image Enhancement -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Image Enhancement</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>Digital Noise Reduction:</label>
-                            <select class="form-control">
-                              <option>Normal</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Noise Reduction Level:</label>
-                            <input
-                              type="range"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-range auto-range"
-                            />
-                            <input
-                              type="number"
-                              min="0"
-                              max="100"
-                              value="50"
-                              class="form-control auto-number"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Auto: 7. Video Adjustment -->
-                      <div class="dropdown-box mb-2">
-                        <div class="dropdown-toggle-box">Video Adjustment</div>
-                        <div class="dropdown-content">
-                          <div class="form-row">
-                            <label>Mirror:</label>
-                            <select class="form-control">
-                              <option>OFF</option>
-                              <option>ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Rotate:</label>
-                            <select class="form-control">
-                              <option>OFF</option>
-                              <option>ON</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Scene Mode:</label>
-                            <select class="form-control">
-                              <option>Outdoor</option>
-                              <option>Indoor</option>
-                            </select>
-                          </div>
-                          <div class="form-row">
-                            <label>Video Standard:</label>
-                            <select class="form-control">
-                              <option>PAL(50HZ)</option>
-                              <option>NTSC(50HZ)</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="image-tab-content" data-tab-content="osd">
-                  <!-- OSD Settings -->
-                  <div class="image-form-box">
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="osdType"
-                        >Character Set:</label
-                      >
-                      <select id="osdType" class="form-control">
-                        <option value="text">GBK</option>
-                      </select>
-                    </div>
-                    <!-- Check Box Section -->
-                    <div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="displayName" />
-                        <label for="displayName">Display Name</label>
-                      </div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="displayDate" />
-                        <label for="displayDate">Display Date</label>
-                      </div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="displayWeek" />
-                        <label for="displayWeek">Display Week</label>
-                      </div>
-                    </div>
-
+                    <!--* **** IPv4 Box **** *-->
                     <div>
                       <div class="form-row mb-3">
-                        <label class="label-select" for="cameraName"
-                          >Camera Name:</label
+                        <label class="label-select" for="ipv4Address"
+                          >IPv4 Address:</label
                         >
                         <input
-                          type="text"
-                          id="cameraName"
+                          id="ipv4Address"
                           class="form-control"
+                          type="text"
                         />
                       </div>
                       <div class="form-row mb-3">
-                        <label class="label-select" for="timeFormat"
-                          >Time Format:</label
+                        <label class="label-select" for="ipv4SubnetMask"
+                          >IPv4 Subnet Mask:</label
                         >
-                        <select id="timeFormat" class="form-control">
-                          <option value="text">24-h</option>
-                          <option value="text">12-h</option>
-                        </select>
+                        <input
+                          id="ipv4SubnetMask"
+                          class="form-control"
+                          type="text"
+                        />
                       </div>
                       <div class="form-row mb-3">
-                        <label class="label-select" for="dateFormat"
-                          >Date Format</label
+                        <label class="label-select" for="ipv4DefaultGetWay"
+                          >IPv4 Default GateWay:</label
                         >
-                        <select id="dateFormat" class="form-control">
-                          <option value="text">MM-DD-YYYY</option>
-                          <option value="text">MM-DD-YY</option>
-                        </select>
+                        <input
+                          id="ipv4DefaultGetWay"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <hr />
+                    <!--* **** IPv6 Box **** *-->
+                    <div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="ipv6Address"
+                          >IPv6 Address:</label
+                        >
+                        <input
+                          disabled
+                          style="cursor: not-allowed"
+                          id="ipv6Address"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="ipv6SubnetMask"
+                          >IPv6 Subnet Mask:</label
+                        >
+                        <input
+                          disabled
+                          style="cursor: not-allowed"
+                          id="ipv6SubnetMask"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="ipv6DefaultGetWay"
+                          >IPv6 Default GateWay:</label
+                        >
+                        <input
+                          disabled
+                          style="cursor: not-allowed"
+                          id="ipv6DefaultGetWay"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="macAddress"
+                          >Mac Address:</label
+                        >
+                        <input
+                          disabled
+                          style="cursor: not-allowed"
+                          value="44:a6:42:44:16:d2"
+                          id="macAddress"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="mtu">MTU</label>
+                        <input
+                          value="1500"
+                          id="mtu"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div
+                        class="check-box-div mb-3 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label
+                          for="enableMulticastDiscovery"
+                          class="label-select"
+                          >Enable Multicast Discovery:</label
+                        >
+                        <input
+                          type="checkbox"
+                          id="enableMulticastDiscovery"
+                          class=""
+                        />
+                      </div>
+                    </div>
+                    <hr />
+                    <div>
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        DNS Server
+                      </h6>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="preferredDnsServer"
+                          >Preferred Dns Server:</label
+                        >
+                        <input
+                          value="8.8.8.8"
+                          id="preferredDnsServer"
+                          class="form-control"
+                          type="text"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="alternateDnsServer"
+                          >Alternate Dns Server:</label
+                        >
+                        <input
+                          id="alternateDnsServer"
+                          class="form-control"
+                          type="text"
+                        />
                       </div>
                     </div>
 
-                    <h6
-                      class="py-3 w-100 px-4 rounded-2 mt-1"
-                      style="background-color: rgba(172, 177, 152, 0.16)"
-                    >
-                      Text OverLay
-                    </h6>
                     <div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="textoverlay1" />
-                        <label for="textoverlay1">1</label>
-                        <input type="text" class="form-control" />
-                      </div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="textoverlay2" />
-                        <label for="textoverlay2">2</label>
-                        <input type="text" class="form-control" />
-                      </div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="textoverlay3" />
-                        <label for="textoverlay3">3</label>
-                        <input type="text" class="form-control" />
-                      </div>
-                      <div class="check-box-div mb-3">
-                        <input type="checkbox" id="textoverlay4" />
-                        <label for="textoverlay4">4</label>
-                        <input type="text" class="form-control" />
-                      </div>
-                    </div>
-                    <div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="displayMode"
-                          >Display Mode</label
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Domain Name Settings
+                      </h6>
+                      <div
+                        class="check-box-div mb-3 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label
+                          for="enableDynamicDomainName"
+                          class="label-select"
+                          >Enable Dynamic Domain Name:</label
                         >
-                        <select id="displayMode" class="form-control">
-                          <option value="text">
-                            Not Transparent & Not Flashing
-                          </option>
-                        </select>
+                        <input
+                          type="checkbox"
+                          id="enableDynamicDomainName"
+                          class=""
+                        />
                       </div>
                       <div class="form-row mb-3">
-                        <label class="label-select" for="osdSize"
-                          >OSD Size</label
+                        <label class="label-select" for="alternateDnsServer"
+                          >Alternate Dns Server:</label
                         >
-                        <select id="osdSize" class="form-control">
-                          <option value="text">Auto</option>
-                          <option value="text">Manual</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="fontColor"
-                          >Font Color</label
-                        >
-                        <select id="fontColor" class="form-control">
-                          <option value="text">
-                            Black & White Self-adaptive
-                          </option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="alignment"
-                          >Alignment</label
-                        >
-                        <select id="alignment" class="form-control">
-                          <option value="text">Custom</option>
-                        </select>
+                        <input
+                          id="alternateDnsServer"
+                          class="form-control"
+                          type="text"
+                        />
                       </div>
                     </div>
                     <button
@@ -868,34 +447,1096 @@
                       Save
                     </button>
                   </div>
+                  <!-- <div class="global-tab-content" data-tab-content="ddns">
+                    ddns
+                  </div>
+                  <div class="global-tab-content" data-tab-content="pppoe">
+                    pppoe
+                  </div> -->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="port"
+                  >
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="httpPort"
+                        >HTTP Port:</label
+                      >
+                      <input
+                        value="80"
+                        id="httpPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="rtspPort"
+                        >RTSP Port:</label
+                      >
+                      <input
+                        value="554"
+                        id="rtspPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="httpsPort"
+                        >HTTPS Port:</label
+                      >
+                      <input
+                        value="443"
+                        id="httpsPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="serverPort"
+                        >Server Port:</label
+                      >
+                      <input
+                        value="8000"
+                        disabled
+                        style="cursor: not-allowed"
+                        id="serverPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="enhancedSdkServicePort"
+                        >Enhanced SDK Service Port:</label
+                      >
+                      <input
+                        value="8443"
+                        id="enhancedSdkServicePort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="webSocketPort"
+                        >Web Socket Port:</label
+                      >
+                      <input
+                        value="7681"
+                        id="webSocketPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="webSocketsPort"
+                        >Web Sockets Port:</label
+                      >
+                      <input
+                        value="7682"
+                        id="webSocketsPort"
+                        class="form-control"
+                        type="text"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                  <!-- <div class="global-tab-content" data-tab-content="nat">
+                    nat
+                  </div>
+                  <div class="global-tab-content" data-tab-content="multicast">
+                    multicast
+                  </div> -->
                 </div>
-                <div class="image-tab-content" data-tab-content="privacy">
-                  <!-- Privacy Mask -->
-                  <p>Privacy Mask</p>
+              </div>
+              <!--? **** Advanced Settings Box **** ?-->
+              <div
+                class="content-box basic-network-sec global-sec"
+                id="advancedSettings"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button class="global-tab-btn active" data-tab="snmp">
+                    SNMP
+                  </button>
+                  <button class="global-tab-btn" data-tab="ftp">FTP</button>
+                  <button class="global-tab-btn" data-tab="platformAccess">
+                    Platform Access
+                  </button>
+                  <button class="global-tab-btn" data-tab="https">HTTPS</button>
+                  <button class="global-tab-btn" data-tab="nat">NAT</button>
+                  <button class="global-tab-btn" data-tab="802.1x">
+                    802.1x
+                  </button>
+                  <button class="global-tab-btn" data-tab="integrationProtocol">
+                    Integration Protocol
+                  </button>
+                  <button class="global-tab-btn" data-tab="networkService">
+                    Network Service
+                  </button>
+                  <button class="global-tab-btn" data-tab="httpListening">
+                    HTTP Listening
+                  </button>
+                </div>
+                <!--* **** Content Box **** *-->
+                <div>
+                  <div
+                    class="global-tab-content active"
+                    data-tab-content="snmp"
+                  >
+                    SNMP
+                  </div>
+                  <div class="global-tab-content" data-tab-content="ftp">
+                    FTP
+                  </div>
+                  <div
+                    class="global-tab-content"
+                    data-tab-content="platformAccess"
+                  >
+                    Platform Access
+                  </div>
+                  <div class="global-tab-content" data-tab-content="https">
+                    HTTPS
+                  </div>
+                  <div class="global-tab-content" data-tab-content="nat">
+                    nat
+                  </div>
+                  <div class="global-tab-content" data-tab-content="802.1x">
+                    802.1x
+                  </div>
+                  <div
+                    class="global-tab-content"
+                    data-tab-content="integrationProtocol"
+                  >
+                    Integration Protocol
+                  </div>
+                  <div
+                    class="global-tab-content"
+                    data-tab-content="networkService"
+                  >
+                    Network Service
+                  </div>
+                  <div
+                    class="global-tab-content"
+                    data-tab-content="httpListening"
+                  >
+                    HTTP Listening
+                  </div>
                 </div>
               </div>
             </div>
+            <!--* **** Video/Audio **** *-->
+            <div class="video-audio-sec">
+              <!--? **** Basic Settings Box **** ?-->
+              <div class="content-box global-sec" id="video/audio">
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button class="global-tab-btn active" data-tab="video">
+                    Video
+                  </button>
+                  <button class="global-tab-btn" data-tab="audio">Audio</button>
+                  <!-- <button class="global-tab-btn" data-tab="roi">ROI</button>
+                  <button class="global-tab-btn" data-tab="displayInfoOnStream">
+                    Display Info. On Stream
+                  </button> -->
+                </div>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** Video Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="video"
+                  >
+                    <div class="dropdown-content">
+                      <div class="form-row mb-3">
+                        <label for="streamType">Stream Type:</label>
+                        <select id="streamType" class="form-control">
+                          <option>Main Stream(Normal)</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="videoType">Video Type:</label>
+                        <select id="videoType" class="form-control">
+                          <option>Video Stream</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="resolution">Resolution:</label>
+                        <select id="resolution" class="form-control">
+                          <option>1920*1080P</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="bitrateType">Bitrate Type:</label>
+                        <select id="bitrateType" class="form-control">
+                          <option>Constant</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="videoQuality">Video Quality:</label>
+                        <select id="videoQuality" class="form-control">
+                          <option value="Highest">Highest</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="frameRate">Frame Rate(FPS):</label>
+                        <select id="frameRate" class="form-control">
+                          <option>50</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="maxBitrate"
+                          >Max. Bitrate(Kbps):</label
+                        >
+                        <input
+                          id="maxBitrate"
+                          class="form-control"
+                          type="text"
+                          value="2048"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="videoEndcoding">Video Endcoding:</label>
+                        <select id="videoEndcoding" class="form-control">
+                          <option>H.264</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="h624+">H.264+ :</label>
+                        <select id="h624+" class="form-control">
+                          <option>OFF</option>
+                          <option>ON</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="profile">Profile:</label>
+                        <select id="profile" class="form-control">
+                          <option>Main Profile</option>
+                        </select>
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="iFrameInterval"
+                          >I Frame Interval:</label
+                        >
+                        <input
+                          id="iFrameInterval"
+                          class="form-control"
+                          type="text"
+                          value="50"
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label for="svc">SVC:</label>
+                        <select id="svc" class="form-control">
+                          <option>OFF</option>
+                          <option>ON</option>
+                        </select>
+                      </div>
+                      <div class="form-row">
+                        <label>Smoothing:</label>
+                        <input
+                          type="range"
+                          min="0"
+                          max="100"
+                          value="50"
+                          class="form-range auto-range"
+                        />
+                        <input
+                          type="number"
+                          min="0"
+                          max="100"
+                          value="50"
+                          class="form-control auto-number"
+                        />
+                      </div>
+                      <hr />
+                      <button
+                        type="button"
+                        class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                      >
+                        <img
+                          src="../icons/save.svg"
+                          alt="Save"
+                          width="20"
+                          height="20"
+                          class="me-2"
+                        />
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="audio"
+                  >
+                    <div class="form-row mb-3">
+                      <label for="audioEndcoding">Audio Endcoding:</label>
+                      <select id="audioEndcoding" class="form-control">
+                        <option>G.711 ulaw</option>
+                      </select>
+                    </div>
+                    <div class="form-row mb-3">
+                      <label for="audioInput">Audio Input:</label>
+                      <select id="audioInput" class="form-control">
+                        <option>LineIn</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label>Input Volume:</label>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        class="form-range auto-range"
+                      />
+                      <input
+                        type="number"
+                        min="0"
+                        max="100"
+                        value="50"
+                        class="form-control auto-number"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label for="frameRate">Environmental Noise Filter:</label>
+                      <select id="frameRate" class="form-control">
+                        <option>OFF</option>
+                        <option>ON</option>
+                      </select>
+                    </div>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                  <!-- <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="roi"
+                  >
+                    roi
+                  </div>
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="displayInfoOnStream"
+                  >
+                    displayInfoOnStream
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <!--* **** Image **** *-->
+            <div>
+              <div class="content-box image-sec global-sec" id="imageSettings">
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button class="global-tab-btn active" data-tab="display">
+                    Display Settings
+                  </button>
+                  <button class="global-tab-btn" data-tab="osd">
+                    OSD Settings
+                  </button>
+                  <!-- <button class="global-tab-btn" data-tab="privacy">
+                    Privacy Mask
+                  </button> -->
+                </div>
 
-            <div class="content-box" id="something8">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
+                <!--* **** Content Box **** *-->
+                <div class="image-content-sec mt-3 d-flex gap-4">
+                  <!--? **** Live Box **** ?-->
+                  <div class="image-preview-box">
+                    <div class="video-placeholder">Live Video</div>
+                  </div>
+                  <!--? **** Display Content Box **** ?-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="display"
+                  >
+                    <div class="image-form-box">
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="switchType"
+                          >Scheduled Image Settings:</label
+                        >
+                        <select id="switchType" class="form-control">
+                          <option value="scheduled">Scheduled-Switch</option>
+                          <option value="auto">Auto-Switch</option>
+                        </select>
+                      </div>
+                      <!--? **** Scheduled Box **** ?-->
+                      <div class="scheduled-section">
+                        <!--* **** Scheduled: 1. Basic Settings **** *-->
+                        <div>
+                          <div class="d-flex gap-3 mb-3 flex-column">
+                            <div class="form-row">
+                              <label for="startTime">Start Time:</label>
+                              <input
+                                type="time"
+                                id="startTime"
+                                class="form-control"
+                                step="1"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label for="endTime">End Time:</label>
+                              <input
+                                type="time"
+                                id="endTime"
+                                class="form-control"
+                                step="1"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="btn-group mode-toggle mb-3" role="group">
+                            <button
+                              type="button"
+                              class="btn btn-outline-danger active"
+                              data-mode="common"
+                            >
+                              Common
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-danger"
+                              data-mode="day"
+                            >
+                              Day
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-danger"
+                              data-mode="night"
+                            >
+                              Night
+                            </button>
+                          </div>
+                        </div>
+                        <!--* **** Scheduled: 2. Exposure Settings **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Exposure Settings
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label for="iris-mode">Iris Mode:</label>
+                              <select id="iris-mode" class="form-control">
+                                <option value="Auto">Auto</option>
+                              </select>
+                            </div>
+
+                            <div class="form-row align-items-center">
+                              <label>Auto Iris Level:</label>
+                              <input
+                                type="range"
+                                class="form-range iris-range"
+                                min="0"
+                                max="100"
+                                value="50"
+                              />
+                              <input
+                                type="number"
+                                class="form-control iris-number"
+                                min="0"
+                                max="100"
+                                value="50"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Scheduled: 3. Day/Night Switch **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Day/Night Switch
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label for="day-night">Day/Night Switch:</label>
+                              <select id="day-night" class="form-control">
+                                <option value="Scheduled-Switch">
+                                  Scheduled-Switch
+                                </option>
+                                <option value="Auto">Auto</option>
+                              </select>
+                            </div>
+
+                            <div class="d-flex gap-3 mb-3 flex-column">
+                              <div class="form-row">
+                                <label for="dayNightStartTime"
+                                  >Start Time:</label
+                                >
+                                <input
+                                  type="time"
+                                  id="dayNightStartTime"
+                                  class="form-control"
+                                  step="1"
+                                />
+                              </div>
+                              <div class="form-row">
+                                <label for="dayNightEndTime">End Time:</label>
+                                <input
+                                  type="time"
+                                  id="dayNightEndTime"
+                                  class="form-control"
+                                  step="1"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="form-row">
+                              <label for="smart-supplement"
+                                >Smart Supplement Light:</label
+                              >
+                              <select
+                                id="smart-supplement"
+                                class="form-control"
+                              >
+                                <option value="OFF">OFF</option>
+                                <option value="ON">ON</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Scheduled: 4. Video Adjustment **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Video Adjustment
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label for="mirror">Mirror:</label>
+                              <select id="mirror" class="form-control">
+                                <option value="OFF">OFF</option>
+                                <option value="ON">ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label for="rotate">Rotate:</label>
+                              <select id="rotate" class="form-control">
+                                <option value="OFF">OFF</option>
+                                <option value="ON">ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label for="scene-mode">Scene Mode:</label>
+                              <select id="scene-mode" class="form-control">
+                                <option value="Outdoor">Outdoor</option>
+                                <option value="Indoor">Indoor</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label for="video-standard"
+                                >Video Standard:</label
+                              >
+                              <select id="video-standard" class="form-control">
+                                <option value="PAL(50HZ)">PAL(50HZ)</option>
+                                <option value="NTSC(50HZ)">NTSC(50HZ)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--? **** Auto Box **** ?-->
+                      <div class="auto-section d-none">
+                        <!--* **** Auto: 1. Image Adjustment **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Image Adjustment
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>Brightness:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>Contrast:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>Saturation:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>Sharpness:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Auto: 2. Exposure Settings **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Exposure Settings
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>Iris Mode:</label>
+                              <select class="form-control">
+                                <option>Auto</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Auto Iris Level:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>Exposure Time:</label>
+                              <select class="form-control">
+                                <option>1/25</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--* **** Auto: 3. Day/Night Switch **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Day/Night Switch
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>Day/Night Switch:</label>
+                              <select class="form-control">
+                                <option>Auto</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Start Time:</label>
+                              <input
+                                type="time"
+                                class="form-control"
+                                step="1"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>End Time:</label>
+                              <input
+                                type="time"
+                                class="form-control"
+                                step="1"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>Smart Supplement Light:</label>
+                              <select class="form-control">
+                                <option>On</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Mode:</label>
+                              <select class="form-control">
+                                <option>Manual</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Low Beam Light Distance:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                            <div class="form-row">
+                              <label>High Beam Light Distance:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Auto: 4. BackLight Settings **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            BackLight Settings
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>BLC Area:</label>
+                              <select class="form-control">
+                                <option>OFF</option>
+                                <option>ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>WDR:</label>
+                              <select class="form-control">
+                                <option>OFF</option>
+                                <option>ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>HLC:</label>
+                              <select class="form-control">
+                                <option>OFF</option>
+                                <option>ON</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--* **** Auto: 5. White Balance **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">White Balance</div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>White Balance:</label>
+                              <select class="form-control">
+                                <option>MWB</option>
+                                <option>AWB1</option>
+                                <option>Locked WB</option>
+                                <option>Fluorescent Lamp</option>
+                                <option>Incadescent Lamp</option>
+                                <option>Warm Light Lamp</option>
+                                <option>Natural Lamp</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Auto: 6. Image Enhancement **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Image Enhancement
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>Digital Noise Reduction:</label>
+                              <select class="form-control">
+                                <option>Normal</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Noise Reduction Level:</label>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-range auto-range"
+                              />
+                              <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                value="50"
+                                class="form-control auto-number"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <!--* **** Auto: 7. Video Adjustment **** *-->
+                        <div class="dropdown-box mb-2">
+                          <div class="dropdown-toggle-box">
+                            Video Adjustment
+                          </div>
+                          <div class="dropdown-content">
+                            <div class="form-row">
+                              <label>Mirror:</label>
+                              <select class="form-control">
+                                <option>OFF</option>
+                                <option>ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Rotate:</label>
+                              <select class="form-control">
+                                <option>OFF</option>
+                                <option>ON</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Scene Mode:</label>
+                              <select class="form-control">
+                                <option>Outdoor</option>
+                                <option>Indoor</option>
+                              </select>
+                            </div>
+                            <div class="form-row">
+                              <label>Video Standard:</label>
+                              <select class="form-control">
+                                <option>PAL(50HZ)</option>
+                                <option>NTSC(50HZ)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--? **** OSD Settings Content Box **** ?-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="osd"
+                  >
+                    <div class="image-form-box">
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="osdType"
+                          >Character Set:</label
+                        >
+                        <select id="osdType" class="form-control">
+                          <option value="text">GBK</option>
+                        </select>
+                      </div>
+                      <!--* **** Check Box **** *-->
+                      <div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="displayName" />
+                          <label for="displayName">Display Name</label>
+                        </div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="displayDate" />
+                          <label for="displayDate">Display Date</label>
+                        </div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="displayWeek" />
+                          <label for="displayWeek">Display Week</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="cameraName"
+                            >Camera Name:</label
+                          >
+                          <input
+                            type="text"
+                            id="cameraName"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="timeFormat"
+                            >Time Format:</label
+                          >
+                          <select id="timeFormat" class="form-control">
+                            <option value="text">24-h</option>
+                            <option value="text">12-h</option>
+                          </select>
+                        </div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="dateFormat"
+                            >Date Format</label
+                          >
+                          <select id="dateFormat" class="form-control">
+                            <option value="text">MM-DD-YYYY</option>
+                            <option value="text">MM-DD-YY</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Text OverLay
+                      </h6>
+                      <div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="textoverlay1" />
+                          <label for="textoverlay1">1</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="textoverlay2" />
+                          <label for="textoverlay2">2</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="textoverlay3" />
+                          <label for="textoverlay3">3</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                        <div class="check-box-div mb-3">
+                          <input type="checkbox" id="textoverlay4" />
+                          <label for="textoverlay4">4</label>
+                          <input type="text" class="form-control" />
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="displayMode"
+                            >Display Mode</label
+                          >
+                          <select id="displayMode" class="form-control">
+                            <option value="text">
+                              Not Transparent & Not Flashing
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="osdSize"
+                            >OSD Size</label
+                          >
+                          <select id="osdSize" class="form-control">
+                            <option value="text">Auto</option>
+                            <option value="text">Manual</option>
+                          </select>
+                        </div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="fontColor"
+                            >Font Color</label
+                          >
+                          <select id="fontColor" class="form-control">
+                            <option value="text">
+                              Black & White Self-adaptive
+                            </option>
+                          </select>
+                        </div>
+                        <div class="form-row mb-3">
+                          <label class="label-select" for="alignment"
+                            >Alignment</label
+                          >
+                          <select id="alignment" class="form-control">
+                            <option value="text">Custom</option>
+                          </select>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                      >
+                        <img
+                          src="../icons/save.svg"
+                          alt="Save"
+                          width="20"
+                          height="20"
+                          class="me-2"
+                        />
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                  <!--? **** Privacy Mask Content Box **** ?-->
+                  <div class="global-tab-content" data-tab-content="privacy">
+                    <p>Privacy Mask</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="content-box" id="something9">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box" id="something10">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box" id="something11">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="content-box" id="something12">
-              <h2>Lorem, ipsum.</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+            <!--* **** Event **** *-->
+            <!-- <div>
+              <div class="content-box" id="something9">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="content-box" id="something10">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div> -->
+            <!--* **** Storage **** *-->
+            <!-- <div>
+              <div class="content-box" id="something11">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="content-box" id="something12">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div> -->
           </main>
         </div>
       </div>

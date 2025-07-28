@@ -23,8 +23,6 @@ video {
   gap: 10px;
   padding: 8px 0;
 }
-
-/* استایل پایه برای تمام دکمه‌ها */
 #videoTools button {
   background-color: #f5f5f5;
   color: #333;
@@ -47,7 +45,6 @@ video {
 #videoTools div {
   overflow-y: hidden;
 }
-/* اسلایدر عمودی صدا */
 .volume-container {
   position: relative;
   display: inline-flex;
@@ -60,8 +57,7 @@ video {
   transform: translateX(-50%);
   width: 6px;
   height: 80px;
-  writing-mode: bt-lr; /* چرخش عمودی */
-  /* -webkit-appearance: none; */
+  writing-mode: bt-lr;
   background: #ddd;
   border-radius: 4px;
   display: none; /* در ابتدا مخفی است */

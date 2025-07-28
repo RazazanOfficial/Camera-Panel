@@ -1,8 +1,11 @@
 main {
   height: 90vh;
 }
+
+/*! =-=-=-=-=-= Aside Section =-=-=-=-=-= !*/
+
 .sidebar {
-  background-color: #ced1c5; /* خاکستری Bootstrap */
+  background-color: #ced1c5;
   padding: 20px 0px 0px 10px;
   color: white;
   overflow-y: auto;
@@ -17,7 +20,6 @@ aside .sub-link.active {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-/* General Nav Link */
 aside .nav-link {
   color: black;
   padding: 12px 16px;
@@ -37,14 +39,10 @@ aside .nav-link:hover {
   background-color: #acb198b4;
   font-weight: bold;
 }
-
-/* Submenu Container */
 aside .submenu {
   align-self: end;
   width: 95%;
 }
-
-/* Sub-link Styling */
 aside .sub-link {
   display: inline-block;
   width: 100%;
@@ -54,14 +52,12 @@ aside .sub-link {
 }
 
 aside .sub-link.active {
-  /* background-color: #dc3545; */
   background: white;
   border-left: 7px solid #dc3545;
   color: #dc3545;
   font-weight: bold;
   padding-left: 40px;
 }
-/* Content Sections */
 .content-box {
   display: none;
 }
@@ -70,13 +66,13 @@ aside .sub-link.active {
   display: block;
 }
 
-/*! =-=-=-=-=-= Image Section =-=-=-=-=-= !*/
-.image-sec .image-nav-sec {
+/*! =-=-=-=-=-= Global Section =-=-=-=-=-= !*/
+.global-sec .global-nav-sec {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
 }
 
-.image-sec .image-tab-btn {
+.global-sec .global-tab-btn {
   background: none;
   border: none;
   padding: 10px 20px;
@@ -87,15 +83,15 @@ aside .sub-link.active {
   transition: all 0.2s ease;
 }
 
-.image-sec .image-tab-btn:hover {
+.global-sec .global-tab-btn:hover {
   color: #dc3545;
 }
 
-.image-sec .image-tab-btn.active {
+.global-sec .global-tab-btn.active {
   color: #dc3545;
 }
 
-.image-sec .image-tab-btn.active::after {
+.global-sec .global-tab-btn.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -106,33 +102,65 @@ aside .sub-link.active {
   border-radius: 2px;
 }
 
-.image-sec .image-tab-content {
+.global-sec .global-tab-content {
   display: none;
 }
 
-.image-sec .image-tab-content.active {
+.global-sec .global-tab-content.active {
   display: block;
-  width: 66%;
+  width: 64%;
 }
 
-
-
-.image-sec .image-form-box {
-  width: 40%;
-}
-
-.image-sec .form-row {
+.global-sec .form-row {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 8px;
 }
 
-.image-sec .form-row label {
-  width: 160px;
+.global-sec .form-row label {
+  width: 180px;
   font-size: 0.85rem;
   color: #444;
   margin-bottom: 0;
+}
+.global-sec .form-row input,
+.global-sec .form-row select {
+  flex: 1;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+}
+.global-sec .form-row input[type="range"] {
+  flex: 1;
+  margin-right: 10px;
+}
+input[type="checkbox" i] {
+  display: flex;
+  align-items: flex-start;
+  width: 20px;
+  height: 20px;
+}
+.check-box-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.global-box-shadow {
+  background-color: white;
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 2rem 30px;
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.55);
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.55);
+}
+.global-sec label{
+  font-weight: bold;
+}
+/*! =-=-=-=-=-= Image Section =-=-=-=-=-= !*/
+.image-sec .image-form-box {
+  width: 70%;
 }
 .image-sec .label-select {
   width: 159px !important;
@@ -140,13 +168,6 @@ aside .sub-link.active {
   color: #444;
   margin-bottom: 0;
 }
-.image-sec .form-row input,
-.image-sec .form-row select {
-  flex: 1;
-  font-size: 0.9rem;
-  padding: 4px 8px;
-}
-
 .image-sec .btn-group .btn {
   font-size: 0.85rem;
   padding: 5px 15px;
@@ -216,20 +237,47 @@ aside .sub-link.active {
   justify-content: center;
 }
 
-
-.image-sec .form-row input[type="range"] {
-  flex: 1;
-  margin-right: 10px;
+/*! =-=-=-=-=-= NetWork Section =-=-=-=-=-= !*/
+.network-sec label{
+  font-weight: bold;
+}
+.network-sec .network-nav-sec {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
-input[type="checkbox" i]{
-  display: flex;
-align-items: flex-start;
-width: 20px;
-height: 20px;
+.network-sec .network-tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  position: relative;
+  transition: all 0.2s ease;
 }
-.check-box-div{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+
+.network-sec .network-tab-btn:hover {
+  color: #dc3545;
 }
+
+.network-sec .network-tab-btn.active {
+  color: #dc3545;
+}
+
+.network-sec .network-tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 100%;
+  height: 3px;
+  background-color: #dc3545;
+  border-radius: 2px;
+}
+.network-sec input[type=text]{
+  flex: unset !important;
+  width: 30%;
+}
+
+.video-audio-sec{}

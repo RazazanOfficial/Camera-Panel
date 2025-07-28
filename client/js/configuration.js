@@ -38,16 +38,16 @@ document.querySelectorAll('.sub-link').forEach(link => {
 });
 
 //! =-=-=-=-=-= Image Section =-=-=-=-=-= !//
-document.querySelectorAll('.image-tab-btn').forEach(button => {
+document.querySelectorAll('.global-tab-btn').forEach(button => {
   button.addEventListener('click', () => {
     const tab = button.dataset.tab;
 
     // فعال‌سازی دکمه
-    document.querySelectorAll('.image-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.global-tab-btn').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
     // نمایش محتوا
-    document.querySelectorAll('.image-tab-content').forEach(content => {
+    document.querySelectorAll('.global-tab-content').forEach(content => {
       if (content.dataset.tabContent === tab) {
         content.classList.add('active');
       } else {
