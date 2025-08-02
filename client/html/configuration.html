@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Configuration - SHAHAB</title>
+    <title>Configuration - SHAAHAB</title>
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/configuration.css" />
@@ -104,11 +104,17 @@
                   <span>System</span>
                 </a>
                 <div class="submenu d-none" data-submenu="system">
-                  <a class="nav-link sub-link" data-content="something1"
-                    >Something1</a
+                  <a class="nav-link sub-link" data-content="systemSettings"
+                    >System Settings</a
                   >
-                  <a class="nav-link sub-link" data-content="something2"
-                    >something2</a
+                  <a class="nav-link sub-link" data-content="maintenance"
+                    >Maintenance</a
+                  >
+                  <a class="nav-link sub-link" data-content="security"
+                    >Security</a
+                  >
+                  <a class="nav-link sub-link" data-content="userManagement"
+                    >User Management</a
                   >
                 </div>
               </div>
@@ -217,14 +223,961 @@
           <!--* **** Main Box **** *-->
           <main class="col-md-9 col-lg-10 p-4" id="main-content">
             <!--* **** System **** *-->
-            <div>
-              <div class="content-box" id="something1">
-                <h2>Lorem, ipsum.</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+            <div class="system-sec">
+              <!--? **** System Settings Box **** ?-->
+              <div
+                class="content-box user-system-sec global-sec"
+                id="systemSettings"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button
+                    class="global-tab-btn active"
+                    data-tab="basicInformation"
+                  >
+                    Basic Information
+                  </button>
+                  <button class="global-tab-btn" data-tab="timeSettings">
+                    Time Settings
+                  </button>
+                </div>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** Basic Information Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="basicInformation"
+                  >
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="diviceName"
+                        >Divice Name:</label
+                      >
+                      <input
+                        type="text"
+                        id="diviceName"
+                        class="form-control"
+                        value="IP CAMERA"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="diviceNo"
+                        >Divice No. :</label
+                      >
+                      <input
+                        type="text"
+                        id="diviceNo"
+                        class="form-control"
+                        value="88"
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="model">Model:</label>
+                      <input
+                        type="text"
+                        id="model"
+                        class="form-control"
+                        value="DS-2CD3625G0-IZSUHK"
+                        disabled
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="serialNo"
+                        >Serial No. :</label
+                      >
+                      <input
+                        type="text"
+                        id="serialNo"
+                        class="form-control"
+                        value="DS-2CD3625G0-IZSUHK20210805AAWRG40899497"
+                        disabled
+                      />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="firmwareVersion"
+                        >Firmware Version :</label
+                      >
+                      <input
+                        type="text"
+                        id="firmwareVersion"
+                        class="form-control"
+                        value="V5.6.2 build 191017"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="encodingVersion"
+                        >Encoding Version :</label
+                      >
+                      <input
+                        type="text"
+                        id="encodingVersion"
+                        class="form-control"
+                        value="V7.3 build 191016"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="webVersion"
+                        >Web Version :</label
+                      >
+                      <input
+                        type="text"
+                        id="webVersion"
+                        class="form-control"
+                        value="V4.0.1 build 190506"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="pluginVersion"
+                        >Plugin Version :</label
+                      >
+                      <input
+                        type="text"
+                        id="pluginVersion"
+                        class="form-control"
+                        value="V3.0.7.16"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="numChannels"
+                        >Number of Channels :</label
+                      >
+                      <input
+                        type="text"
+                        id="numChannels"
+                        class="form-control"
+                        value="1"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="numHDDs"
+                        >Number of HDDs :</label
+                      >
+                      <input
+                        type="text"
+                        id="numHDDs"
+                        class="form-control"
+                        value="1"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="numAlarmInput"
+                        >Number of Alarm Input :</label
+                      >
+                      <input
+                        type="text"
+                        id="numAlarmInput"
+                        class="form-control"
+                        value="1"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="numAlarmOutput"
+                        >Number of Alarm Output :</label
+                      >
+                      <input
+                        type="text"
+                        id="numAlarmOutput"
+                        class="form-control"
+                        value="1"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="form-row mb-3">
+                      <label class="label-select" for="firmwareProp"
+                        >Firmware Version Property :</label
+                      >
+                      <input
+                        type="text"
+                        id="firmwareProp"
+                        class="form-control"
+                        value="C-R-G1-0"
+                        disabled
+                      />
+                    </div>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 m-2 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                  <!--* **** Time Settings Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="timeSettings"
+                  >
+                    <div class="form-row mb-3">
+                      <label for="streamType">Time Zone:</label>
+                      <select id="streamType" class="form-control">
+                        <option>(GMT +03:30) Tehran</option>
+                      </select>
+                    </div>
+                    <div>
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        NTP
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select">NTP:</label>
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="serverAddress"
+                          >Server Address :</label
+                        >
+                        <input
+                          type="text"
+                          id="serverAddress"
+                          class="form-control"
+                          value="time.windows.com"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="ntpPort"
+                          >NTP Port :</label
+                        >
+                        <input
+                          type="text"
+                          id="ntpPort"
+                          class="form-control"
+                          value="123"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="interval"
+                          >Interval(min) :</label
+                        >
+                        <input
+                          type="text"
+                          id="interval"
+                          class="form-control"
+                          value="1440"
+                          disabled
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        disabled
+                      >
+                        Test
+                      </button>
+                    </div>
+                    <hr />
+                    <div>
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Manual Time Sync.
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select"
+                          >Manual Time Sync. :</label
+                        >
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="diviceTime"
+                          >Divice Time :</label
+                        >
+                        <input
+                          type="text"
+                          id="diviceTime"
+                          class="form-control"
+                          value="2025-01-01 12:00:00"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row">
+                        <label for="startTime">Set Time:</label>
+                        <input
+                          type="time"
+                          id="startTime"
+                          class="form-control"
+                          step="1"
+                        />
+                      </div>
+                    </div>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 m-2 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="content-box" id="something2">
-                <h2>Lorem2, ipsum.</h2>
-                <p>Lorem ipsum dolor sit amet.</p>
+              <!--? **** Maintenance Box **** ?-->
+              <div
+                class="content-box user-management-sec global-sec"
+                id="maintenance"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button
+                    class="global-tab-btn active"
+                    data-tab="upgradeMaintenance"
+                  >
+                    Upgrade & Maintenance
+                  </button>
+                  <button class="global-tab-btn" data-tab="log">Log</button>
+                  <button class="global-tab-btn" data-tab="systemService">
+                    Systeam Service
+                  </button>
+                </div>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** Upgrade & Maintenance Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="upgradeMaintenance"
+                  >
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Reboot
+                      </h6>
+                      <div class="m-2 p-2">
+                        <button type="reset" class="btn btn-outline-dark me-5">
+                          Reboot
+                        </button>
+                        <span>Reboot the divice</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Default
+                      </h6>
+                      <div class="m-2 p-2">
+                        <button type="reset" class="btn btn-outline-dark me-5">
+                          Restore
+                        </button>
+                        <span
+                          >Reset all the parameters, except the IP parameters
+                          and user information, to the default settings.</span
+                        >
+                      </div>
+                      <div class="m-2 p-2">
+                        <button type="reset" class="btn btn-outline-dark me-5">
+                          Default
+                        </button>
+                        <span>Restore all parameters to default settings.</span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Information Export
+                      </h6>
+                      <div class="m-2 p-2">
+                        <button type="reset" class="btn btn-outline-dark me-5">
+                          Divice Parameters
+                        </button>
+                        <span></span>
+                      </div>
+                      <div class="m-2 p-2">
+                        <button type="reset" class="btn btn-outline-dark me-5">
+                          Diagnose Information
+                        </button>
+                        <span
+                          >Download the log, system information and hardware
+                          information.</span
+                        >
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 px-4 rounded-2"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Import Config. File
+                      </h6>
+                      <div class="d-flex align-items-center gap-2 p-3">
+                        <label for="deviceParams" class="form-label mb-0"
+                          >Device Parameters</label
+                        >
+                        <input
+                          type="file"
+                          class="form-control form-control-sm w-50"
+                          id="deviceParams"
+                        />
+                        <button class="btn btn-outline-secondary btn-sm">
+                          Import
+                        </button>
+                      </div>
+                      <div class="px-3">
+                        <label class="form-label">Status</label>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 px-4 rounded-2"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Upgrade
+                      </h6>
+                      <div
+                        class="d-flex align-items-center gap-2 p-3 flex-wrap"
+                      >
+                        <select
+                          id="upgradeType"
+                          class="form-select form-select-sm w-auto"
+                        >
+                          <option selected>Firmware</option>
+                        </select>
+
+                        <input
+                          type="file"
+                          class="form-control form-control-sm w-50"
+                          id="upgradeFile"
+                        />
+                        <button class="btn btn-outline-secondary btn-sm">
+                          Browse
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm">
+                          Upgrade
+                        </button>
+                      </div>
+                      <div class="px-3">
+                        <label class="form-label">Status</label>
+                      </div>
+                      <div class="px-3 mt-2">
+                        <small class="text-dark fw-bold">
+                          Note: The upgrading process will be 1 to 10 minutes,
+                          please don't disconnect power to the device during the
+                          process. The device reboots automatically after
+                          upgrading.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!--* **** Log Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="log"
+                  >
+                    <div class="form-row mb-3">
+                      <label for="streamType">Major Type:</label>
+                      <select id="streamType" class="form-control">
+                        <option>All Types</option>
+                      </select>
+                    </div>
+                    <div class="form-row mb-3">
+                      <label for="streamType">Minor Type:</label>
+                      <select id="streamType" class="form-control">
+                        <option>All Types</option>
+                      </select>
+                    </div>
+                    <hr />
+                    <div class="d-flex gap-3 mb-3 flex-column">
+                      <div class="form-row">
+                        <label for="startTime">Start Time:</label>
+                        <input
+                          type="time"
+                          id="startTime"
+                          class="form-control"
+                          step="1"
+                        />
+                      </div>
+                      <div class="form-row">
+                        <label for="endTime">End Time:</label>
+                        <input
+                          type="time"
+                          id="endTime"
+                          class="form-control"
+                          step="1"
+                        />
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger">
+                      Search
+                    </button>
+                    <hr />
+                    <div
+                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
+                      style="background-color: rgba(172, 177, 152, 0.16)"
+                    >
+                      <h6 class="overflow-hidden">IP Address Filter</h6>
+                      <div>
+                        <button class="btn btn-outline-secondary" type="button">
+                          Export txt
+                        </button>
+                        <button class="btn btn-outline-secondary" type="button">
+                          Export CSV
+                        </button>
+                      </div>
+                    </div>
+                    <div class="">
+                      <table class="table table-hover table-dark mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="border-2">No.</th>
+                            <th scope="col" class="border-2">Time</th>
+                            <th scope="col" class="border-2">Major Type</th>
+                            <th scope="col" class="border-2">Channel No.</th>
+                            <th scope="col" class="border-2">
+                              Local/Remote User
+                            </th>
+                            <th scope="col" class="border-2">Remote Host IP</th>
+                            <th scope="col" class="border-2"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                            <th scope="row" class="border-2"></th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div
+                      class="py-2 w-100 px-4 rounded-bottom-2 d-flex align-items-center justify-content-between"
+                      style="background-color: rgba(172, 177, 152, 0.16)"
+                    >
+                      <span>Total 0 items</span>
+                      <div class="d-flex align-items-center gap-2">
+                        <button
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        >
+                          Prev
+                        </button>
+                        <span>0/0</span>
+                        <button
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--* **** System Service Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="systemService"
+                  >
+                    <div class="mt-4">
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Hardware
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select"
+                          >Enable IR Light:</label
+                        >
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Software
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select"
+                          >Enable Third Stream:</label
+                        >
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+
+                      <div class="px-4 m-2">
+                        <small class="text-muted">
+                          Note: When Third Stream is enabled, functions such as
+                          Face Detection, HDMI, H.264+ and H.265+ are not
+                          supported. New settings will take effect after a
+                          reboot.
+                        </small>
+                      </div>
+
+                      <button
+                        type="button"
+                        class="btn btn-danger px-4 py-2 fs-5 m-2 rounded shadow text-white"
+                      >
+                        <img
+                          src="../icons/save.svg"
+                          alt="Save"
+                          width="20"
+                          height="20"
+                          class="me-2"
+                        />
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--? **** Security Box **** ?-->
+              <div
+                class="content-box user-management-sec global-sec"
+                id="security"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button
+                    class="global-tab-btn active"
+                    data-tab="authentication"
+                  >
+                    Authentication
+                  </button>
+                  <button class="global-tab-btn" data-tab="ipAddressFilter">
+                    IP Address Filter
+                  </button>
+                  <button class="global-tab-btn" data-tab="securityService">
+                    Security Service
+                  </button>
+                </div>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** Authentication Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="authentication"
+                  >
+                    <div class="form-row mb-3">
+                      <label for="streamType">RTSP Authentication:</label>
+                      <select id="streamType" class="form-control">
+                        <option>digest</option>
+                      </select>
+                    </div>
+                    <div class="form-row mb-3">
+                      <label for="streamType">WEB Authentication:</label>
+                      <select id="streamType" class="form-control">
+                        <option>digest</option>
+                      </select>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                  <!--* **** IP Address Filter Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="ipAddressFilter"
+                  >
+                    <div
+                      class="check-box-div mb-3 align-items-center"
+                      style="gap: 1rem"
+                    >
+                      <label for="dhcp" class="label-select"
+                        >Enable IP Address Filter:</label
+                      >
+                      <input type="checkbox" id="dhcp" class="" />
+                    </div>
+                    <div class="form-row mb-3">
+                      <label for="streamType">IP Address Filter Type:</label>
+                      <select id="streamType" class="form-control">
+                        <option>Forbidden</option>
+                      </select>
+                    </div>
+                    <div
+                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
+                      style="background-color: rgba(172, 177, 152, 0.16)"
+                    >
+                      <h6 class="overflow-hidden">IP Address Filter</h6>
+                      <div>
+                        <button class="btn btn-success" type="button">
+                          Add
+                        </button>
+                        <button class="btn btn-warning" type="button">
+                          Modify
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div class="rounded-bottom-2">
+                      <table class="table table-hover table-dark mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              <input type="checkbox" id="dhcp" class="" />
+                            </th>
+                            <th scope="col" class="border-2">No.</th>
+                            <th scope="col" class="border-2">IP</th>
+                            <th scope="col" class="border-2"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="border-2">1</th>
+                            <td class="border-2">admin</td>
+                            <td class="border-2">Administrator</td>
+                            <td class="border-2"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">2</th>
+                            <td class="border-2">vista</td>
+                            <td class="border-2">User</td>
+                            <td class="border-2"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">2</th>
+                            <td class="border-2">Meraj</td>
+                            <td class="border-2">User</td>
+                            <td class="border-2"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!--* **** Security Service Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="securityService"
+                  >
+                    <div
+                      class="check-box-div mb-3 align-items-center"
+                      style="gap: 1rem"
+                    >
+                      <label for="dhcp" class="label-select">Enable SSH:</label>
+                      <input type="checkbox" id="dhcp" class="" />
+                    </div>
+                    <div
+                      class="check-box-div mb-3 align-items-center"
+                      style="gap: 1rem"
+                    >
+                      <label for="dhcp" class="label-select"
+                        >Enable IIIegal Legin Lock:</label
+                      >
+                      <input type="checkbox" id="dhcp" class="" />
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--? **** User Management Box **** ?-->
+              <div
+                class="content-box user-management-sec global-sec"
+                id="userManagement"
+              >
+                <!--* **** Switch Box Buttons **** *-->
+                <div class="global-nav-sec w-100 d-flex">
+                  <button
+                    class="global-tab-btn active"
+                    data-tab="userManagement"
+                  >
+                    User Management
+                  </button>
+                  <button class="global-tab-btn" data-tab="onlineUsers">
+                    Online Users
+                  </button>
+                </div>
+                <!--* **** Content Box **** *-->
+                <div class="container">
+                  <!--* **** User Management Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow active"
+                    data-tab-content="userManagement"
+                  >
+                    <div
+                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
+                      style="background-color: rgba(172, 177, 152, 0.16)"
+                    >
+                      <h6 class="overflow-hidden">User List</h6>
+                      <div>
+                        <button class="btn btn-success" type="button">
+                          Add
+                        </button>
+                        <button class="btn btn-warning" type="button">
+                          Modify
+                        </button>
+                        <button class="btn btn-danger" type="button">
+                          Delete
+                        </button>
+                        <button class="btn btn-secondary" type="button">
+                          Account Security Settings
+                        </button>
+                      </div>
+                    </div>
+                    <div class="rounded-bottom-2">
+                      <table class="table table-hover table-dark mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="border-2">No.</th>
+                            <th scope="col" class="border-2">User Name</th>
+                            <th scope="col" class="border-2">Level</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="border-2">1</th>
+                            <td class="border-2">admin</td>
+                            <td class="border-2">Administrator</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">2</th>
+                            <td class="border-2">vista</td>
+                            <td class="border-2">User</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">2</th>
+                            <td class="border-2">Meraj</td>
+                            <td class="border-2">User</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!--* **** Online Users Content Box **** *-->
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="onlineUsers"
+                  >
+                    <div
+                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
+                      style="background-color: rgba(172, 177, 152, 0.16)"
+                    >
+                      <h6 class="overflow-hidden">User List</h6>
+                      <div>
+                        <button class="btn btn-info" type="button">
+                          Refresh
+                        </button>
+                      </div>
+                    </div>
+                    <div class="rounded-bottom-2">
+                      <table class="table table-hover table-dark mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="border-2">No.</th>
+                            <th scope="col" class="border-2">User Name</th>
+                            <th scope="col" class="border-2">Level</th>
+                            <th scope="col" class="border-2">IP Address</th>
+                            <th scope="col" class="border-2">
+                              User Operation Time
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="border-2">1</th>
+                            <td class="border-2">admin</td>
+                            <td class="border-2">Administrator</td>
+                            <td class="border-2">192.168.10.22</td>
+                            <td class="border-2">2025-04-21 13:23:54</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">2</th>
+                            <td class="border-2">vista</td>
+                            <td class="border-2">User</td>
+                            <td class="border-2">192.168.42.52</td>
+                            <td class="border-2">2025-04-25 15:12:05</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="border-2">3</th>
+                            <td class="border-2">Meraj</td>
+                            <td class="border-2">User</td>
+                            <td class="border-2">192.168.09.01</td>
+                            <td class="border-2">2025-04-23 21:10:00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!--* **** NetWork **** *-->

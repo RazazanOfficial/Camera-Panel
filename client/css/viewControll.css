@@ -74,8 +74,9 @@ video {
   display: block;
 }
 .btns {
-  background: none;
-  border: none;
+  background: #cfcfcf99;
+  border: 1px solid #000;
+  border-radius: 5px;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -85,16 +86,16 @@ video {
   transition: transform 0.2s ease, filter 0.2s ease;
   overflow-y: hidden;
 }
-.btns svg {
+/* .btns img {
   pointer-events: none;
   transition: all 0.2s ease;
   color: #495057;
-}
-.btns:hover svg {
+} */
+.btns:hover {
   background-color: #c9c9c9;
   color: rgb(92, 92, 92);
   border: 1px solid black;
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
 .btn-rotate {
   background: none;
@@ -133,12 +134,12 @@ video {
   font-weight: bold;
   font-size: 1.2rem;
 }
-.side-menu label{
-    color: #495057;
+.side-menu label {
+  color: #495057;
   font-weight: bold;
   font-size: 0.75rem;
 }
-.side-menu div{
+.side-menu div {
   overflow-y: hidden;
 }
 .box {
@@ -146,35 +147,56 @@ video {
   border-radius: 10px;
 }
 
-
- .slider-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-.slider-container *{
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.slider-container * {
   overflow-y: hidden;
 }
 
-    input[type="range"] {
-      flex: 1;
-      appearance: none;
-      height: 8px;
-      background: #ccc;
-      border-radius: 5px;
-      outline: none;
-    }
+input[type="range"] {
+  flex: 1;
+  appearance: none;
+  height: 8px;
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+}
 
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      background: white;
-      border: 2px solid #888;
-      border-radius: 50%;
-      cursor: pointer;
-    }
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
-    input[type="range"]::-webkit-slider-runnable-track {
-      background: linear-gradient(to right, crimson 0%, crimson var(--val, 0%), #ccc var(--val, 0%), #ccc 100%);
-    }
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    crimson 0%,
+    crimson var(--val, 0%),
+    #ccc var(--val, 0%),
+    #ccc 100%
+  );
+}
+
+@media (max-width: 630px) {
+  #videoTools {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #videoTools > div {
+    justify-content: center;
+    /* flex-wrap: wrap; */
+  }
+  #videoTools button {
+    border-radius: 30%;
+  }
+}

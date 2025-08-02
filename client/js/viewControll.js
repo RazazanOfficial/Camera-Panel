@@ -159,30 +159,65 @@ document.querySelector(".volume-container").addEventListener("mouseout", () => {
 //   }
 // });
 
+// جلوگیری از ارسال زیاد داده به API
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
 
-const slider = document.getElementById('rangeSlider');
-    const stepInput = document.getElementById('stepInput');
-    const decreaseBtn = document.getElementById('decreaseBtn');
-    const increaseBtn = document.getElementById('increaseBtn');
+// ارسال درخواست (مثلاً به API یا هر چیزی)
+function sendData(type, value) {
+  console.log(`Sending ${type}: ${value}`);
+  // اینجا می‌تونی fetch یا axios بزنی
+}
 
-    // رنگ پس‌زمینه داینامیک اسلایدر
-    function updateSliderBackground() {
-      const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-      slider.style.setProperty('--val', `${percentage}%`);
-    }
+// همه adjustment box‌ها را انتخاب کن
+document.querySelectorAll('.adjustment-box').forEach(box => {
+  const slider = box.querySelector('.range-slider');
+  const stepInput = box.querySelector('.step-input');
+  const decreaseBtn = box.querySelector('.decrease-btn');
+  const increaseBtn = box.querySelector('.increase-btn');
+  const type = box.dataset.type;
 
+  const updateSliderBackground = () => {
+    const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    slider.style.setProperty('--val', `${percentage}%`);
+  };
+
+  const sync = debounce((val) => {
+    sendData(type, val);
+  }, 500); // ارسال بعد از 500ms
+
+  const updateAll = (newValue) => {
+    const value = Math.min(Math.max(newValue, parseInt(slider.min)), parseInt(slider.max));
+    slider.value = value;
+    stepInput.value = value;
     updateSliderBackground();
+    sync(value);
+  };
 
-    slider.addEventListener('input', updateSliderBackground);
+  // event listeners
+  slider.addEventListener('input', () => {
+    updateAll(parseInt(slider.value));
+  });
 
-    decreaseBtn.addEventListener('click', () => {
-      const step = parseInt(stepInput.value) || 1;
-      slider.value = Math.max(slider.min, parseInt(slider.value) - step);
-      updateSliderBackground();
-    });
+  stepInput.addEventListener('input', () => {
+    updateAll(parseInt(stepInput.value));
+  });
 
-    increaseBtn.addEventListener('click', () => {
-      const step = parseInt(stepInput.value) || 1;
-      slider.value = Math.min(slider.max, parseInt(slider.value) + step);
-      updateSliderBackground();
-    });
+  decreaseBtn.addEventListener('click', () => {
+    const step = parseInt(stepInput.value) || 1;
+    updateAll(parseInt(slider.value) - step);
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    const step = parseInt(stepInput.value) || 1;
+    updateAll(parseInt(slider.value) + step);
+  });
+
+  // راه‌اندازی اولیه
+  updateAll(parseInt(slider.value));
+});
