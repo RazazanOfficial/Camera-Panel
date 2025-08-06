@@ -6,7 +6,7 @@
   overflow-x: hidden;
 }
 .cnav {
-  min-height: 10vh;
+  min-height: 10vh;                            
   border: 2px solid #abb1b6;
 }
 .cnav .activeLink {
