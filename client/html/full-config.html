@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configuration - SHAAHAB</title>
-    <script src="../js/apiConfig.js"></script>
-    <script src="../js/apiService.js"></script>
-    <script src="../js/timeSettings.js"></script>
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/configuration.css" />
@@ -178,6 +175,48 @@
                   >
                 </div>
               </div>
+              <!--* **** Event **** *-->
+              <!-- <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="event">
+                  <img
+                    src="../icons/event.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Event Icon"
+                  />
+                  <span>Event</span>
+                </a>
+                <div class="submenu d-none" data-submenu="event">
+                  <a class="nav-link sub-link" data-content="something9"
+                    >Something9</a
+                  >
+                  <a class="nav-link sub-link" data-content="something10"
+                    >something10</a
+                  >
+                </div>
+              </div> -->
+              <!--* **** Storage **** *-->
+              <!-- <div class="d-flex flex-column">
+                <a class="nav-link main-link" data-target="storage">
+                  <img
+                    src="../icons/storage.svg"
+                    width="27"
+                    height="27"
+                    class="icon"
+                    alt="Storage Icon"
+                  />
+                  <span>Storage</span>
+                </a>
+                <div class="submenu d-none" data-submenu="storage">
+                  <a class="nav-link sub-link" data-content="something11"
+                    >Something11</a
+                  >
+                  <a class="nav-link sub-link" data-content="something12"
+                    >something12</a
+                  >
+                </div>
+              </div> -->
             </nav>
           </aside>
 
@@ -385,88 +424,128 @@
                     </button>
                   </div>
                   <!--* **** Time Settings Content Box **** *-->
-<div
-  class="global-tab-content global-box-shadow"
-  data-tab-content="timeSettings"
->
-  <div class="form-row mb-3">
-    <label for="streamType">Time Zone:</label>
-    <select id="streamType" class="form-control">
-      <!-- گزینه‌ها توسط JavaScript پر خواهد شد -->
-    </select>
-  </div>
-
-  <div>
-    <h6 class="py-3 w-100 px-4 rounded-2 mt-1" style="background-color: rgba(172, 177, 152, 0.16)">
-      NTP
-    </h6>
-
-    <!-- فقط Server Address؛ دیگر چک‌باکس/پورت/اینتروال/تست نداریم -->
-<div class="form-row mb-3">
-      <label class="label-select" for="serverAddress">Server Address :</label>
-      <input
-        type="text"
-        id="serverAddress"
-        class="form-control"
-        placeholder="time.windows.com"
-      />
-    </div>
-
-    <!-- دکمهٔ ذخیرهٔ مستقل NTP -->
-    <button
-      type="button"
-      id="saveNtp"
-      class="btn btn-outline-primary btn-sm px-3 m-2 rounded-2"
-    >
-      <img src="../icons/save.svg" alt="Save" width="16" height="16" class="me-1" />
-      Save NTP
-    </button>
-  </div>
-
-  <hr />
-
-  <div>
-    <h6 class="py-3 w-100 px-4 rounded-2 mt-1" style="background-color: rgba(172, 177, 152, 0.16)">
-      Manual Time Sync.
-    </h6>
-
-    <div class="check-box-div m-2 p-2 align-items-center" style="gap: 1rem">
-      <label for="manualTimeToggle" class="label-select">Manual Time Sync. :</label>
-      <input type="checkbox" id="manualTimeToggle" />
-    </div>
-
-    <div class="form-row mb-3">
-      <label class="label-select" for="diviceTime">Divice Time :</label>
-      <input type="text" id="diviceTime" class="form-control" value="" disabled />
-    </div>
-
-    <div class="row g-2">
-      <div class="col-md-6 form-row">
-        <label for="setDate">Set Date:</label>
-        <input type="date" id="setDate" class="form-control" disabled />
-      </div>
-      <div class="col-md-6 form-row">
-        <label for="setTime">Set Time:</label>
-        <input type="time" id="setTime" class="form-control" step="1" disabled />
-      </div>
-    </div>
-
-    <!-- دکمهٔ ذخیرهٔ مستقل Manual -->
-    <button
-      type="button"
-      id="saveManualTime"
-      class="btn btn-outline-primary btn-sm px-3 m-2 rounded-2"
-    >
-      <img src="../icons/save.svg" alt="Save" width="16" height="16" class="me-1" />
-      Save Manual Time
-    </button>
-  </div>
-
-  <hr />
-
-  <!-- دکمهٔ Save کلی حذف شد -->
-</div>
-
+                  <div
+                    class="global-tab-content global-box-shadow"
+                    data-tab-content="timeSettings"
+                  >
+                    <div class="form-row mb-3">
+                      <label for="streamType">Time Zone:</label>
+                      <select id="streamType" class="form-control">
+                        <option>(GMT +03:30) Tehran</option>
+                      </select>
+                    </div>
+                    <div>
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        NTP
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select">NTP:</label>
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="serverAddress"
+                          >Server Address :</label
+                        >
+                        <input
+                          type="text"
+                          id="serverAddress"
+                          class="form-control"
+                          value="time.windows.com"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="ntpPort"
+                          >NTP Port :</label
+                        >
+                        <input
+                          type="text"
+                          id="ntpPort"
+                          class="form-control"
+                          value="123"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="interval"
+                          >Interval(min) :</label
+                        >
+                        <input
+                          type="text"
+                          id="interval"
+                          class="form-control"
+                          value="1440"
+                          disabled
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        disabled
+                      >
+                        Test
+                      </button>
+                    </div>
+                    <hr />
+                    <div>
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Manual Time Sync.
+                      </h6>
+                      <div
+                        class="check-box-div m-2 p-2 align-items-center"
+                        style="gap: 1rem"
+                      >
+                        <label for="dhcp" class="label-select"
+                          >Manual Time Sync. :</label
+                        >
+                        <input type="checkbox" id="dhcp" class="" />
+                      </div>
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="diviceTime"
+                          >Divice Time :</label
+                        >
+                        <input
+                          type="text"
+                          id="diviceTime"
+                          class="form-control"
+                          value="2025-01-01 12:00:00"
+                          disabled
+                        />
+                      </div>
+                      <div class="form-row">
+                        <label for="startTime">Set Time:</label>
+                        <input
+                          type="time"
+                          id="startTime"
+                          class="form-control"
+                          step="1"
+                        />
+                      </div>
+                    </div>
+                    <hr />
+                    <button
+                      type="button"
+                      class="btn btn-danger px-4 py-2 fs-5 m-2 rounded shadow text-white"
+                    >
+                      <img
+                        src="../icons/save.svg"
+                        alt="Save"
+                        width="20"
+                        height="20"
+                        class="me-2"
+                      />
+                      Save
+                    </button>
+                  </div>
                 </div>
               </div>
               <!--? **** Maintenance Box **** ?-->
@@ -2389,6 +2468,28 @@
                 </div>
               </div>
             </div>
+            <!--* **** Event **** *-->
+            <!-- <div>
+              <div class="content-box" id="something9">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="content-box" id="something10">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div> -->
+            <!--* **** Storage **** *-->
+            <!-- <div>
+              <div class="content-box" id="something11">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="content-box" id="something12">
+                <h2>Lorem, ipsum.</h2>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div> -->
           </main>
         </div>
       </div>

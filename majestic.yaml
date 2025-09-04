@@ -1,0 +1,81 @@
+system:
+  webPort: 80
+  httpsPort: 443
+  logLevel: debug
+  unsafe: true
+isp:
+  antiFlicker: disabled
+  sensorConfig: /etc/sensors/imx307_i2c_2l_1080p.ini
+  drc: enabled
+  slowShutter: false
+  rawMode: false
+  dis: enabled
+image:
+  mirror: false
+  flip: false
+  rotate: 0
+  contrast: 50
+  hue: 50
+  saturation: 50
+  luminance: 50
+  tuning: false
+video0:
+  enabled: true
+  codec: h264
+  fps: 25
+  bitrate: 3072
+  rcMode: vbr
+  gopSize: 2
+  size: 1280x720
+  profile: high
+video1:
+  enabled: false
+  codec: h264
+  size: 1280x720
+  fps: 25
+  bitrate: 3072
+  profile: high
+  rcMode: vbr
+  gopSize: 2
+jpeg:
+  enabled: true
+  qfactor: 50
+  fps: 5
+osd:
+  enabled: true
+  font: /usr/share/fonts/truetype/UbuntuMono-Regular.ttf
+  template: '%d.%m.%Y %H:%M:%S - test'
+  posX: 16
+  posY: 16
+  size: 1.0
+audio:
+  enabled: false
+  volume: 30
+  srate: 8000
+  codec: opus
+  outputEnabled: false
+  outputVolume: 30
+rtsp:
+  enabled: true
+  port: 554
+nightMode:
+  colorToGray: true
+  irCutSingleInvert: false
+  lightMonitor: false
+  lightSensorInvert: false
+motionDetect:
+  enabled: false
+  visualize: false
+  debug: false
+records:
+  enabled: false
+  path: /mnt/mmcblk0p1/%F
+  split: 20
+  maxUsage: 95
+outgoing:
+  enabled: false
+watchdog:
+  enabled: true
+  timeout: 300
+hls:
+  enabled: false
