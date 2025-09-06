@@ -1,4 +1,4 @@
-/***** 1) لیست تایم‌زون‌ها (بر اساس نام‌هایی که دادی) *****/
+//! 1) =-=-=-=-=-= Timezones List =-=-=-=-=-= !///
 const timezones = [
   { value: "Asia/Tehran", text: "Asia/Tehran  (UTC+03:30)" },
   { value: "Asia/Dubai", text: "Asia/Dubai  (UTC+04:00)" },
@@ -64,9 +64,9 @@ const timezones = [
   { value: "Asia/Pyongyang", text: "Asia/Pyongyang  (UTC+09:00)" },
 ];
 
-/***** 2) Dropdown تایم‌زون *****/
+//! 2) =-=-=-=-=-= Timezones Dropdown =-=-=-=-=-= !///
 function loadTimezones() {
-  const timezoneSelect = document.getElementById("streamType");
+  const timezoneSelect = document.getElementById("timeZone");
   if (!timezoneSelect) return;
 
   timezoneSelect.innerHTML = "";
@@ -78,7 +78,7 @@ function loadTimezones() {
   });
 }
 
-// همگام‌سازی مقدار انتخاب‌شده با پاسخ دستگاه
+//! 3) =-=-=-=-=-= Normalize Timezone Response =-=-=-=-=-= !///
 function normalizeTimezoneResponse(raw) {
   if (!raw) return "";
   const txt = String(raw).trim();
@@ -88,48 +88,48 @@ function normalizeTimezoneResponse(raw) {
   return line.split(/\s+/)[0];
 }
 
+//! 4) =-=-=-=-=-= GET Timezone =-=-=-=-=-= !///
 async function getTimezoneSettings() {
   try {
     const response = await apiGet(API_ENDPOINTS.timezone);
     const iana = normalizeTimezoneResponse(response);
 
-    const timezoneSelect = document.getElementById("streamType");
+    const timezoneSelect = document.getElementById("timeZone");
     if (timezoneSelect) {
       const exists = timezones.some((t) => t.value === iana);
       timezoneSelect.value = exists ? iana : "Asia/Tehran";
     }
   } catch (error) {
+    toast.error(`Failed to get timezone settings`);
     console.error("Failed to get timezone settings:", error);
   }
 }
 
+//! 5) =-=-=-=-=-= POST Timezone =-=-=-=-=-= !///
 async function saveTimezoneSettings() {
-  const timezoneSelect = document.getElementById("streamType");
+  const timezoneSelect = document.getElementById("timeZone");
   if (!timezoneSelect) return;
   const timezoneValue = timezoneSelect.value || "";
-  // timezone همچنان با فرم‌-یواَر‌ال‌انکودد ارسال می‌شود
   return apiPost(API_ENDPOINTS.timezone, { timezone: timezoneValue });
 }
 
-/***** 3) NTP: فقط server address *****/
+//! 6) =-=-=-=-=-= Normalize NTP Response =-=-=-=-=-= !///
 function normalizeNtpResponse(raw) {
   if (!raw) return "";
   const txt = String(raw).trim();
 
-  // اگر فرمت "ntp_server: pool.ntp.org" بود
   const line = (
     txt.split(/\r?\n/).find((l) => /ntp|server/i.test(l)) || txt
   ).trim();
 
-  // hostname یا IP را استخراج کن
   const match = line.match(/((\d{1,3}\.){3}\d{1,3})|([a-z0-9-]+\.)+[a-z]{2,}/i);
 
   if (match) return match[0];
 
-  // fallback: اولین کلمه غیر خالی
   return line.split(/\s+/).find(Boolean) || "";
 }
 
+//! 7) =-=-=-=-=-= GET NTP =-=-=-=-=-= !///
 async function getNtpSettings() {
   try {
     const res = await apiGet(API_ENDPOINTS.ntp);
@@ -137,22 +137,23 @@ async function getNtpSettings() {
     const input = document.getElementById("serverAddress");
     if (input && server) input.value = server;
   } catch (e) {
+    toast.error("Failed to get NTP settings");
     console.error("Failed to get NTP settings:", e);
   }
 }
 
+//! 8) =-=-=-=-=-= POST NTP =-=-=-=-=-= !///
 async function saveNtpSettings() {
   const input = document.getElementById("serverAddress");
   const server = (input?.value || "").trim();
   if (!server) return;
-  // بدنه باید form-urlencoded باشد: ntp_server=...
   return apiPost(API_ENDPOINTS.ntp, { ntp_server: server });
 }
 
-/***** 4) Manual Time Sync + Device Time polling *****/
+//! 9) =-=-=-=-=-= Manual Time Sync + Device Time polling =-=-=-=-=-= !///
 const DEVICE_TIME_POLL_MS = 1000;
 let deviceTimeTimer = null;
-let simulatedDeviceDate = null; // زمان دستگاه که محلی تیک می‌خورد
+let simulatedDeviceDate = null;
 
 function pad2(n) {
   return n < 10 ? "0" + n : "" + n;
@@ -174,24 +175,24 @@ function parseYMDHMS(str) {
     h = +m[4],
     mi = +m[5],
     s = +m[6];
-  // ساخت Date به‌صورت محلی (سازگار با همه مرورگرها)
   return new Date(y, mo - 1, d, h, mi, s);
 }
 
+//! 10) =-=-=-=-=-= Update Device Time Input From =-=-=-=-=-= !///
 function updateDeviceTimeInputFromSim() {
   const devInput = document.getElementById("diviceTime");
   if (!devInput || !simulatedDeviceDate) return;
   devInput.value = formatYMDHMS(simulatedDeviceDate);
 }
 
-// همون تابع موجودت رو نگه دار، فقط برای seed اولیه استفاده می‌کنیم
+//! 11) =-=-=-=-=-= Normalize Local Time Starting Response =-=-=-=-=-= !///
 function normalizeLocalTimeString(raw) {
   if (!raw) return "";
   const m = String(raw).match(/\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}/);
   return m ? m[0] : String(raw).trim();
 }
 
-// فقط یک بار GET: زمان دستگاه را می‌گیریم و seed می‌کنیم
+//! 12) =-=-=-=-=-= GET LocalTime =-=-=-=-=-= !///
 async function refreshDeviceTimeOnce() {
   try {
     const res = await apiGet(API_ENDPOINTS.localTime);
@@ -202,24 +203,19 @@ async function refreshDeviceTimeOnce() {
       updateDeviceTimeInputFromSim();
     }
   } catch (e) {
+    toast.error("Failed to seed device time.");
     console.error("Failed to seed device time:", e);
   }
 }
 
-// هر ثانیه فقط لوکال تیک بزن (بدون هیچ GET)
+//! 13) =-=-=-=-=-= Local Timer(1sec) =-=-=-=-=-= !///
 function tickDeviceTime() {
   if (!simulatedDeviceDate) return;
   simulatedDeviceDate = new Date(simulatedDeviceDate.getTime() + 1000);
   updateDeviceTimeInputFromSim();
 }
 
-// شروع: یک‌بار seed از دستگاه، بعد interval لوکال
-async function startDeviceTimePolling() {
-  stopDeviceTimePolling();
-  await refreshDeviceTimeOnce(); // فقط همین یک GET
-  deviceTimeTimer = setInterval(tickDeviceTime, DEVICE_TIME_POLL_MS);
-}
-
+//! 14) =-=-=-=-=-= Stop Divice Time Polling =-=-=-=-=-= !///
 function stopDeviceTimePolling() {
   if (deviceTimeTimer) {
     clearInterval(deviceTimeTimer);
@@ -227,6 +223,14 @@ function stopDeviceTimePolling() {
   }
 }
 
+//! 15) =-=-=-=-=-= Start Local Timer(1sec) =-=-=-=-=-= !///
+async function startDeviceTimePolling() {
+  stopDeviceTimePolling();
+  await refreshDeviceTimeOnce();
+  deviceTimeTimer = setInterval(tickDeviceTime, DEVICE_TIME_POLL_MS);
+}
+
+//! 16) =-=-=-=-=-= Enable Manual Time =-=-=-=-=-= !///
 function setManualInputsEnabled(enabled) {
   const dateEl = document.getElementById("setDate");
   const timeEl = document.getElementById("setTime");
@@ -234,82 +238,145 @@ function setManualInputsEnabled(enabled) {
   if (timeEl) timeEl.disabled = !enabled;
 }
 
+//! 17) =-=-=-=-=-= Build Local Time =-=-=-=-=-= !///
 function buildLocalTimePayload() {
   const dateEl = document.getElementById("setDate");
   const timeEl = document.getElementById("setTime");
   const date = (dateEl?.value || "").trim(); // YYYY-MM-DD
-  let time = (timeEl?.value || "").trim(); // HH:MM[:SS]
+  let time = (timeEl?.value || "").trim(); // HH:MM:SS
 
   if (!date || !time) {
-    throw new Error("لطفاً تاریخ و زمان را کامل وارد کنید.");
+    toast.error("Please enter the full date and time.");
   }
 
-  // اگر ثانیه وارد نشده بود، :00 اضافه کن
   if (!/^\d{2}:\d{2}:\d{2}$/.test(time)) {
     if (/^\d{2}:\d{2}$/.test(time)) time = `${time}:00`;
-    else throw new Error("زمان نامعتبر است. مثال صحیح: 10:35:51");
+    else toast.error("The time is invalid. Correct example: 10:35:51");
   }
 
-  return `${date} ${time}`; // دقیقا فرمت موردنیاز بک‌اند
+  return `${date} ${time}`;
 }
 
+//! 18) =-=-=-=-=-= POST Manual Time =-=-=-=-=-= !///
 async function saveManualTimeIfEnabled() {
   const toggle = document.getElementById("manualTimeToggle");
   if (!toggle || !toggle.checked) return;
 
   const payload = buildLocalTimePayload(); // "YYYY-MM-DD HH:MM:SS"
-  // بدنه باید form-urlencoded باشد: local_time=YYYY-MM-DD HH:MM:SS
   return apiPost(API_ENDPOINTS.localTime, { local_time: payload });
 }
 
-/***** 5) Save واحد برای همه تنظیمات *****/
-async function saveAllSettings() {
-  const btn = document.getElementById("saveAll");
-  try {
-    btn && (btn.disabled = true);
-
-    // همزمان ولی مستقل ذخیره کنیم
-    const tasks = [
-      saveTimezoneSettings(),
-      saveNtpSettings(),
-      saveManualTimeIfEnabled(),
-    ];
-
-    await Promise.all(tasks);
-    alert("Settings saved successfully.");
-  } catch (e) {
-    console.error(e);
-    alert(e?.message || "Failed to save settings.");
-  } finally {
-    btn && (btn.disabled = false);
-  }
-}
-
-/***** 6) Init *****/
+//! 19) =-=-=-=-=-= DOM =-=-=-=-=-= !///
 document.addEventListener("DOMContentLoaded", function () {
-  // 6.1 timezones
+  //! 19.1) =-=-=-=-=-= GET All Apis =-=-=-=-=-= !///
   loadTimezones();
   getTimezoneSettings();
-
-  // 6.2 NTP
   getNtpSettings();
+  startDeviceTimePolling();
 
-  // 6.3 manual toggle wiring
+  //! 19.2) =-=-=-=-=-= Save NTP Btn =-=-=-=-=-= !///
+  const saveNtpBtn = document.getElementById("saveNtp");
+  if (saveNtpBtn) {
+    saveNtpBtn.addEventListener("click", async () => {
+      try {
+        await saveNtpSettings();
+        toast.success("NTP saved.");
+      } catch (e) {
+        toast.error("Saving NTP failed.");
+        console.error("Failed to save NTP:", e);
+      }
+    });
+  }
+
+  //! 19.3) =-=-=-=-=-= Save Manual Time Btn =-=-=-=-=-= !///
+  const saveManualBtn = document.getElementById("saveManualTime");
+  if (saveManualBtn) {
+    saveManualBtn.addEventListener("click", async () => {
+      try {
+        await saveManualTimeIfEnabled();
+        toast.success("Manual Time saved.");
+        setTimeout(() => window.location.reload(), 2000);
+      } catch (e) {
+        console.error("Failed to save manual time:", e);
+        toast.error("Saving manual time failed.");
+      }
+    });
+  }
+
+  //! 19.4) =-=-=-=-=-= Manual Toggle =-=-=-=-=-= !///
   const manualToggle = document.getElementById("manualTimeToggle");
   if (manualToggle) {
     manualToggle.addEventListener("change", (e) => {
       setManualInputsEnabled(e.target.checked);
     });
-    // اول کار غیرفعال باشد
     setManualInputsEnabled(false);
   }
 
-  // 6.4 device time polling
-  startDeviceTimePolling();
+  //! 19.5) =-=-=-=-=-=  Reboot Modal =-=-=-=-=-= !///
+  const tzSelect = document.getElementById("timeZone");
+  if (!tzSelect) return;
 
-  // 6.5 single Save button
-  const saveBtn = document.getElementById("saveAll");
-  if (saveBtn) {
-    saveBtn.addEventListener("click", saveAllSettings);
+  let prevTimezoneValue = tzSelect.value;
+
+  async function postTimezoneValue(tzValue) {
+    if (typeof apiPost === "function" && API_ENDPOINTS?.timezone) {
+      await apiPost(API_ENDPOINTS.timezone, { timezone: tzValue });
+      return;
+    }
+    if (typeof saveTimezoneSettings === "function") {
+      tzSelect.value = tzValue;
+      await saveTimezoneSettings();
+      return;
+    }
+    toast.error("No timezone POST method available.");
+    throw new Error("No timezone POST method available");
   }
+
+  tzSelect.addEventListener("change", () => {
+    const pending = tzSelect.value || "Asia/Tehran";
+
+    if (!window.RebootModal?.confirmAndReboot) {
+      const ok = window.confirm(
+        "This change will reboot the camera. Continue?"
+      );
+      if (!ok) {
+        tzSelect.value = prevTimezoneValue;
+        return;
+      }
+      tzSelect.disabled = true;
+      postTimezoneValue(pending)
+        .then(() => {
+          prevTimezoneValue = pending;
+          setTimeout(() => window.location.reload(), 300);
+        })
+        .catch((e) => {
+          console.error(e);
+          toast.error("Saving timezone failed.");
+          tzSelect.value = prevTimezoneValue;
+          tzSelect.disabled = false;
+        });
+      return;
+    }
+
+    RebootModal.confirmAndReboot({
+      title: "Change Timezone",
+      message: "This change will <b>reboot the camera</b>. Are you sure?",
+      seconds: 15,
+      lockTitle: "Rebooting…",
+      lockMessage: "Camera is Rebooting, Please wait!",
+      onConfirm: async () => {
+        tzSelect.disabled = true;
+        await postTimezoneValue(pending);
+        prevTimezoneValue = pending;
+      },
+      onCancel: () => {
+        tzSelect.value = prevTimezoneValue;
+      },
+    }).catch((e) => {
+      console.error("Saving timezone failed:", e);
+      toast.error("Saving timezone failed.");
+      tzSelect.value = prevTimezoneValue;
+      tzSelect.disabled = false;
+    });
+  });
 });
