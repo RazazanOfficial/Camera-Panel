@@ -1,4 +1,3 @@
-// تابع عمومی برای درخواست‌های GET
 async function apiGet(endpoint) {
     try {
         const response = await fetch(getFullUrl(endpoint));
@@ -12,7 +11,6 @@ async function apiGet(endpoint) {
     }
 }
 
-// تابع عمومی برای درخواست‌های POST با فرمت x-www-form-urlencoded
 async function apiPost(endpoint, data) {
     try {
         const formData = new URLSearchParams();

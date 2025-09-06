@@ -156,7 +156,7 @@ input[type="checkbox" i] {
   -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.55);
 }
-.global-sec label{
+.global-sec label {
   font-weight: bold;
 }
 /*! =-=-=-=-=-= Image Section =-=-=-=-=-= !*/
@@ -239,7 +239,7 @@ input[type="checkbox" i] {
 }
 
 /*! =-=-=-=-=-= NetWork Section =-=-=-=-=-= !*/
-.network-sec label{
+.network-sec label {
   font-weight: bold;
 }
 .network-sec .network-nav-sec {
@@ -276,9 +276,37 @@ input[type="checkbox" i] {
   background-color: #dc3545;
   border-radius: 2px;
 }
-.network-sec input[type=text]{
+.network-sec input[type="text"] {
   flex: unset !important;
   width: 30%;
 }
 
-.video-audio-sec{}
+.video-audio-sec {
+}
+
+/*! =-=-=-=-=-= Modal Section =-=-=-=-=-= !*/
+.tz-modal-backdrop {
+  border-radius: 10px;
+  padding: 20px 30px;
+  top: 50%;
+  left: 40%;
+  position: absolute;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  label {
+    font-size: 0.875rem;
+  }
+  input,
+  select {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .global-sec .global-tab-content.active {
+    width: 100%;
+  }
+}
