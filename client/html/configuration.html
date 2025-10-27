@@ -415,7 +415,6 @@
                   >
                     Upgrade & Maintenance
                   </button>
-                  <button class="global-tab-btn" data-tab="log">Log</button>
                   <button class="global-tab-btn" data-tab="systemService">
                     Systeam Service
                   </button>
@@ -460,130 +459,6 @@
                           Default
                         </button>
                         <span>Restore all parameters to default settings.</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!--* **** Log Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="log"
-                  >
-                    <div class="form-row mb-3">
-                      <label for="streamType">Major Type:</label>
-                      <select id="streamType" class="form-control">
-                        <option>All Types</option>
-                      </select>
-                    </div>
-                    <div class="form-row mb-3">
-                      <label for="streamType">Minor Type:</label>
-                      <select id="streamType" class="form-control">
-                        <option>All Types</option>
-                      </select>
-                    </div>
-                    <hr />
-                    <div class="d-flex gap-3 mb-3 flex-column">
-                      <div class="form-row">
-                        <label for="startTime">Start Time:</label>
-                        <input
-                          type="time"
-                          id="startTime"
-                          class="form-control"
-                          step="1"
-                        />
-                      </div>
-                      <div class="form-row">
-                        <label for="endTime">End Time:</label>
-                        <input
-                          type="time"
-                          id="endTime"
-                          class="form-control"
-                          step="1"
-                        />
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-outline-danger">
-                      Search
-                    </button>
-                    <hr />
-                    <div
-                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
-                      style="background-color: rgba(172, 177, 152, 0.16)"
-                    >
-                      <h6 class="overflow-hidden">IP Address Filter</h6>
-                      <div>
-                        <button class="btn btn-outline-secondary" type="button">
-                          Export txt
-                        </button>
-                        <button class="btn btn-outline-secondary" type="button">
-                          Export CSV
-                        </button>
-                      </div>
-                    </div>
-                    <div class="">
-                      <table class="table table-hover table-dark mb-0">
-                        <thead>
-                          <tr>
-                            <th scope="col" class="border-2">No.</th>
-                            <th scope="col" class="border-2">Time</th>
-                            <th scope="col" class="border-2">Major Type</th>
-                            <th scope="col" class="border-2">Channel No.</th>
-                            <th scope="col" class="border-2">
-                              Local/Remote User
-                            </th>
-                            <th scope="col" class="border-2">Remote Host IP</th>
-                            <th scope="col" class="border-2"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                            <th scope="row" class="border-2"></th>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div
-                      class="py-2 w-100 px-4 rounded-bottom-2 d-flex align-items-center justify-content-between"
-                      style="background-color: rgba(172, 177, 152, 0.16)"
-                    >
-                      <span>Total 0 items</span>
-                      <div class="d-flex align-items-center gap-2">
-                        <button
-                          class="btn btn-outline-secondary btn-sm"
-                          type="button"
-                        >
-                          Prev
-                        </button>
-                        <span>0/0</span>
-                        <button
-                          class="btn btn-outline-secondary btn-sm"
-                          type="button"
-                        >
-                          Next
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -788,15 +663,6 @@
                       <label for="dhcp" class="label-select">Enable SSH:</label>
                       <input type="checkbox" id="dhcp" class="" />
                     </div>
-                    <div
-                      class="check-box-div mb-3 align-items-center"
-                      style="gap: 1rem"
-                    >
-                      <label for="dhcp" class="label-select"
-                        >Enable IIIegal Legin Lock:</label
-                      >
-                      <input type="checkbox" id="dhcp" class="" />
-                    </div>
                     <button
                       type="button"
                       class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
@@ -825,9 +691,6 @@
                     data-tab="userManagement"
                   >
                     User Management
-                  </button>
-                  <button class="global-tab-btn" data-tab="onlineUsers">
-                    Online Users
                   </button>
                 </div>
                 <!--* **** Content Box **** *-->
@@ -881,61 +744,6 @@
                             <th scope="row" class="border-2">2</th>
                             <td class="border-2">Meraj</td>
                             <td class="border-2">User</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <!--* **** Online Users Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="onlineUsers"
-                  >
-                    <div
-                      class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
-                      style="background-color: rgba(172, 177, 152, 0.16)"
-                    >
-                      <h6 class="overflow-hidden">User List</h6>
-                      <div>
-                        <button class="btn btn-info" type="button">
-                          Refresh
-                        </button>
-                      </div>
-                    </div>
-                    <div class="rounded-bottom-2">
-                      <table class="table table-hover table-dark mb-0">
-                        <thead>
-                          <tr>
-                            <th scope="col" class="border-2">No.</th>
-                            <th scope="col" class="border-2">User Name</th>
-                            <th scope="col" class="border-2">Level</th>
-                            <th scope="col" class="border-2">IP Address</th>
-                            <th scope="col" class="border-2">
-                              User Operation Time
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row" class="border-2">1</th>
-                            <td class="border-2">admin</td>
-                            <td class="border-2">Administrator</td>
-                            <td class="border-2">192.168.10.22</td>
-                            <td class="border-2">2025-04-21 13:23:54</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">2</th>
-                            <td class="border-2">vista</td>
-                            <td class="border-2">User</td>
-                            <td class="border-2">192.168.42.52</td>
-                            <td class="border-2">2025-04-25 15:12:05</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">3</th>
-                            <td class="border-2">Meraj</td>
-                            <td class="border-2">User</td>
-                            <td class="border-2">192.168.09.01</td>
-                            <td class="border-2">2025-04-23 21:10:00</td>
                           </tr>
                         </tbody>
                       </table>

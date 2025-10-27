@@ -85,52 +85,32 @@
         </div>
       </nav>
     </header>
+
     <main class="row flex-lg-nowrap m-3 px-2 py-4">
-      <!-- Green Box with Video -->
+      <!-- Left: Stream + Controls -->
       <div
+        id="videoContainer"
         class="col-lg-9 py-0 px-3 d-flex flex-column align-items-center justify-content-center position-relative"
       >
-        <video
-          id="myVideo"
-          src="../video/SampleVideo_1280x720_1mb.mp4"
-          autoplay
-          muted
-          playsinline
-          class="w-100 h-100"
-        ></video>
-        <!-- Video Tools  -->
-        <div id="videoTools" class="d-flex justify-content-between w-100 px-5">
-          <div
-            class="d-flex justify-content-center align-items-center gap-2 my-2"
-          >
+        <!-- MJPEG Stream -->
+        <img
+          id="mjpegStream"
+          class="w-100 h-100 stream-media"
+          alt="MJPEG Stream"
+          src="http://192.168.1.142/mjpeg"
+        />
+
+        <!-- Controls -->
+        <div id="videoTools" class="d-flex justify-content-center w-100 px-5">
+          <div class="d-flex justify-content-center align-items-center gap-2 my-2">
             <button id="playPauseBtn">Pause</button>
             <button id="fullscreenBtn">Fullscreen</button>
-            <div class="volume-container">
-              <button id="muteUnmuteBtn">Unmute</button>
-              <input
-                id="volumeSlider"
-                class="volume-slider"
-                type="range"
-                min="0"
-                max="1"
-                step="0.05"
-                value="0"
-              />
-            </div>
-          </div>
-          <div
-            class="d-flex justify-content-center align-items-center gap-2 my-2"
-          >
-            <button id="captureBtn">Capture</button>
-            <button id="recordBtn">Record</button>
           </div>
         </div>
       </div>
 
-      <!-- Red Box with Collapsible Menu -->
-      <div
-        class="col-lg-3 p-0 d-lg-flex d-none flex-column text-center side-menu gap-1"
-      >
+      <!-- Right: Side menu -->
+      <div class="col-lg-3 p-0 d-lg-flex d-none flex-column text-center side-menu gap-1">
         <!-- Div One  -->
         <div class="w-100">
           <div class="m-1 px-4 py-2 box mx-2 mt-2">
@@ -139,15 +119,12 @@
               <!-- Top -->
               <div class="d-flex justify-content-center gap-2 mb-2">
                 <button class="btns">
-                  <!-- Arrow Up Left -->
                   <img src="../icons/arrowLeftTop.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Arrow Up -->
                   <img src="../icons/arrowUp.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Arrow Up Right -->
                   <img src="../icons/arrowRightTop.svg" width="40" alt="" />
                 </button>
               </div>
@@ -155,15 +132,12 @@
               <!-- Mid -->
               <div class="d-flex justify-content-center gap-2 mb-2">
                 <button class="btns">
-                  <!-- Arrow Left -->
                   <img src="../icons/arrowLeftMid.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Rotate -->
                   <img src="../icons/arrowRotate.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Arrow Right -->
                   <img src="../icons/arrowRightMid.svg" width="40" alt="" />
                 </button>
               </div>
@@ -171,15 +145,12 @@
               <!-- Bottom -->
               <div class="d-flex justify-content-center gap-2">
                 <button class="btns">
-                  <!-- Arrow Down Left -->
                   <img src="../icons/arrowLeftBottom.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Arrow Down -->
                   <img src="../icons/arrowDown.svg" width="40" alt="" />
                 </button>
                 <button class="btns">
-                  <!-- Arrow Down Right -->
                   <img src="../icons/arrowRightBottom.svg" width="40" alt="" />
                 </button>
               </div>
@@ -188,18 +159,12 @@
         </div>
 
         <!-- Div Two -->
-        <div class="w-100 adjustment-group" data-group="focus">
+        <div class="w-100 adjustment-group" data-group="lenz">
           <div class="m-1 py-1 px-3 box mx-2">
-            <p class="overflow-y-hidden mb-1">Focus adjustment</p>
+            <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
             <div class="slider-container mt-2">
               <button class="decreaseBtn btn btn-danger btn">−</button>
-              <input
-                type="range"
-                class="rangeSlider"
-                min="1"
-                max="4000"
-                value="200"
-              />
+              <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
               <button class="increaseBtn btn btn-success btn">+</button>
             </div>
             <div class="mt-2">
@@ -216,18 +181,12 @@
         </div>
 
         <!-- Div Three -->
-        <div class="w-100 adjustment-group" data-group="lenz">
+        <div class="w-100 adjustment-group" data-group="zoom">
           <div class="m-1 py-1 px-3 box mx-2">
-            <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
+            <p class="overflow-y-hidden mb-1">Zoom adjustment</p>
             <div class="slider-container mt-2">
               <button class="decreaseBtn btn btn-danger btn">−</button>
-              <input
-                type="range"
-                class="rangeSlider"
-                min="1"
-                max="4000"
-                value="200"
-              />
+              <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
               <button class="increaseBtn btn btn-success btn">+</button>
             </div>
             <div class="mt-2">
@@ -249,13 +208,7 @@
             <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
             <div class="slider-container mt-2">
               <button class="decreaseBtn btn btn-danger btn">−</button>
-              <input
-                type="range"
-                class="rangeSlider"
-                min="1"
-                max="4000"
-                value="200"
-              />
+              <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
               <button class="increaseBtn btn btn-success btn">+</button>
             </div>
             <div class="mt-2">
@@ -283,55 +236,17 @@
           Show the menu
         </button>
         <div class="collapse side-menu" id="mobilePanel">
-          <!-- Div One -->
-          <div class="w-100 adjustment-group" data-group="focus">
-            <div class="m-1 py-1 px-3 box mx-2">
-              <p class="overflow-y-hidden mb-1">Focus adjustment</p>
-              <div class="slider-container mt-2">
-                <button class="decreaseBtn btn btn-danger btn">−</button>
-                <input
-                  type="range"
-                  class="rangeSlider"
-                  min="1"
-                  max="4000"
-                  value="200"
-                />
-                <button class="increaseBtn btn btn-success btn">+</button>
-              </div>
-              <div class="mt-2">
-                <label class="form-label"
-                  >Variable value (from 1 to 4000)</label
-                >
-                <input
-                  type="number"
-                  class="stepInput form-control form-control-sm"
-                  min="1"
-                  max="4000"
-                  value="200"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Div Two -->
+          <!-- Lenz -->
           <div class="w-100 adjustment-group" data-group="lenz">
             <div class="m-1 py-1 px-3 box mx-2">
               <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
               <div class="slider-container mt-2">
                 <button class="decreaseBtn btn btn-danger btn">−</button>
-                <input
-                  type="range"
-                  class="rangeSlider"
-                  min="1"
-                  max="4000"
-                  value="200"
-                />
+                <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
                 <button class="increaseBtn btn btn-success btn">+</button>
               </div>
               <div class="mt-2">
-                <label class="form-label"
-                  >Variable value (from 1 to 4000)</label
-                >
+                <label class="form-label">Variable value (from 1 to 4000)</label>
                 <input
                   type="number"
                   class="stepInput form-control form-control-sm"
@@ -343,25 +258,39 @@
             </div>
           </div>
 
-          <!-- Div Three -->
+                    <!-- Zoom -->
+          <div class="w-100 adjustment-group" data-group="zoom">
+            <div class="m-1 py-1 px-3 box mx-2">
+              <p class="overflow-y-hidden mb-1">Zoom</p>
+              <div class="slider-container mt-2">
+                <button class="decreaseBtn btn btn-danger btn">−</button>
+                <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
+                <button class="increaseBtn btn btn-success btn">+</button>
+              </div>
+              <div class="mt-2">
+                <label class="form-label">Variable value (from 1 to 4000)</label>
+                <input
+                  type="number"
+                  class="stepInput form-control form-control-sm"
+                  min="1"
+                  max="4000"
+                  value="200"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Diaphragm -->
           <div class="w-100 adjustment-group" data-group="diaphragm">
             <div class="m-1 py-1 px-3 box mx-2">
               <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
               <div class="slider-container mt-2">
                 <button class="decreaseBtn btn btn-danger btn">−</button>
-                <input
-                  type="range"
-                  class="rangeSlider"
-                  min="1"
-                  max="4000"
-                  value="200"
-                />
+                <input type="range" class="rangeSlider" min="1" max="4000" value="200" />
                 <button class="increaseBtn btn btn-success btn">+</button>
               </div>
               <div class="mt-2">
-                <label class="form-label"
-                  >Variable value (from 1 to 4000)</label
-                >
+                <label class="form-label">Variable value (from 1 to 4000)</label>
                 <input
                   type="number"
                   class="stepInput form-control form-control-sm"
@@ -373,68 +302,52 @@
             </div>
           </div>
 
-          <!-- Div Four -->
+          <!-- Camera rotation -->
           <div class="w-100">
             <div class="m-1 px-4 py-2 box mx-2 mt-2">
               <p>Camera rotation</p>
               <div>
-                <!-- Top -->
                 <div class="d-flex justify-content-center gap-2 mb-2">
                   <button class="btns">
-                    <!-- Arrow Up Left -->
                     <img src="../icons/arrowLeftTop.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Arrow Up -->
                     <img src="../icons/arrowUp.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Arrow Up Right -->
                     <img src="../icons/arrowRightTop.svg" width="40" alt="" />
                   </button>
                 </div>
-
-                <!-- Mid -->
                 <div class="d-flex justify-content-center gap-2 mb-2">
                   <button class="btns">
-                    <!-- Arrow Left -->
                     <img src="../icons/arrowLeftMid.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Rotate -->
                     <img src="../icons/arrowRotate.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Arrow Right -->
                     <img src="../icons/arrowRightMid.svg" width="40" alt="" />
                   </button>
                 </div>
-
-                <!-- Bottom -->
                 <div class="d-flex justify-content-center gap-2">
                   <button class="btns">
-                    <!-- Arrow Down Left -->
                     <img src="../icons/arrowLeftBottom.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Arrow Down -->
                     <img src="../icons/arrowDown.svg" width="40" alt="" />
                   </button>
                   <button class="btns">
-                    <!-- Arrow Down Right -->
-                    <img
-                      src="../icons/arrowRightBottom.svg"
-                      width="40"
-                      alt=""
-                    />
+                    <img src="../icons/arrowRightBottom.svg" width="40" alt="" />
                   </button>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </main>
+
     <script src="../bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../js/viewControll.js"></script>
   </body>

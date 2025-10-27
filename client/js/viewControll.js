@@ -1,79 +1,59 @@
-const video = document.getElementById("myVideo");
+// ===== MJPEG player (IMG-based) =====
+const STREAM_URL = "http://192.168.1.142/mjpeg";
+
+const img = document.getElementById("mjpegStream");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
-const muteUnmuteBtn = document.getElementById("muteUnmuteBtn");
-const volumeSlider = document.getElementById("volumeSlider");
-// const captureBtn = document.getElementById("captureBtn");
-// const recordBtn = document.getElementById("recordBtn");
-// const recordIndicator = document.getElementById("recordIndicator");
+const container = document.getElementById("videoContainer");
 
-// === Play / Pause ===
+let isPlaying = true;
+
+function bustCacheUrl(url) {
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}_t=${Date.now()}`;
+}
+
+function playStream() {
+  if (isPlaying) return;
+  img.src = bustCacheUrl(STREAM_URL);
+  isPlaying = true;
+  playPauseBtn.textContent = "Pause";
+}
+
+function pauseStream() {
+  if (!isPlaying) return;
+  // خالی کردن src اتصال MJPEG را می‌بُرد
+  img.src = "";
+  isPlaying = false;
+  playPauseBtn.textContent = "Play";
+}
+
 playPauseBtn.addEventListener("click", () => {
-  if (video.paused) {
-    video.play();
-    playPauseBtn.textContent = "Pause";
-  } else {
-    video.pause();
-    playPauseBtn.textContent = "Play";
-  }
+  isPlaying ? pauseStream() : playStream();
 });
 
-// === Fullscreen ===
+// Fullscreen روی کانتینر تصویر
 fullscreenBtn.addEventListener("click", () => {
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
-  }
-});
-
-// === Mute / Unmute و کنترل اسلایدر صدا ===
-// مقدار اولیه اسلایدر را روی volume فعلی ویدئو قرار می‌دهیم
-volumeSlider.value = video.volume;
-
-muteUnmuteBtn.addEventListener("click", () => {
-  if (video.muted) {
-    video.muted = false;
-    muteUnmuteBtn.textContent = "Mute";
-    // وقتی unmute شد، مقدار اسلایدر را بر اساس volume تنظیم کن
-    volumeSlider.value = video.volume;
+  if (!document.fullscreenElement) {
+    container.requestFullscreen?.();
   } else {
-    video.muted = true;
-    muteUnmuteBtn.textContent = "Unmute";
-    // وقتی mute شد، اسلایدر را به صفر ببریم (یا مخفی نگه داریم)
-    volumeSlider.value = 0;
+    document.exitFullscreen?.();
   }
 });
 
-// وقتی اسلایدر تغییر می‌کند، مقدار volume تنظیم می‌شود
-volumeSlider.addEventListener("input", () => {
-  video.volume = volumeSlider.value;
-  if (video.volume === 0) {
-    video.muted = true;
-    muteUnmuteBtn.textContent = "Unmute";
-  } else {
-    video.muted = false;
-    muteUnmuteBtn.textContent = "Mute";
-  }
+// تلاش مجدد در صورت خطای بارگذاری
+img.addEventListener("error", () => {
+  setTimeout(() => {
+    if (isPlaying) img.src = bustCacheUrl(STREAM_URL);
+  }, 1000);
 });
 
-// وقتی موس روی کانتینر Volume می‌آید، اسلایدر نمایان می‌شود (CSS این را مدیریت می‌کند)
-// اما اگر ویدئو mute باشد، اجازه ندهیم اسلایدر نمایش داده شود:
-document
-  .querySelector(".volume-container")
-  .addEventListener("mouseover", () => {
-    if (video.muted) {
-      volumeSlider.style.display = "none";
-    } else {
-      volumeSlider.style.display = "block";
-    }
-  });
-document.querySelector(".volume-container").addEventListener("mouseout", () => {
-  volumeSlider.style.display = "none";
+// شروع اولیه با آنتی‌کش
+window.addEventListener("load", () => {
+  img.src = bustCacheUrl(STREAM_URL);
 });
 
+// ===== تنظیمات اسلایدرها (بدون تغییر) =====
 const allGroups = [...new Set(
   Array.from(document.querySelectorAll('.adjustment-group'))
     .map(g => g.dataset.group)
@@ -98,15 +78,13 @@ allGroups.forEach(groupName => {
     });
   };
 
-  // همگام‌سازی دستی اسلایدر
   rangeInputs.forEach(slider => {
     slider.addEventListener('input', () => {
       syncRange(slider.value);
     });
-    updateSliderBackground(); // هنگام بارگذاری اولیه
+    updateSliderBackground();
   });
 
-  // دکمه افزایش
   increaseBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const currentVal = parseInt(rangeInputs[0].value);
@@ -115,7 +93,6 @@ allGroups.forEach(groupName => {
     });
   });
 
-  // دکمه کاهش
   decreaseBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const currentVal = parseInt(rangeInputs[0].value);
@@ -124,4 +101,3 @@ allGroups.forEach(groupName => {
     });
   });
 });
-

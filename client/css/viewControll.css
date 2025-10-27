@@ -9,12 +9,13 @@ main {
   -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
 }
-.video-box {
-  border: 3px;
-}
-video {
+
+/* با MJPEG از <img> استفاده می‌کنیم */
+.stream-media {
   object-fit: contain;
 }
+
+/* Controls */
 #videoTools {
   position: relative;
   margin-top: 8px;
@@ -45,34 +46,11 @@ video {
 #videoTools div {
   overflow-y: hidden;
 }
-.volume-container {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-.volume-slider {
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 80px;
-  writing-mode: bt-lr;
-  background: #ddd;
-  border-radius: 4px;
-  display: none; /* در ابتدا مخفی است */
-}
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  background: #888;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.volume-container:hover .volume-slider {
-  display: block;
-}
+
+/* حذف کامل استایل‌های مربوط به ولوم/میوت/اسلایدر (دیگه وجود ندارن) */
+/* — nothing — */
+
+/* Buttons (side menu) */
 .btns {
   background: #cfcfcf99;
   border: 1px solid #000;
@@ -86,11 +64,6 @@ video {
   transition: transform 0.2s ease, filter 0.2s ease;
   overflow-y: hidden;
 }
-/* .btns img {
-  pointer-events: none;
-  transition: all 0.2s ease;
-  color: #495057;
-} */
 .btns:hover {
   background-color: #c9c9c9;
   color: rgb(92, 92, 92);
@@ -121,6 +94,7 @@ video {
   border: 1px solid black;
   transform: scale(1.1);
 }
+
 .side-menu {
   background-color: #e7e2e2;
   border: 2px solid #888;
@@ -164,7 +138,6 @@ input[type="range"] {
   border-radius: 5px;
   outline: none;
 }
-
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 20px;
@@ -174,7 +147,6 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
-
 input[type="range"]::-webkit-slider-runnable-track {
   background: linear-gradient(
     to right,
@@ -191,10 +163,8 @@ input[type="range"]::-webkit-slider-runnable-track {
     align-items: center;
     gap: 10px;
   }
-
   #videoTools > div {
     justify-content: center;
-    /* flex-wrap: wrap; */
   }
   #videoTools button {
     border-radius: 30%;
