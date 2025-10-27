@@ -1,0 +1,15 @@
+meta {
+  name: majestic_video_GET
+  type: http
+  seq: 32
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/majestic_video.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

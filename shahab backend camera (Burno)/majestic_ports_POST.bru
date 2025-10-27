@@ -1,0 +1,21 @@
+meta {
+  name: majestic_ports_POST
+  type: http
+  seq: 31
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/majestic_port.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  http_port: 80
+  https_port: 443
+  rtsp_port: 554
+}
+
+settings {
+  encodeUrl: true
+}

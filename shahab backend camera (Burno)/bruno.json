@@ -1,0 +1,11 @@
+{
+  "version": "1",
+  "name": "shahab backend camera",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 0.007561683654785156,
+  "filesCount": 36
+}

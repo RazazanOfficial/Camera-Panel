@@ -1,0 +1,15 @@
+meta {
+  name: majestic_audio_GET
+  type: http
+  seq: 35
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/majestic_audio.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

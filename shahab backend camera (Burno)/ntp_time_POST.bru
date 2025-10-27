@@ -1,0 +1,19 @@
+meta {
+  name: ntp_time_POST
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/ntp_time.cgi?
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  ntp_server: 0.pool.ntp.org
+}
+
+settings {
+  encodeUrl: true
+}

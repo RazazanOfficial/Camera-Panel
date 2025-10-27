@@ -1,0 +1,15 @@
+meta {
+  name: majestic_ports_GET
+  type: http
+  seq: 30
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/majestic_port.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

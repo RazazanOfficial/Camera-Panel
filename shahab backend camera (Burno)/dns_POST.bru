@@ -1,0 +1,20 @@
+meta {
+  name: dns_POST
+  type: http
+  seq: 26
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/dns.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  preferred_dns: 8.8.8.8
+  alternate_dns: 8.8.8.4
+}
+
+settings {
+  encodeUrl: true
+}

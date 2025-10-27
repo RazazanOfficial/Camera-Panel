@@ -1,0 +1,25 @@
+meta {
+  name: majestic_video0_POST
+  type: http
+  seq: 33
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/majestic_video.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  type: 0
+  resolution: 1280x720
+  bitrate_type: vbr
+  frame_rate_fps: 25
+  max_bitrate_kbps: 3072
+  profile: high
+  i_frame_interval: 2
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,15 @@
+meta {
+  name: ntp_time_GET
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/ntp_time.cgi?
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

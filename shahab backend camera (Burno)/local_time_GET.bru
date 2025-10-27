@@ -1,0 +1,15 @@
+meta {
+  name: local_time_GET
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/local_time.cgi?
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

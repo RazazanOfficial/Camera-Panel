@@ -1,0 +1,21 @@
+meta {
+  name: user_list_POST
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/user_list.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  username: meraj test
+  password: 123456
+  level: 1
+}
+
+settings {
+  encodeUrl: true
+}

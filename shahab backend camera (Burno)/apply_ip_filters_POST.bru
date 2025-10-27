@@ -1,0 +1,15 @@
+meta {
+  name: apply_ip_filters_POST
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/apply_ip_filters.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

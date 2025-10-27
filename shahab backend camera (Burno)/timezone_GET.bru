@@ -1,0 +1,15 @@
+meta {
+  name: timezone_GET
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/timezone.cgi?
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: ipv4_dhcp_enable_POST
+  type: http
+  seq: 23
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/ipv4.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  dhcp: true
+}
+
+settings {
+  encodeUrl: true
+}

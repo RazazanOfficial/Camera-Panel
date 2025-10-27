@@ -1,0 +1,20 @@
+meta {
+  name: ip_filter_allowed_POST
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/ip_filter.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  status: allowed
+  ip_filter: 5.5.5.5
+}
+
+settings {
+  encodeUrl: true
+}

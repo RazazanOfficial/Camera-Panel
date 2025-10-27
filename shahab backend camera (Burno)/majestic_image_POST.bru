@@ -1,0 +1,31 @@
+meta {
+  name: majestic_image_POST
+  type: http
+  seq: 38
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/majestic_image.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  mirror: false
+  flip: false
+  rotate: 0
+  contrast: 50
+  hue: 50
+  saturation: 50
+  luminance: 50
+  tuning: false
+  antiFlicker: disabled
+  drc: enabled
+  slowShutter: false
+  rawMode: false
+  dis: enabled
+}
+
+settings {
+  encodeUrl: true
+}

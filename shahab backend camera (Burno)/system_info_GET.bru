@@ -1,0 +1,16 @@
+meta {
+  name: system_info_GET
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/system_info.cgi
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~system_name: 
+  ~system_num: 
+}

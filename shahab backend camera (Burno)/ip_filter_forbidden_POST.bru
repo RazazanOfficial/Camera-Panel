@@ -1,0 +1,20 @@
+meta {
+  name: ip_filter_forbidden_POST
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/ip_filter.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  status: forbidden
+  ip_filter: 6.6.6.6
+}
+
+settings {
+  encodeUrl: true
+}

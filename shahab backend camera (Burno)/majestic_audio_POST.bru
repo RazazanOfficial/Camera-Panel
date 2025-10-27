@@ -1,0 +1,20 @@
+meta {
+  name: majestic_audio_POST
+  type: http
+  seq: 36
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/majestic_audio.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  codec: opus
+  volume: 30
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,21 @@
+meta {
+  name: modify_ip_POST
+  type: http
+  seq: 17
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/modify_ip.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  line_number: 1
+  ip: 12.12.12.10
+  status: forbidden
+}
+
+settings {
+  encodeUrl: true
+}

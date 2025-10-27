@@ -1,0 +1,15 @@
+meta {
+  name: reboot_POST
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/reboot.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

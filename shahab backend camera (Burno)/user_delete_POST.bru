@@ -1,0 +1,19 @@
+meta {
+  name: user_delete_POST
+  type: http
+  seq: 20
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/user_delete.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  number_line: 4
+}
+
+settings {
+  encodeUrl: true
+}

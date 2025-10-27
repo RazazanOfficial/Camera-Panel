@@ -1,0 +1,15 @@
+meta {
+  name: ip_filter_GET
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/ip_filter.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,22 @@
+meta {
+  name: ipv4_dhcp_disable_POST
+  type: http
+  seq: 24
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/ipv4.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  dhcp: false
+  ipv4_address: 192.168.1.142
+  ipv4_gateway: 192.168.1.1
+  ipv4_netmask: 255.255.255.0
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,15 @@
+meta {
+  name: ipv4_GET
+  type: http
+  seq: 22
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/ipv4.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

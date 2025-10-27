@@ -1,0 +1,21 @@
+meta {
+  name: system_info_POST
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/system_info.cgi?
+  body: formUrlEncoded
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  system_name: Mer1ajSystem
+  system_num: 1234512
+  system_serial: asdaa
+}

@@ -1,0 +1,19 @@
+meta {
+  name: delete_ip_POST
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/delete_ip.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  line_number: 1
+}
+
+settings {
+  encodeUrl: true
+}

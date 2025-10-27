@@ -1,0 +1,19 @@
+meta {
+  name: timezone_POST
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/timezone.cgi?
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  timezone: Asia/Tehran
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,22 @@
+meta {
+  name: user_modify_POST
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/user_modify.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  number_line: 3
+  username: meraj test
+  password: 1234
+  level: 1
+}
+
+settings {
+  encodeUrl: true
+}

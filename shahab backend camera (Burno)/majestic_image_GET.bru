@@ -1,0 +1,15 @@
+meta {
+  name: majestic_image_GET
+  type: http
+  seq: 37
+}
+
+get {
+  url: {{deviceIP}}/cgi-bin/api/majestic_image.cgi
+  body: formUrlEncoded
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,1488 @@
+{
+  "name": "shahab backend camera",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "apply_ip_filters_POST",
+      "filename": "apply_ip_filters_POST.bru",
+      "seq": 15,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/apply_ip_filters.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "delete_ip_POST",
+      "filename": "delete_ip_POST.bru",
+      "seq": 16,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/delete_ip.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "line_number",
+              "value": "1",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "dns_GET",
+      "filename": "dns_GET.bru",
+      "seq": 25,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/dns.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "dns_POST",
+      "filename": "dns_POST.bru",
+      "seq": 26,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/dns.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "preferred_dns",
+              "value": "8.8.8.8",
+              "enabled": true
+            },
+            {
+              "name": "alternate_dns",
+              "value": "8.8.8.4",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ipv4_dhcp_disable_POST",
+      "filename": "ipv4_dhcp_disable_POST.bru",
+      "seq": 24,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ipv4.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "dhcp",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "ipv4_address",
+              "value": "192.168.1.142",
+              "enabled": true
+            },
+            {
+              "name": "ipv4_gateway",
+              "value": "192.168.1.1",
+              "enabled": true
+            },
+            {
+              "name": "ipv4_netmask",
+              "value": "255.255.255.0",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ipv4_dhcp_enable_POST",
+      "filename": "ipv4_dhcp_enable_POST.bru",
+      "seq": 23,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ipv4.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "dhcp",
+              "value": "true",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ipv4_GET",
+      "filename": "ipv4_GET.bru",
+      "seq": 22,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ipv4.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ip_filter_allowed_POST",
+      "filename": "ip_filter_allowed_POST.bru",
+      "seq": 12,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ip_filter.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "status",
+              "value": "allowed",
+              "enabled": true
+            },
+            {
+              "name": "ip_filter",
+              "value": "5.5.5.5",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ip_filter_forbidden_POST",
+      "filename": "ip_filter_forbidden_POST.bru",
+      "seq": 13,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ip_filter.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "status",
+              "value": "forbidden",
+              "enabled": true
+            },
+            {
+              "name": "ip_filter",
+              "value": "6.6.6.6",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ip_filter_GET",
+      "filename": "ip_filter_GET.bru",
+      "seq": 14,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ip_filter.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "local_time_GET",
+      "filename": "local_time_GET.bru",
+      "seq": 4,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/local_time.cgi?",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "local_time_POST",
+      "filename": "local_time_POST.bru",
+      "seq": 5,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/local_time.cgi?",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "local_time",
+              "value": "2025-08-09 10:35:51",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "logread_GET",
+      "filename": "logread_GET.bru",
+      "seq": 11,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/logread.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "mac_address_GET",
+      "filename": "mac_address_GET.bru",
+      "seq": 27,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/mac_address.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_audio_GET",
+      "filename": "majestic_audio_GET.bru",
+      "seq": 35,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_audio.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_audio_POST",
+      "filename": "majestic_audio_POST.bru",
+      "seq": 36,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_audio.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "codec",
+              "value": "opus",
+              "enabled": true
+            },
+            {
+              "name": "volume",
+              "value": "30",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_ports_GET",
+      "filename": "majestic_ports_GET.bru",
+      "seq": 30,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_port.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_ports_POST",
+      "filename": "majestic_ports_POST.bru",
+      "seq": 31,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_port.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "http_port",
+              "value": "80",
+              "enabled": true
+            },
+            {
+              "name": "https_port",
+              "value": "443",
+              "enabled": true
+            },
+            {
+              "name": "rtsp_port",
+              "value": "554",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_video0_POST",
+      "filename": "majestic_video0_POST.bru",
+      "seq": 33,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_video.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "type",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "name": "resolution",
+              "value": "1280x720",
+              "enabled": true
+            },
+            {
+              "name": "bitrate_type",
+              "value": "vbr",
+              "enabled": true
+            },
+            {
+              "name": "frame_rate_fps",
+              "value": "25",
+              "enabled": true
+            },
+            {
+              "name": "max_bitrate_kbps",
+              "value": "3072",
+              "enabled": true
+            },
+            {
+              "name": "profile",
+              "value": "high",
+              "enabled": true
+            },
+            {
+              "name": "i_frame_interval",
+              "value": "2",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_video1_POST",
+      "filename": "majestic_video1_POST.bru",
+      "seq": 34,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_video.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "type",
+              "value": "1",
+              "enabled": true
+            },
+            {
+              "name": "resolution",
+              "value": "1280x720",
+              "enabled": true
+            },
+            {
+              "name": "bitrate_type",
+              "value": "vbr",
+              "enabled": true
+            },
+            {
+              "name": "frame_rate_fps",
+              "value": "25",
+              "enabled": true
+            },
+            {
+              "name": "max_bitrate_kbps",
+              "value": "3072",
+              "enabled": true
+            },
+            {
+              "name": "profile",
+              "value": "high",
+              "enabled": true
+            },
+            {
+              "name": "i_frame_interval",
+              "value": "2",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_video_GET",
+      "filename": "majestic_video_GET.bru",
+      "seq": 32,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_video.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "modify_ip_POST",
+      "filename": "modify_ip_POST.bru",
+      "seq": 17,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/modify_ip.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "line_number",
+              "value": "1",
+              "enabled": true
+            },
+            {
+              "name": "ip",
+              "value": "12.12.12.10",
+              "enabled": true
+            },
+            {
+              "name": "status",
+              "value": "forbidden",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "mtu_GET",
+      "filename": "mtu_GET.bru",
+      "seq": 28,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/mtu.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "mtu_POST",
+      "filename": "mtu_POST.bru",
+      "seq": 29,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/mtu.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "mtu",
+              "value": "1500",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ntp_time_GET",
+      "filename": "ntp_time_GET.bru",
+      "seq": 6,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ntp_time.cgi?",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "ntp_time_POST",
+      "filename": "ntp_time_POST.bru",
+      "seq": 7,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/ntp_time.cgi?",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "ntp_server",
+              "value": "0.pool.ntp.org",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "reboot_POST",
+      "filename": "reboot_POST.bru",
+      "seq": 10,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/reboot.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "system_info_GET",
+      "filename": "system_info_GET.bru",
+      "seq": 2,
+      "settings": {},
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/system_info.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "system_name",
+            "value": "",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "system_num",
+            "value": "",
+            "type": "query",
+            "enabled": false
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "system_info_POST",
+      "filename": "system_info_POST.bru",
+      "seq": 3,
+      "settings": {},
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/system_info.cgi?",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "enabled": true
+          }
+        ],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "system_name",
+              "value": "Mer1ajSystem",
+              "enabled": true
+            },
+            {
+              "name": "system_num",
+              "value": "1234512",
+              "enabled": true
+            },
+            {
+              "name": "system_serial",
+              "value": "asdaa",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "timezone_GET",
+      "filename": "timezone_GET.bru",
+      "seq": 8,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/timezone.cgi?",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "timezone_POST",
+      "filename": "timezone_POST.bru",
+      "seq": 9,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/timezone.cgi?",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "timezone",
+              "value": "Asia/Tehran",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "user_delete_POST",
+      "filename": "user_delete_POST.bru",
+      "seq": 20,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/user_delete.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "number_line",
+              "value": "4",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "user_list_GET",
+      "filename": "user_list_GET.bru",
+      "seq": 18,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/user_list.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "user_list_POST",
+      "filename": "user_list_POST.bru",
+      "seq": 19,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/user_list.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "username",
+              "value": "meraj test",
+              "enabled": true
+            },
+            {
+              "name": "password",
+              "value": "123456",
+              "enabled": true
+            },
+            {
+              "name": "level",
+              "value": "1",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "user_modify_POST",
+      "filename": "user_modify_POST.bru",
+      "seq": 21,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/user_modify.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "number_line",
+              "value": "3",
+              "enabled": true
+            },
+            {
+              "name": "username",
+              "value": "meraj test",
+              "enabled": true
+            },
+            {
+              "name": "password",
+              "value": "1234",
+              "enabled": true
+            },
+            {
+              "name": "level",
+              "value": "1",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_image_GET",
+      "filename": "majestic_image_GET.bru",
+      "seq": 37,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_image.cgi",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "majestic_image_POST",
+      "filename": "majestic_image_POST.bru",
+      "seq": 38,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "{{deviceIP}}/cgi-bin/api/majestic_image.cgi",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "formUrlEncoded",
+          "formUrlEncoded": [
+            {
+              "name": "mirror",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "flip",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "rotate",
+              "value": "0",
+              "enabled": true
+            },
+            {
+              "name": "contrast",
+              "value": "50",
+              "enabled": true
+            },
+            {
+              "name": "hue",
+              "value": "50",
+              "enabled": true
+            },
+            {
+              "name": "saturation",
+              "value": "50",
+              "enabled": true
+            },
+            {
+              "name": "luminance",
+              "value": "50",
+              "enabled": true
+            },
+            {
+              "name": "tuning",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "antiFlicker",
+              "value": "disabled",
+              "enabled": true
+            },
+            {
+              "name": "drc",
+              "value": "enabled",
+              "enabled": true
+            },
+            {
+              "name": "slowShutter",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "rawMode",
+              "value": "false",
+              "enabled": true
+            },
+            {
+              "name": "dis",
+              "value": "enabled",
+              "enabled": true
+            }
+          ],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "root": {
+    "request": {
+      "vars": {
+        "req": [
+          {
+            "name": "deviceIP",
+            "value": "192.168.1.142:80",
+            "enabled": true,
+            "local": false,
+            "uid": "amnjvtCPOF70hUZii9WWE"
+          }
+        ]
+      }
+    }
+  },
+  "brunoConfig": {
+    "version": "1",
+    "name": "shahab backend camera",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.007561683654785156,
+    "filesCount": 36
+  }
+}

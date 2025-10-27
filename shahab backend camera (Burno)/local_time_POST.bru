@@ -1,0 +1,19 @@
+meta {
+  name: local_time_POST
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{deviceIP}}/cgi-bin/api/local_time.cgi?
+  body: formUrlEncoded
+  auth: inherit
+}
+
+body:form-urlencoded {
+  local_time: 2025-08-09 10:35:51
+}
+
+settings {
+  encodeUrl: true
+}
