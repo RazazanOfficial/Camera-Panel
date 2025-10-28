@@ -6,7 +6,7 @@
     <title>Login - SHAAHAB</title>
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/login.css" />
-      <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp">
+    <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
   </head>
   <body>
     <div class="background-overlay">
@@ -32,7 +32,9 @@
               </select>
             </div>
           </div>
+
           <h3 class="text-center mb-4">Login</h3>
+
           <form>
             <div class="mb-3">
               <div class="d-flex align-items-center">
@@ -47,6 +49,7 @@
                 required
               />
             </div>
+
             <div class="mb-3">
               <div class="d-flex align-items-center">
                 <img src="../icons/lock.svg" alt="Lock" class="icon" />
@@ -60,22 +63,32 @@
                 required
               />
             </div>
+
             <div class="mb-3">
               <a href="./html/forget-password.html" class="link"
                 >Forget Password?</a
               >
             </div>
+
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
         </div>
+
         <span
           class="text-white"
           style="position: absolute; bottom: 3%; font-weight: bold"
-          >© 2025 SHAAHAB™. All rights reserved.
+        >
+          © 2025 SHAAHAB™. All rights reserved.
         </span>
       </div>
     </div>
+
+    <!-- Scripts -->
     <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/apiConfig.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/apiService.js"></script>
+    <script src="../js/md5.min.js"></script>
     <script src="../js/login.js"></script>
   </body>
 </html>

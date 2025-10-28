@@ -1,0 +1,19 @@
+meta {
+  name: system_timezone GET
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{device_ip}}/cgi-bin/api/system_timezone.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}

@@ -1,0 +1,27 @@
+meta {
+  name: net_ipv4 SET
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/net_ipv4.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  ipv4_address: 192.168.1.142
+  ipv4_netmask: 255.255.255.0
+  ipv4_gateway: 192.168.1.1
+  dhcp: false
+  ipv4_dns: 8.8.8.8
+}

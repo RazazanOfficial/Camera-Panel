@@ -1,0 +1,25 @@
+meta {
+  name: appConfig_video SET
+  type: http
+  seq: 37
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/appConfig_video.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e&channel=0
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  channel: 0
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  codec: h265
+  rcMode: cbr
+}

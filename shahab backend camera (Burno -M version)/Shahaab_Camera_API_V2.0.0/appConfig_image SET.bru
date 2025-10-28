@@ -1,0 +1,27 @@
+meta {
+  name: appConfig_image SET
+  type: http
+  seq: 35
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/appConfig_image.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  exposure: 10
+  aGain: 16384
+  dGain: 1024
+  ispGain: 8000
+  drc: 400
+}

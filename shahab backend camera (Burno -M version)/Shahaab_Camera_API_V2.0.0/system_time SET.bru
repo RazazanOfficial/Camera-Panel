@@ -1,0 +1,23 @@
+meta {
+  name: system_time SET
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/system_ntp.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  ntp_server: 192.168.100.150
+}

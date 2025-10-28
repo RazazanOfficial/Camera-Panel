@@ -1,0 +1,19 @@
+meta {
+  name: login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/login.cgi?user=mostafa
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  user: mostafa
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}

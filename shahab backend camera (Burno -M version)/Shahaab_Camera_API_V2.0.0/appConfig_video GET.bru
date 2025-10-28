@@ -1,0 +1,21 @@
+meta {
+  name: appConfig_video GET
+  type: http
+  seq: 36
+}
+
+get {
+  url: {{device_ip}}/cgi-bin/api/appConfig_video.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e&channel=0&protocol=jpeg
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  channel: 0
+  protocol: jpeg
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}

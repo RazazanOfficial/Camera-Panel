@@ -1,0 +1,19 @@
+meta {
+  name: net_mac GET
+  type: http
+  seq: 22
+}
+
+get {
+  url: {{device_ip}}/cgi-bin/api/net_mac.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}

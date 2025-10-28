@@ -1,0 +1,11 @@
+{
+  "version": "1",
+  "name": "Shahaab_Camera_API_V2.0.0",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 0,
+  "filesCount": 0
+}

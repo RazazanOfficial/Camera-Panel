@@ -1,0 +1,26 @@
+meta {
+  name: user_modify SET
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/user_modify.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  username: meraj2
+  password: 12345
+  level: 2
+  number_line: 1
+}

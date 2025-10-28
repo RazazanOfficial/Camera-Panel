@@ -1,0 +1,23 @@
+meta {
+  name: user_delete SET
+  type: http
+  seq: 18
+}
+
+post {
+  url: {{device_ip}}/cgi-bin/api/user_delete.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  body: formUrlEncoded
+  auth: inherit
+}
+
+params:query {
+  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  number_line: 2
+}
