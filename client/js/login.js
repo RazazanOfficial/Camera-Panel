@@ -1,20 +1,9 @@
 // js/login.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-  const usernameInput = document.getElementById("User Name"); // همون id فعلی با فاصله
+  const usernameInput = document.getElementById("User Name"); // current id (with space)
   const passwordInput = document.getElementById("password");
   const submitBtn = form.querySelector('button[type="submit"]');
-
-  let alertEl = null;
-
-  const showAlert = (type, message) => {
-    if (alertEl) alertEl.remove();
-    alertEl = document.createElement("div");
-    alertEl.className = `alert alert-${type}`;
-    alertEl.role = "alert";
-    alertEl.textContent = message;
-    form.prepend(alertEl);
-  };
 
   const setLoading = (loading) => {
     submitBtn.disabled = loading;
@@ -28,13 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Helper برای سازگاری با انواع کتابخانه‌های MD5
+  // MD5 helper — uses your md5.min.js first; falls back if needed
   function computeMd5(str) {
-    if (typeof window.md5 === "function") return window.md5(str); // md5.min.js شما
+    if (typeof window.md5 === "function") return window.md5(str);
     if (window.CryptoJS?.MD5) return window.CryptoJS.MD5(str).toString();
     if (typeof window.hex_md5 === "function") return window.hex_md5(str);
-    throw new Error("کتابخانه‌ی MD5 در دسترس نیست. لطفاً md5.min.js را قبل از login.js لود کنید.");
-    // توجه: ترتیب لود در login.html رعایت شده است.
+    throw new Error("MD5 library not found. Please load md5.min.js before login.js.");
   }
 
   form.addEventListener("submit", async (e) => {
@@ -43,47 +31,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = passwordInput.value || "";
 
     if (!user || !password) {
-      showAlert("warning", "لطفاً نام کاربری و گذرواژه را وارد کنید.");
+      toast.warning("Please enter both username and password.");
       return;
     }
 
     try {
       setLoading(true);
-      showAlert("info", "در حال دریافت کد تصادفی (random) ...");
+      toast.info("Requesting random challenge...");
 
-      // 1) دریافت random: POST به /login.cgi?user={user}
+      // 1) Get random: POST /login.cgi?user={user}
       const loginResp = await apiPost(`${API_ENDPOINTS.login}?user=${encodeURIComponent(user)}`);
       const random = (typeof loginResp === "string" ? JSON.parse(loginResp) : loginResp)?.random;
 
       if (random === undefined || random === null) {
-        throw new Error("random از سرور دریافت نشد.");
+        throw new Error("Server did not return 'random'.");
       }
 
-      // 2) ساخت md5(user:random:password)
+      // 2) Build MD5(user:random:password)
       const credit = computeMd5(`${user}:${random}:${password}`);
 
-      // 3) دریافت token: POST به /login_token.cgi?credit={md5}
-      showAlert("info", "در حال تأیید اعتبار و دریافت توکن ...");
+      // 3) Request token: POST /login_token.cgi?credit={md5}
+      toast.info("Verifying credentials...");
       const tokenResp = await apiPost(`${API_ENDPOINTS.loginToken}?credit=${encodeURIComponent(credit)}`);
       const token = (typeof tokenResp === "string" ? JSON.parse(tokenResp) : tokenResp)?.token;
 
       if (!token) {
-        throw new Error("token از سرور دریافت نشد.");
+        throw new Error("Server did not return 'token'.");
       }
 
-      // 4) ذخیره‌ی توکن (TTL در auth.js)
+      // 4) Save token (TTL configured in auth.js)
       window.Auth.setToken(token);
-      sessionStorage.setItem("auth.username", user); // پسورد ذخیره نمی‌شود
+      sessionStorage.setItem("auth.username", user);
 
-      showAlert("success", "ورود با موفقیت انجام شد.");
-      // Optional: ریدایرکت به داشبورد
+      toast.success("Logged in successfully.");
+      // Optional redirect:
       // window.location.href = "../index.html";
     } catch (err) {
       console.error(err);
-      showAlert("danger", err.message || "خطا در فرآیند ورود.");
+      toast.error(`Login failed: ${err.message || "Unexpected error."}`);
     } finally {
       setLoading(false);
-      passwordInput.value = ""; // پاک‌سازی برای امنیت
+      passwordInput.value = ""; // security hygiene
     }
   });
 });

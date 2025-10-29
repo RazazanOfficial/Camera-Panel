@@ -6,28 +6,20 @@
     <title>Login - SHAAHAB</title>
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/toasti.css" />
     <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
   </head>
   <body>
     <div class="background-overlay">
-      <div
-        class="container d-flex flex-column justify-content-center align-items-center min-vh-100"
-      >
+      <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
         <div class="login-box p-4 rounded shadow">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="d-flex justify-content-center align-items-center gap-2">
               <span class="company-name">SHAAHAB</span>
-              <img
-                src="../imgs/Shahaab-Logo.webp"
-                alt="Logo"
-                style="width: 40px; height: 40px"
-              />
+              <img src="../imgs/Shahaab-Logo.webp" alt="Logo" style="width: 40px; height: 40px" />
             </div>
             <div class="language-select">
-              <select
-                class="form-select form-select-sm"
-                aria-label="Select language"
-              >
+              <select class="form-select form-select-sm" aria-label="Select language">
                 <option selected>English</option>
               </select>
             </div>
@@ -65,25 +57,21 @@
             </div>
 
             <div class="mb-3">
-              <a href="./html/forget-password.html" class="link"
-                >Forget Password?</a
-              >
+              <a href="./html/forget-password.html" class="link">Forget Password?</a>
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
         </div>
 
-        <span
-          class="text-white"
-          style="position: absolute; bottom: 3%; font-weight: bold"
-        >
+        <span class="text-white" style="position: absolute; bottom: 3%; font-weight: bold">
           © 2025 SHAAHAB™. All rights reserved.
         </span>
       </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts (toasti.js must be first) -->
+    <script src="../js/toasti.js"></script>
     <script src="../bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../js/apiConfig.js"></script>
     <script src="../js/auth.js"></script>

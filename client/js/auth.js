@@ -3,8 +3,8 @@
   const TOKEN_KEY = "auth.token";
   const EXPIRES_KEY = "auth.expiresAt";
 
-  // توسعه: 30 دقیقه — تولید: 5 دقیقه (در صورت نیاز تغییر بده)
-  const TOKEN_TTL_MS = 30 * 60 * 1000; // پیشنهاد تولید: 5 * 60 * 1000
+  // Dev: 30 minutes — Prod suggestion: 5 minutes
+  const TOKEN_TTL_MS = 30 * 60 * 1000;
 
   function setToken(token, ttlMs = TOKEN_TTL_MS) {
     sessionStorage.setItem(TOKEN_KEY, token);

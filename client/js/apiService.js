@@ -1,7 +1,7 @@
 // js/apiService.js
 
 async function parseMaybeJson(response) {
-  // برخی دیوایس‌ها content-type را درست برنمی‌گردانند؛ پس همیشه text می‌خوانیم و JSON.parse را تست می‌کنیم
+  // Some devices send incorrect content-type; read as text and try JSON.parse
   const text = await response.text();
   try {
     return JSON.parse(text);
