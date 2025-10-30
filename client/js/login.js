@@ -1,7 +1,7 @@
 // js/login.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-  const usernameInput = document.getElementById("User Name"); // current id (with space)
+  const usernameInput = document.getElementById("User Name");
   const passwordInput = document.getElementById("password");
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // MD5 helper — uses your md5.min.js first; falls back if needed
   function computeMd5(str) {
     if (typeof window.md5 === "function") return window.md5(str);
     if (window.CryptoJS?.MD5) return window.CryptoJS.MD5(str).toString();
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setLoading(true);
       toast.info("Requesting random challenge...");
 
-      // 1) Get random: POST /login.cgi?user={user}
+      // 1) Get random
       const loginResp = await apiPost(`${API_ENDPOINTS.login}?user=${encodeURIComponent(user)}`);
       const random = (typeof loginResp === "string" ? JSON.parse(loginResp) : loginResp)?.random;
 
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 2) Build MD5(user:random:password)
       const credit = computeMd5(`${user}:${random}:${password}`);
 
-      // 3) Request token: POST /login_token.cgi?credit={md5}
+      // 3) Request token
       toast.info("Verifying credentials...");
       const tokenResp = await apiPost(`${API_ENDPOINTS.loginToken}?credit=${encodeURIComponent(credit)}`);
       const token = (typeof tokenResp === "string" ? JSON.parse(tokenResp) : tokenResp)?.token;
@@ -59,19 +58,21 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Server did not return 'token'.");
       }
 
-      // 4) Save token (TTL configured in auth.js)
+      // 4) Save token (auth.js handles cookie + sessionStorage + in-page timeout)
       window.Auth.setToken(token);
-      sessionStorage.setItem("auth.username", user);
+      
+      toast.success("Logged in successfully. Redirecting...");
+      // redirect to viewControl (after a short delay so toast is visible)
+      setTimeout(() => {
+        window.location.href = "./viewControll.html"; // adjust path as needed
+      }, 600);
 
-      toast.success("Logged in successfully.");
-      // Optional redirect:
-      // window.location.href = "../index.html";
     } catch (err) {
       console.error(err);
       toast.error(`Login failed: ${err.message || "Unexpected error."}`);
     } finally {
       setLoading(false);
-      passwordInput.value = ""; // security hygiene
+      passwordInput.value = "";
     }
   });
 });

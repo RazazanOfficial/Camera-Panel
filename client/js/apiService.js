@@ -1,7 +1,6 @@
 // js/apiService.js
 
 async function parseMaybeJson(response) {
-  // Some devices send incorrect content-type; read as text and try JSON.parse
   const text = await response.text();
   try {
     return JSON.parse(text);
@@ -10,12 +9,29 @@ async function parseMaybeJson(response) {
   }
 }
 
+function handleAuthFailure() {
+  try {
+    window.Auth?.clearToken?.();
+    if (window.toast?.warning) {
+      toast.warning("Session expired or unauthorized. Redirecting to login.");
+    }
+  } catch (e) {
+    console.error(e);
+  } finally {
+    // small delay so toast is visible, then redirect
+    setTimeout(() => {
+      window.location.href = "./login.html";
+    }, 700);
+  }
+}
+
 async function apiGet(endpoint) {
   try {
     const response = await fetch(getAuthorizedUrl(endpoint), { method: "GET" });
     if (!response.ok) {
       if (response.status === 401 || response.status === 403) {
-        window.Auth?.clearToken?.();
+        handleAuthFailure();
+        throw new Error(`Unauthorized (status ${response.status})`);
       }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -41,7 +57,8 @@ async function apiPost(endpoint, data = {}) {
 
     if (!response.ok) {
       if (response.status === 401 || response.status === 403) {
-        window.Auth?.clearToken?.();
+        handleAuthFailure();
+        throw new Error(`Unauthorized (status ${response.status})`);
       }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
