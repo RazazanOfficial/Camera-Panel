@@ -5,14 +5,14 @@ meta {
 }
 
 post {
-  url: {{device_ip}}/cgi-bin/api/system_confRst.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e&noChange=ip_user
+  url: {{device_ip}}/cgi-bin/api/system_confRst.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
   body: formUrlEncoded
   auth: inherit
 }
 
 params:query {
   token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
-  noChange: ip_user
+  ~noChange: ip_user
 }
 
 headers {

@@ -94,7 +94,7 @@
             <nav class="nav flex-column" id="sidebar-menu">
               <!--* **** System **** *-->
               <div class="d-flex flex-column">
-                <a class="nav-link main-link" data-target="system">
+                <a class="nav-link main-link active" data-target="system">
                   <img
                     src="../icons/system.svg"
                     width="27"
@@ -104,8 +104,10 @@
                   />
                   <span>System</span>
                 </a>
-                <div class="submenu d-none" data-submenu="system">
-                  <a class="nav-link sub-link" data-content="systemSettings"
+                <div class="submenu" data-submenu="system">
+                  <a
+                    class="nav-link sub-link active"
+                    data-content="systemSettings"
                     >System Settings</a
                   >
                   <a class="nav-link sub-link" data-content="maintenance"
@@ -185,7 +187,7 @@
             <div class="system-sec">
               <!--? **** System Settings Box **** ?-->
               <div
-                class="content-box user-system-sec global-sec"
+                class="content-box user-system-sec global-sec active"
                 id="systemSettings"
               >
                 <!--* **** Switch Box Buttons **** *-->
@@ -215,39 +217,41 @@
                         type="text"
                         id="diviceName"
                         class="form-control"
-                        value="IP CAMERA"
+                        value="NAN"
                       />
                     </div>
                     <div class="form-row mb-3">
                       <label class="label-select" for="diviceNo"
-                        >Divice No. :</label
+                        >Divice Number:</label
                       >
                       <input
                         type="text"
                         id="diviceNo"
                         class="form-control"
-                        value="88"
+                        value="NAN"
                       />
                     </div>
                     <div class="form-row mb-3">
-                      <label class="label-select" for="model">Model:</label>
+                      <label class="label-select" for="model"
+                        >System Model:</label
+                      >
                       <input
                         type="text"
                         id="model"
                         class="form-control"
-                        value="DS-2CD3625G0-IZSUHK"
+                        value="NAN"
                         disabled
                       />
                     </div>
                     <div class="form-row mb-3">
                       <label class="label-select" for="serialNo"
-                        >Serial No. :</label
+                        >System Serial:</label
                       >
                       <input
                         type="text"
                         id="serialNo"
                         class="form-control"
-                        value="DS-2CD3625G0-IZSUHK20210805AAWRG40899497"
+                        value="NAN"
                         disabled
                       />
                     </div>
@@ -408,15 +412,12 @@
                 id="maintenance"
               >
                 <!--* **** Switch Box Buttons **** *-->
-                <div class="global-nav-sec w-100 d-flex">
+                <div class="global-nav-sec w-100 d-flex active">
                   <button
                     class="global-tab-btn active"
                     data-tab="upgradeMaintenance"
                   >
                     Upgrade & Maintenance
-                  </button>
-                  <button class="global-tab-btn" data-tab="systemService">
-                    Systeam Service
                   </button>
                 </div>
                 <!--* **** Content Box **** *-->
@@ -426,17 +427,24 @@
                     class="global-tab-content global-box-shadow active"
                     data-tab-content="upgradeMaintenance"
                   >
-<div class="mb-3">
-  <h6 class="py-3 w-100 px-4 rounded-2 mt-1" style="background-color: rgba(172, 177, 152, 0.16)">
-    Reboot
-  </h6>
-  <div class="m-2 p-2">
-    <button type="button" id="btnReboot" class="btn btn-outline-dark me-5">
-      Reboot
-    </button>
-    <span>Reboot the device</span>
-  </div>
-</div>
+                    <div class="mb-3">
+                      <h6
+                        class="py-3 w-100 px-4 rounded-2 mt-1"
+                        style="background-color: rgba(172, 177, 152, 0.16)"
+                      >
+                        Reboot
+                      </h6>
+                      <div class="m-2 p-2">
+                        <button
+                          type="button"
+                          id="btnReboot"
+                          class="btn btn-outline-dark me-5"
+                        >
+                          Reboot
+                        </button>
+                        <span>Reboot the device</span>
+                      </div>
+                    </div>
 
                     <div class="mb-3">
                       <h6
@@ -446,7 +454,11 @@
                         Default
                       </h6>
                       <div class="m-2 p-2">
-                        <button type="reset" class="btn btn-outline-dark me-5">
+                        <button
+                          type="reset"
+                          id="btnRestore"
+                          class="btn btn-outline-dark me-5"
+                        >
                           Restore
                         </button>
                         <span
@@ -455,73 +467,15 @@
                         >
                       </div>
                       <div class="m-2 p-2">
-                        <button type="reset" class="btn btn-outline-dark me-5">
+                        <button
+                          type="reset"
+                          id="btnDefault"
+                          class="btn btn-outline-dark me-5"
+                        >
                           Default
                         </button>
                         <span>Restore all parameters to default settings.</span>
                       </div>
-                    </div>
-                  </div>
-                  <!--* **** System Service Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="systemService"
-                  >
-                    <div class="mt-4">
-                      <h6
-                        class="py-3 w-100 px-4 rounded-2 mt-1"
-                        style="background-color: rgba(172, 177, 152, 0.16)"
-                      >
-                        Hardware
-                      </h6>
-                      <div
-                        class="check-box-div m-2 p-2 align-items-center"
-                        style="gap: 1rem"
-                      >
-                        <label for="dhcp" class="label-select"
-                          >Enable IR Light:</label
-                        >
-                        <input type="checkbox" id="dhcp" class="" />
-                      </div>
-
-                      <h6
-                        class="py-3 w-100 px-4 rounded-2 mt-1"
-                        style="background-color: rgba(172, 177, 152, 0.16)"
-                      >
-                        Software
-                      </h6>
-                      <div
-                        class="check-box-div m-2 p-2 align-items-center"
-                        style="gap: 1rem"
-                      >
-                        <label for="dhcp" class="label-select"
-                          >Enable Third Stream:</label
-                        >
-                        <input type="checkbox" id="dhcp" class="" />
-                      </div>
-
-                      <div class="px-4 m-2">
-                        <small class="text-muted">
-                          Note: When Third Stream is enabled, functions such as
-                          Face Detection, HDMI, H.264+ and H.265+ are not
-                          supported. New settings will take effect after a
-                          reboot.
-                        </small>
-                      </div>
-
-                      <button
-                        type="button"
-                        class="btn btn-danger px-4 py-2 fs-5 m-2 rounded shadow text-white"
-                      >
-                        <img
-                          src="../icons/save.svg"
-                          alt="Save"
-                          width="20"
-                          height="20"
-                          class="me-2"
-                        />
-                        Save
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -533,149 +487,67 @@
               >
                 <!--* **** Switch Box Buttons **** *-->
                 <div class="global-nav-sec w-100 d-flex">
-                  <button
-                    class="global-tab-btn active"
-                    data-tab="authentication"
-                  >
-                    Authentication
-                  </button>
                   <button class="global-tab-btn" data-tab="ipAddressFilter">
                     IP Address Filter
-                  </button>
-                  <button class="global-tab-btn" data-tab="securityService">
-                    Security Service
                   </button>
                 </div>
                 <!--* **** Content Box **** *-->
                 <div class="container">
-                  <!--* **** Authentication Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow active"
-                    data-tab-content="authentication"
-                  >
-                    <div class="form-row mb-3">
-                      <label for="streamType">RTSP Authentication:</label>
-                      <select id="streamType" class="form-control">
-                        <option>digest</option>
-                      </select>
-                    </div>
-                    <div class="form-row mb-3">
-                      <label for="streamType">WEB Authentication:</label>
-                      <select id="streamType" class="form-control">
-                        <option>digest</option>
-                      </select>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
-                    >
-                      <img
-                        src="../icons/save.svg"
-                        alt="Save"
-                        width="20"
-                        height="20"
-                        class="me-2"
-                      />
-                      Save
-                    </button>
-                  </div>
                   <!--* **** IP Address Filter Content Box **** *-->
                   <div
                     class="global-tab-content global-box-shadow"
                     data-tab-content="ipAddressFilter"
                   >
                     <div
-                      class="check-box-div mb-3 align-items-center"
-                      style="gap: 1rem"
-                    >
-                      <label for="dhcp" class="label-select"
-                        >Enable IP Address Filter:</label
-                      >
-                      <input type="checkbox" id="dhcp" class="" />
-                    </div>
-                    <div class="form-row mb-3">
-                      <label for="streamType">IP Address Filter Type:</label>
-                      <select id="streamType" class="form-control">
-                        <option>Forbidden</option>
-                      </select>
-                    </div>
-                    <div
                       class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
                       style="background-color: rgba(172, 177, 152, 0.16)"
                     >
-                      <h6 class="overflow-hidden">IP Address Filter</h6>
+                      <h6 class="overflow-hidden mb-0">IP Address Filter</h6>
                       <div>
-                        <button class="btn btn-success" type="button">
+                        <!-- Only Add lives here; Modify/Delete are per-row actions -->
+                        <button
+                          id="btnIpAdd"
+                          class="btn btn-success"
+                          type="button"
+                        >
                           Add
-                        </button>
-                        <button class="btn btn-warning" type="button">
-                          Modify
-                        </button>
-                        <button class="btn btn-danger" type="button">
-                          Delete
                         </button>
                       </div>
                     </div>
+
                     <div class="rounded-bottom-2">
                       <table class="table table-hover table-dark mb-0">
                         <thead>
                           <tr>
-                            <th scope="col">
-                              <input type="checkbox" id="dhcp" class="" />
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 64px"
+                            >
+                              #
                             </th>
-                            <th scope="col" class="border-2">No.</th>
                             <th scope="col" class="border-2">IP</th>
-                            <th scope="col" class="border-2"></th>
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 140px"
+                            >
+                              Status
+                            </th>
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 160px"
+                            >
+                              Actions
+                            </th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row" class="border-2">1</th>
-                            <td class="border-2">admin</td>
-                            <td class="border-2">Administrator</td>
-                            <td class="border-2"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">2</th>
-                            <td class="border-2">vista</td>
-                            <td class="border-2">User</td>
-                            <td class="border-2"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">2</th>
-                            <td class="border-2">Meraj</td>
-                            <td class="border-2">User</td>
-                            <td class="border-2"></td>
-                          </tr>
+                        <tbody id="ipFilterTbody">
+                          <!-- Rows are rendered by ipFilter.js -->
                         </tbody>
                       </table>
                     </div>
-                  </div>
-                  <!--* **** Security Service Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="securityService"
-                  >
-                    <div
-                      class="check-box-div mb-3 align-items-center"
-                      style="gap: 1rem"
-                    >
-                      <label for="dhcp" class="label-select">Enable SSH:</label>
-                      <input type="checkbox" id="dhcp" class="" />
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
-                    >
-                      <img
-                        src="../icons/save.svg"
-                        alt="Save"
-                        width="20"
-                        height="20"
-                        class="me-2"
-                      />
-                      Save
-                    </button>
                   </div>
                 </div>
               </div>
@@ -704,47 +576,49 @@
                       class="py-3 w-100 px-4 rounded-2 mt-1 d-flex align-items-center justify-content-between"
                       style="background-color: rgba(172, 177, 152, 0.16)"
                     >
-                      <h6 class="overflow-hidden">User List</h6>
+                      <h6 class="overflow-hidden mb-0">User List</h6>
                       <div>
-                        <button class="btn btn-success" type="button">
+                        <!-- Only Add lives here; Modify/Delete are per-row actions -->
+                        <button
+                          id="btnUserAdd"
+                          class="btn btn-success"
+                          type="button"
+                        >
                           Add
-                        </button>
-                        <button class="btn btn-warning" type="button">
-                          Modify
-                        </button>
-                        <button class="btn btn-danger" type="button">
-                          Delete
-                        </button>
-                        <button class="btn btn-secondary" type="button">
-                          Account Security Settings
                         </button>
                       </div>
                     </div>
+
                     <div class="rounded-bottom-2">
                       <table class="table table-hover table-dark mb-0">
                         <thead>
                           <tr>
-                            <th scope="col" class="border-2">No.</th>
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 64px"
+                            >
+                              No.
+                            </th>
                             <th scope="col" class="border-2">User Name</th>
-                            <th scope="col" class="border-2">Level</th>
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 160px"
+                            >
+                              Level
+                            </th>
+                            <th
+                              scope="col"
+                              class="border-2"
+                              style="width: 160px"
+                            >
+                              Actions
+                            </th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row" class="border-2">1</th>
-                            <td class="border-2">admin</td>
-                            <td class="border-2">Administrator</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">2</th>
-                            <td class="border-2">vista</td>
-                            <td class="border-2">User</td>
-                          </tr>
-                          <tr>
-                            <th scope="row" class="border-2">2</th>
-                            <td class="border-2">Meraj</td>
-                            <td class="border-2">User</td>
-                          </tr>
+                        <tbody id="userTbody">
+                          <!-- Rows are rendered by userManegment.js -->
                         </tbody>
                       </table>
                     </div>
@@ -2044,51 +1918,78 @@
         </div>
       </div>
     </main>
-<!-- **** Global Reboot Modal (reuse everywhere) **** -->
-<div class="modal fade" id="rebootModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="rebootTitle" class="modal-title">Confirm Action</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <div id="rebootConfirmText" class="mb-2">
-          This change will <b>reboot the camera</b>. Are you sure?
-        </div>
-
-        <div id="rebootWarning" class="mt-2" style="display:none">
-          <div class="alert alert-warning m-0 p-2">
-            Please <b>do not refresh the page</b>; the camera is rebooting…
+    <!-- **** Global Reboot Modal (reuse everywhere) **** -->
+    <div class="modal fade" id="rebootModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="rebootTitle" class="modal-title">Confirm Action</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="mt-2">
-            Countdown: <span id="rebootCountdown">15</span>
+
+          <div class="modal-body">
+            <div id="rebootConfirmText" class="mb-2">
+              This change will <b>reboot the camera</b>. Are you sure?
+            </div>
+
+            <div id="rebootWarning" class="mt-2" style="display: none">
+              <div class="alert alert-warning m-0 p-2">
+                Please <b>do not refresh the page</b>; the camera is rebooting…
+              </div>
+              <div class="mt-2">
+                Countdown: <span id="rebootCountdown">15</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer" id="rebootActions">
+            <button
+              type="button"
+              id="rebootCancel"
+              class="btn btn-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              id="rebootConfirm"
+              class="btn btn-danger btn-sm"
+            >
+              Confirm / Reboot
+            </button>
           </div>
         </div>
-      </div>
-
-      <div class="modal-footer" id="rebootActions">
-        <button type="button" id="rebootCancel" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
-          Cancel
-        </button>
-        <button type="button" id="rebootConfirm" class="btn btn-danger btn-sm">
-          Confirm / Reboot
-        </button>
       </div>
     </div>
-  </div>
-</div>
-
 
     <!-- JS -->
     <script src="../js/toasti.js"></script>
     <script src="../bootstrap/bootstrap.bundle.min.js"></script>
-        <script src="../js/rebootModal.js"></script>
     <script src="../js/apiConfig.js"></script>
+    <script src="../js/auth.js"></script>
     <script src="../js/apiService.js"></script>
+    <script src="../js/middleware.js"></script>
+
+    <script src="../js/basicInfo.js"></script>
     <script src="../js/timeSettings.js"></script>
+
+    <script src="../js/rebootModal.js"></script>
     <script src="../js/maintenanceAction.js"></script>
+
+    <!-- IP Filter feature -->
+    <script src="../js/ipModal.js"></script>
+    <script src="../js/ipFilter.js"></script>
+
+    <!-- User Management feature -->
+    <script src="../js/userManegmentModal.js"></script>
+    <script src="../js/userManegment.js"></script>
+
     <script src="../js/configuration.js"></script>
   </body>
 </html>

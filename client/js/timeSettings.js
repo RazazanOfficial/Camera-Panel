@@ -81,10 +81,47 @@ function loadTimezones() {
 //! 3) =-=-=-=-=-= Normalize Timezone Response =-=-=-=-=-= !///
 function normalizeTimezoneResponse(raw) {
   if (!raw) return "";
+
+  // اگر پاسخ آبجکت JS باشه
+  if (typeof raw === "object") {
+    // کلیدهای رایج
+    const candidate =
+      raw.timezone ||
+      raw.tz ||
+      raw.zone ||
+      raw.value ||
+      raw?.data?.timezone ||
+      raw?.payload?.timezone;
+    if (typeof candidate === "string") return candidate.trim();
+
+    // در نهایت با نگاه کلی به آبجکت، اولین IANA را استخراج کن
+    const asText = JSON.stringify(raw);
+    const mObj = asText.match(/[A-Za-z_]+\/[A-Za-z_\/]+/);
+    return mObj ? mObj[0] : "";
+  }
+
+  // اگر پاسخ استرینگ باشه
   const txt = String(raw).trim();
+
+  // اگر استرینگ JSON بود، parse کن و دوباره فراخوانی
+  if (
+    (txt.startsWith("{") && txt.endsWith("}")) ||
+    (txt.startsWith("[") && txt.endsWith("]"))
+  ) {
+    try {
+      const parsed = JSON.parse(txt);
+      return normalizeTimezoneResponse(parsed);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  // حالت متنی قدیمی: از اولین خطی که "/" دارد یا کل متن، IANA را بکش
   const line = (txt.split(/\r?\n/).find((l) => l.includes("/")) || txt).trim();
   const matchIana = line.match(/[A-Za-z_]+\/[A-Za-z_\/]+/);
   if (matchIana) return matchIana[0];
+
+  // آخرین تلاش: اولین توکن
   return line.split(/\s+/)[0];
 }
 
@@ -116,19 +153,29 @@ async function saveTimezoneSettings() {
 //! 6) =-=-=-=-=-= Normalize NTP Response =-=-=-=-=-= !///
 function normalizeNtpResponse(raw) {
   if (!raw) return "";
-  const txt = String(raw).trim();
 
+  // اگر پاسخ JSON/آبجکت بود
+  if (typeof raw === "object") {
+    // اولویت با کلیدهای رایج
+    const candidate =
+      raw.ntp_server || raw.server || raw.ntp || raw.address || raw.value;
+    if (typeof candidate === "string") return candidate.trim();
+
+    // در نهایت اولین مقدار رشته‌ای را برگردان
+    const firstString = Object.values(raw).find((v) => typeof v === "string");
+    if (firstString) return firstString.trim();
+    return "";
+  }
+
+  // اگر رشته/متن بود (فرمت‌های قدیمی)
+  const txt = String(raw).trim();
   const line = (
     txt.split(/\r?\n/).find((l) => /ntp|server/i.test(l)) || txt
   ).trim();
-
   const match = line.match(/((\d{1,3}\.){3}\d{1,3})|([a-z0-9-]+\.)+[a-z]{2,}/i);
-
   if (match) return match[0];
-
   return line.split(/\s+/).find(Boolean) || "";
 }
-
 //! 7) =-=-=-=-=-= GET NTP =-=-=-=-=-= !///
 async function getNtpSettings() {
   try {
@@ -188,8 +235,31 @@ function updateDeviceTimeInputFromSim() {
 //! 11) =-=-=-=-=-= Normalize Local Time Starting Response =-=-=-=-=-= !///
 function normalizeLocalTimeString(raw) {
   if (!raw) return "";
-  const m = String(raw).match(/\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}/);
-  return m ? m[0] : String(raw).trim();
+
+  // اگر پاسخ آبجکت بود (رایج‌ترین حالت)
+  if (typeof raw === "object") {
+    const candidate =
+      raw.local_time || raw.localTime || raw.time || raw.value;
+    if (typeof candidate === "string") return candidate.trim();
+
+    // آخرین تلاش: درون آبجکت بگرد و اولین yyyy-mm-dd hh:mm:ss رو پیدا کن
+    const asText = JSON.stringify(raw);
+    const m = asText.match(/\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}/);
+    return m ? m[0] : "";
+  }
+
+  // اگر استرینگ JSON بود، parse کن و دوباره همین تابع رو صدا بزن
+  const txt = String(raw).trim();
+  if ((txt.startsWith("{") && txt.endsWith("}")) || (txt.startsWith("[") && txt.endsWith("]"))) {
+    try {
+      const parsed = JSON.parse(txt);
+      return normalizeLocalTimeString(parsed);
+    } catch (_) {}
+  }
+
+  // حالت متنی قدیمی
+  const m = txt.match(/\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}/);
+  return m ? m[0] : txt;
 }
 
 //! 12) =-=-=-=-=-= GET LocalTime =-=-=-=-=-= !///
@@ -320,12 +390,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function postTimezoneValue(tzValue) {
     if (typeof apiPost === "function" && API_ENDPOINTS?.timezone) {
-      await apiPost(API_ENDPOINTS.timezone, { timezone: tzValue });
+      // بعد از موفقیت POST => توکن پاک می‌شود و به صفحه لاگین می‌رویم
+      await Auth.clearTokenAfter(
+        apiPost(API_ENDPOINTS.timezone, { timezone: tzValue }),
+        { redirectToLogin: false } // اگر نخواهی ریدایرکت کند: false
+      );
       return;
     }
     if (typeof saveTimezoneSettings === "function") {
       tzSelect.value = tzValue;
-      await saveTimezoneSettings();
+      await Auth.clearTokenAfter(saveTimezoneSettings(), {
+        redirectToLogin: true,
+      });
       return;
     }
     toast.error("No timezone POST method available.");

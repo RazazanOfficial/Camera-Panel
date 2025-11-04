@@ -5,15 +5,20 @@ meta {
 }
 
 post {
-  url: {{device_ip}}/cgi-bin/api/system_info.cgi?token=62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  url: {{device_ip}}/cgi-bin/api/system_info.cgi?token=68a063c68138817f141a61bcbb36d3dcbdb3b0f1
   body: formUrlEncoded
   auth: inherit
 }
 
 params:query {
-  token: 62395dbbd3ba21234dfb8a8862361b0760e4dc5e
+  token: 68a063c68138817f141a61bcbb36d3dcbdb3b0f1
 }
 
 headers {
   Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  system_name: gorgAli
+  system_num: jomung
 }

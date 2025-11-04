@@ -1,13 +1,19 @@
 // js/auth.js
 (function () {
-  // Dev TTL: 30m; Prod: 5m
+  // ---------- Config ----------
+  const TOKEN_COOKIE_NAME = "auth.token";
+
+  // Dev TTL: 30m; Prod: 5m  (برای UX درون تب؛ امنیت حقیقی سمت سروره)
   const DEV_TTL_MS = 30 * 60 * 1000;
   const PROD_TTL_MS = 5 * 60 * 1000;
-  const TOKEN_TTL_MS = DEV_TTL_MS; // change to PROD_TTL_MS in production
+  const TOKEN_TTL_MS = PROD_TTL_MS; // در محصول نهایی بگذارید PROD_TTL_MS
 
-  // Cookie helpers
+  // ---------- Cookie helpers ----------
   function setCookie(name, value, maxAgeSeconds, path = "/") {
-    document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; max-age=${maxAgeSeconds}; path=${path}; SameSite=Lax`;
+    // اگر HTTPS دارید، Secure رو هم اضافه کنید
+    document.cookie =
+      `${encodeURIComponent(name)}=${encodeURIComponent(value)}; ` +
+      `Max-Age=${maxAgeSeconds}; Path=${path}; SameSite=Lax`;
   }
   function getCookie(name) {
     const cookies = document.cookie ? document.cookie.split("; ") : [];
@@ -20,31 +26,36 @@
     return null;
   }
   function removeCookie(name, path = "/") {
-    document.cookie = `${encodeURIComponent(name)}=; max-age=0; path=${path}; SameSite=Lax`;
+    // حذف قطعی با Max-Age=0
+    document.cookie =
+      `${encodeURIComponent(name)}=; Max-Age=0; Path=${path}; SameSite=Lax`;
   }
 
-  // Single source of truth: cookie only
+  // ---------- Token API ----------
   function setToken(token, ttlMs = TOKEN_TTL_MS) {
     const maxAgeSeconds = Math.floor(ttlMs / 1000);
-    setCookie("auth.token", token, maxAgeSeconds);
-    setupExpiryTimeout(ttlMs); // UX only
+    setCookie(TOKEN_COOKIE_NAME, token, maxAgeSeconds);
+    setupExpiryTimeout(ttlMs); // فقط برای UX (اتو-لاگ‌اوت درون تب)
   }
   function getToken() {
-    return getCookie("auth.token");
+    return getCookie(TOKEN_COOKIE_NAME);
   }
   function clearToken() {
-    removeCookie("auth.token");
+    removeCookie(TOKEN_COOKIE_NAME);
     clearExpiryTimeout();
   }
 
-  // In-tab UX timeout (doesn't guarantee security; server is authoritative)
+  // ---------- In-tab UX auto-logout ----------
   let expiryTimeoutId = null;
   function setupExpiryTimeout(ttlMs) {
     clearExpiryTimeout();
     expiryTimeoutId = setTimeout(() => {
+      // در زمان انقضا: توکن رو پاک کن، پیام بده و ببر لاگین
       clearToken();
-      if (window.toast?.warning) toast.warning("Session expired. Please log in again.");
-      window.location.href = "./login.html";
+      if (window.toast?.warning) {
+        toast.warning("Session expired. Please log in again.");
+      }
+      window.location.replace("./login.html");
     }, ttlMs);
   }
   function clearExpiryTimeout() {
@@ -54,25 +65,70 @@
     }
   }
 
-  // Middleware for protected pages
+  // ---------- Route guard برای صفحات محافظت‌شده ----------
   function requireAuth(redirectLogin = "./login.html") {
     const token = getToken();
     if (!token) {
-      if (window.toast?.warning) toast.warning("Authentication required. Redirecting to login.");
-      window.location.href = redirectLogin;
+      if (window.toast?.warning) {
+        toast.warning("Authentication required. Redirecting to login.");
+      }
+      window.location.replace(redirectLogin);
       return false;
     }
-    // We cannot read cookie expiry via JS; re-arm UX timeout with default TTL
-    // This keeps the in-tab auto-logout behavior consistent
+    // چون expiry کوکی رو از JS نمی‌خونیم، تایمر UX رو مجدد مسلح می‌کنیم
     setupExpiryTimeout(TOKEN_TTL_MS);
     return true;
   }
 
+  // ---------- Helper: پاک‌کردن توکن بعد از موفقیت یک API ----------
+  /**
+   * یک Promise مربوط به فراخوانی API بگیر؛ اگر resolve شد، توکن را پاک کن
+   * و (اختیاری) هدایت به صفحه لاگین.
+   *
+   * مثال:
+   *   await Auth.clearTokenAfter(apiPost(API_ENDPOINTS.reboot));
+   */
+  async function clearTokenAfter(apiCallPromise, { redirectToLogin = true } = {}) {
+    const result = await apiCallPromise; // اگر throw کند، پاک نمی‌کنیم
+    try {
+      clearToken();
+    } finally {
+      if (redirectToLogin) {
+        // معمولاً بعد از کارهایی مثل تغییر timezone یا reboot، ورود مجدد منطقی است
+        window.location.replace("./login.html");
+      }
+    }
+    return result;
+  }
+
+  // ---------- Logout استاندارد ----------
+  async function logout() {
+    try {
+      // اگر endpoint لاگ‌اوت داری، صداش کن (اختیاری)
+      if (window.API_ENDPOINTS?.logout) {
+        await apiPost(API_ENDPOINTS.logout);
+      }
+    } catch (e) {
+      console.warn("logout endpoint failed:", e);
+    } finally {
+      clearToken();
+      window.location.replace("./login.html");
+    }
+  }
+
+  // ---------- Public API ----------
   window.Auth = {
+    // token
     setToken,
     getToken,
     clearToken,
+
+    // guards & UX
     requireAuth,
     TOKEN_TTL_MS,
+
+    // flows
+    clearTokenAfter,
+    logout,
   };
 })();
