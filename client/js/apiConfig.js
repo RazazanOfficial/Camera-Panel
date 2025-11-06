@@ -2,12 +2,13 @@ const DEVICE_IP = "192.168.1.142:80";
 
 const API_ENDPOINTS = {
   // Auth
-  login: "/cgi-bin/api/login.cgi",            // POST ?user={username}
+  login: "/cgi-bin/api/login.cgi", // POST ?user={username}
   loginToken: "/cgi-bin/api/login_token.cgi", // POST ?credit={md5}
 
   // Others (sample)
   systemInfo: "/cgi-bin/api/system_info.cgi",
-  systemInfoGet: "/cgi-bin/api/system_info.cgi?system_name=&system_serial=&system_num=&system_model=",
+  systemInfoGet:
+    "/cgi-bin/api/system_info.cgi?system_name=&system_serial=&system_num=&system_model=",
 
   timezone: "/cgi-bin/api/system_timezone.cgi",
   ntp: "/cgi-bin/api/system_ntp.cgi",
@@ -18,18 +19,25 @@ const API_ENDPOINTS = {
   resetAll: "/cgi-bin/api/system_confRst.cgi",
 
   // Firewall / IP filter
-  firewallList:   "/cgi-bin/api/firewall.cgi",
-  firewallAdd:    "/cgi-bin/api/firewall.cgi",
+  firewallList: "/cgi-bin/api/firewall.cgi",
+  firewallAdd: "/cgi-bin/api/firewall.cgi",
   firewallModify: "/cgi-bin/api/firewall_modify.cgi",
   firewallDelete: "/cgi-bin/api/firewall_delete.cgi",
 
   // User management
-  userList:   "/cgi-bin/api/user_list.cgi",   // GET (list) / POST (add)
-  userModify: "/cgi-bin/api/user_modify.cgi", // POST { username, password, level, number_line }
-  userDelete: "/cgi-bin/api/user_delete.cgi", // POST { number_line }
+  userList: "/cgi-bin/api/user_list.cgi",
+  userModify: "/cgi-bin/api/user_modify.cgi",
+  userDelete: "/cgi-bin/api/user_delete.cgi",
+
+  // Network
+  netIPv4: "/cgi-bin/api/net_ipv4.cgi", // GET/POST
+  netMac: "/cgi-bin/api/net_mac.cgi", // GET only
+  netMtu: "/cgi-bin/api/net_mtu.cgi", // GET/POST
+  netPorts: "/cgi-bin/api/appConfig_port.cgi",
+
+    // Video (channel-based GET/POST with ?channel=0|1)
+  video: "/cgi-bin/api/appConfig_video.cgi",
 };
-
-
 
 function getFullUrl(endpoint) {
   return `http://${DEVICE_IP}${endpoint}`;

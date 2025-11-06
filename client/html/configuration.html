@@ -638,11 +638,7 @@
                   <button class="global-tab-btn active" data-tab="tcp/ip">
                     TCP/IP
                   </button>
-                  <!-- <button class="global-tab-btn" data-tab="ddns">DDNS</button> -->
-                  <!-- <button class="global-tab-btn" data-tab="pppoe">PPPoE</button> -->
                   <button class="global-tab-btn" data-tab="port">Port</button>
-                  <!-- <button class="global-tab-btn" data-tab="nat">NAT</button> -->
-                  <!-- <button class="global-tab-btn" data-tab="multicast">MultiCast</button> -->
                 </div>
                 <!--* **** Content Box **** *-->
                 <div class="container">
@@ -651,15 +647,25 @@
                     class="global-tab-content global-box-shadow active"
                     data-tab-content="tcp/ip"
                   >
-                    <div
-                      class="check-box-div mb-3 align-items-center"
-                      style="gap: 8rem"
-                    >
-                      <label for="dhcp" class="label-select">DHCP:</label>
-                      <input type="checkbox" id="dhcp" class="" />
-                    </div>
                     <!--* **** IPv4 Box **** *-->
                     <div>
+                      <div
+                        class="d-flex align-items-center justify-content-start mb-2"
+                      >
+                        <div
+                          class="form-check form-switch p-0 d-flex align-items-center"
+                        >
+                          <label class="form-check-label" for="ipv4Dhcp"
+                            >DHCP</label
+                          >
+                          <input
+                            class="form-check-input m-2"
+                            type="checkbox"
+                            id="ipv4Dhcp"
+                          />
+                        </div>
+                      </div>
+
                       <div class="form-row mb-3">
                         <label class="label-select" for="ipv4Address"
                           >IPv4 Address:</label
@@ -670,6 +676,7 @@
                           type="text"
                         />
                       </div>
+
                       <div class="form-row mb-3">
                         <label class="label-select" for="ipv4SubnetMask"
                           >IPv4 Subnet Mask:</label
@@ -680,6 +687,7 @@
                           type="text"
                         />
                       </div>
+
                       <div class="form-row mb-3">
                         <label class="label-select" for="ipv4DefaultGetWay"
                           >IPv4 Default GateWay:</label
@@ -690,149 +698,50 @@
                           type="text"
                         />
                       </div>
-                    </div>
-                    <hr />
-                    <!--* **** IPv6 Box **** *-->
-                    <div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="ipv6Address"
-                          >IPv6 Address:</label
-                        >
-                        <input
-                          disabled
-                          style="cursor: not-allowed"
-                          id="ipv6Address"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="ipv6SubnetMask"
-                          >IPv6 Subnet Mask:</label
-                        >
-                        <input
-                          disabled
-                          style="cursor: not-allowed"
-                          id="ipv6SubnetMask"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="ipv6DefaultGetWay"
-                          >IPv6 Default GateWay:</label
-                        >
-                        <input
-                          disabled
-                          style="cursor: not-allowed"
-                          id="ipv6DefaultGetWay"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="macAddress"
-                          >Mac Address:</label
-                        >
-                        <input
-                          disabled
-                          style="cursor: not-allowed"
-                          value="44:a6:42:44:16:d2"
-                          id="macAddress"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="mtu">MTU</label>
-                        <input
-                          value="1500"
-                          id="mtu"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div
-                        class="check-box-div mb-3 align-items-center"
-                        style="gap: 1rem"
-                      >
-                        <label
-                          for="enableMulticastDiscovery"
-                          class="label-select"
-                          >Enable Multicast Discovery:</label
-                        >
-                        <input
-                          type="checkbox"
-                          id="enableMulticastDiscovery"
-                          class=""
-                        />
-                      </div>
-                    </div>
-                    <hr />
-                    <div>
-                      <h6
-                        class="py-3 w-100 px-4 rounded-2 mt-1"
-                        style="background-color: rgba(172, 177, 152, 0.16)"
-                      >
-                        DNS Server
-                      </h6>
+
                       <div class="form-row mb-3">
                         <label class="label-select" for="preferredDnsServer"
-                          >Preferred Dns Server:</label
+                          >IPv4 DNS:</label
                         >
                         <input
-                          value="8.8.8.8"
                           id="preferredDnsServer"
-                          class="form-control"
-                          type="text"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="alternateDnsServer"
-                          >Alternate Dns Server:</label
-                        >
-                        <input
-                          id="alternateDnsServer"
                           class="form-control"
                           type="text"
                         />
                       </div>
                     </div>
 
+                    <hr />
+                    <!--* **** IPv6 Box **** *-->
                     <div>
-                      <h6
-                        class="py-3 w-100 px-4 rounded-2 mt-1"
-                        style="background-color: rgba(172, 177, 152, 0.16)"
-                      >
-                        Domain Name Settings
-                      </h6>
-                      <div
-                        class="check-box-div mb-3 align-items-center"
-                        style="gap: 1rem"
-                      >
-                        <label
-                          for="enableDynamicDomainName"
-                          class="label-select"
-                          >Enable Dynamic Domain Name:</label
-                        >
-                        <input
-                          type="checkbox"
-                          id="enableDynamicDomainName"
-                          class=""
-                        />
-                      </div>
                       <div class="form-row mb-3">
-                        <label class="label-select" for="alternateDnsServer"
-                          >Alternate Dns Server:</label
+                        <label class="label-select" for="macAddress"
+                          >Mac Address:</label
                         >
                         <input
-                          id="alternateDnsServer"
+                          id="macAddress"
                           class="form-control"
                           type="text"
+                          disabled
+                          style="cursor: not-allowed"
+                        />
+                      </div>
+
+                      <div class="form-row mb-3">
+                        <label class="label-select" for="mtu">MTU</label>
+                        <input
+                          id="mtu"
+                          class="form-control"
+                          type="text"
+                          value="1500"
                         />
                       </div>
                     </div>
+
+                    <hr />
+
                     <button
+                      id="btnNetworkSave"
                       type="button"
                       class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
                     >
@@ -846,12 +755,7 @@
                       Save
                     </button>
                   </div>
-                  <!-- <div class="global-tab-content" data-tab-content="ddns">
-                    ddns
-                  </div>
-                  <div class="global-tab-content" data-tab-content="pppoe">
-                    pppoe
-                  </div> -->
+                  <!--* **** Port Box **** *-->
                   <div
                     class="global-tab-content global-box-shadow"
                     data-tab-content="port"
@@ -861,81 +765,39 @@
                         >HTTP Port:</label
                       >
                       <input
-                        value="80"
                         id="httpPort"
                         class="form-control"
                         type="text"
+                        value="80"
                       />
                     </div>
+
                     <div class="form-row mb-3">
                       <label class="label-select" for="rtspPort"
                         >RTSP Port:</label
                       >
                       <input
-                        value="554"
                         id="rtspPort"
                         class="form-control"
                         type="text"
+                        value="554"
                       />
                     </div>
+
                     <div class="form-row mb-3">
                       <label class="label-select" for="httpsPort"
                         >HTTPS Port:</label
                       >
                       <input
-                        value="443"
                         id="httpsPort"
                         class="form-control"
                         type="text"
+                        value="443"
                       />
                     </div>
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="serverPort"
-                        >Server Port:</label
-                      >
-                      <input
-                        value="8000"
-                        disabled
-                        style="cursor: not-allowed"
-                        id="serverPort"
-                        class="form-control"
-                        type="text"
-                      />
-                    </div>
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="enhancedSdkServicePort"
-                        >Enhanced SDK Service Port:</label
-                      >
-                      <input
-                        value="8443"
-                        id="enhancedSdkServicePort"
-                        class="form-control"
-                        type="text"
-                      />
-                    </div>
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="webSocketPort"
-                        >Web Socket Port:</label
-                      >
-                      <input
-                        value="7681"
-                        id="webSocketPort"
-                        class="form-control"
-                        type="text"
-                      />
-                    </div>
-                    <div class="form-row mb-3">
-                      <label class="label-select" for="webSocketsPort"
-                        >Web Sockets Port:</label
-                      >
-                      <input
-                        value="7682"
-                        id="webSocketsPort"
-                        class="form-control"
-                        type="text"
-                      />
-                    </div>
+
                     <button
+                      id="btnPortSave"
                       type="button"
                       class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
                     >
@@ -948,87 +810,6 @@
                       />
                       Save
                     </button>
-                  </div>
-                  <!-- <div class="global-tab-content" data-tab-content="nat">
-                    nat
-                  </div>
-                  <div class="global-tab-content" data-tab-content="multicast">
-                    multicast
-                  </div> -->
-                </div>
-              </div>
-              <!--? **** Advanced Settings Box **** ?-->
-              <div
-                class="content-box basic-network-sec global-sec"
-                id="advancedSettings"
-              >
-                <!--* **** Switch Box Buttons **** *-->
-                <div class="global-nav-sec w-100 d-flex">
-                  <button class="global-tab-btn active" data-tab="snmp">
-                    SNMP
-                  </button>
-                  <button class="global-tab-btn" data-tab="ftp">FTP</button>
-                  <button class="global-tab-btn" data-tab="platformAccess">
-                    Platform Access
-                  </button>
-                  <button class="global-tab-btn" data-tab="https">HTTPS</button>
-                  <button class="global-tab-btn" data-tab="nat">NAT</button>
-                  <button class="global-tab-btn" data-tab="802.1x">
-                    802.1x
-                  </button>
-                  <button class="global-tab-btn" data-tab="integrationProtocol">
-                    Integration Protocol
-                  </button>
-                  <button class="global-tab-btn" data-tab="networkService">
-                    Network Service
-                  </button>
-                  <button class="global-tab-btn" data-tab="httpListening">
-                    HTTP Listening
-                  </button>
-                </div>
-                <!--* **** Content Box **** *-->
-                <div>
-                  <div
-                    class="global-tab-content active"
-                    data-tab-content="snmp"
-                  >
-                    SNMP
-                  </div>
-                  <div class="global-tab-content" data-tab-content="ftp">
-                    FTP
-                  </div>
-                  <div
-                    class="global-tab-content"
-                    data-tab-content="platformAccess"
-                  >
-                    Platform Access
-                  </div>
-                  <div class="global-tab-content" data-tab-content="https">
-                    HTTPS
-                  </div>
-                  <div class="global-tab-content" data-tab-content="nat">
-                    nat
-                  </div>
-                  <div class="global-tab-content" data-tab-content="802.1x">
-                    802.1x
-                  </div>
-                  <div
-                    class="global-tab-content"
-                    data-tab-content="integrationProtocol"
-                  >
-                    Integration Protocol
-                  </div>
-                  <div
-                    class="global-tab-content"
-                    data-tab-content="networkService"
-                  >
-                    Network Service
-                  </div>
-                  <div
-                    class="global-tab-content"
-                    data-tab-content="httpListening"
-                  >
-                    HTTP Listening
                   </div>
                 </div>
               </div>
@@ -1043,136 +824,129 @@
                     Video
                   </button>
                   <button class="global-tab-btn" data-tab="audio">Audio</button>
-                  <!-- <button class="global-tab-btn" data-tab="roi">ROI</button>
-                  <button class="global-tab-btn" data-tab="displayInfoOnStream">
-                    Display Info. On Stream
-                  </button> -->
                 </div>
                 <!--* **** Content Box **** *-->
                 <div class="container">
-                  <!--* **** Video Content Box **** *-->
-                  <div
-                    class="global-tab-content global-box-shadow active"
-                    data-tab-content="video"
-                  >
-                    <div class="dropdown-content">
-                      <div class="form-row mb-3">
-                        <label for="streamType">Stream Type:</label>
-                        <select id="streamType" class="form-control">
-                          <option>Main Stream(Normal)</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="videoType">Video Type:</label>
-                        <select id="videoType" class="form-control">
-                          <option>Video Stream</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="resolution">Resolution:</label>
-                        <select id="resolution" class="form-control">
-                          <option>1920*1080P</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="bitrateType">Bitrate Type:</label>
-                        <select id="bitrateType" class="form-control">
-                          <option>Constant</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="videoQuality">Video Quality:</label>
-                        <select id="videoQuality" class="form-control">
-                          <option value="Highest">Highest</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="frameRate">Frame Rate(FPS):</label>
-                        <select id="frameRate" class="form-control">
-                          <option>50</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="maxBitrate"
-                          >Max. Bitrate(Kbps):</label
-                        >
-                        <input
-                          id="maxBitrate"
-                          class="form-control"
-                          type="text"
-                          value="2048"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="videoEndcoding">Video Endcoding:</label>
-                        <select id="videoEndcoding" class="form-control">
-                          <option>H.264</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="h624+">H.264+ :</label>
-                        <select id="h624+" class="form-control">
-                          <option>OFF</option>
-                          <option>ON</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="profile">Profile:</label>
-                        <select id="profile" class="form-control">
-                          <option>Main Profile</option>
-                        </select>
-                      </div>
-                      <div class="form-row mb-3">
-                        <label class="label-select" for="iFrameInterval"
-                          >I Frame Interval:</label
-                        >
-                        <input
-                          id="iFrameInterval"
-                          class="form-control"
-                          type="text"
-                          value="50"
-                        />
-                      </div>
-                      <div class="form-row mb-3">
-                        <label for="svc">SVC:</label>
-                        <select id="svc" class="form-control">
-                          <option>OFF</option>
-                          <option>ON</option>
-                        </select>
-                      </div>
-                      <div class="form-row">
-                        <label>Smoothing:</label>
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value="50"
-                          class="form-range auto-range"
-                        />
-                        <input
-                          type="number"
-                          min="0"
-                          max="100"
-                          value="50"
-                          class="form-control auto-number"
-                        />
-                      </div>
-                      <hr />
-                      <button
-                        type="button"
-                        class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
-                      >
-                        <img
-                          src="../icons/save.svg"
-                          alt="Save"
-                          width="20"
-                          height="20"
-                          class="me-2"
-                        />
-                        Save
-                      </button>
-                    </div>
-                  </div>
+<!--* **** Video Content Box **** *-->
+<div
+  class="global-tab-content global-box-shadow active"
+  data-tab-content="video"
+>
+  <div class="dropdown-content">
+    <!-- Stream selector -->
+    <div class="form-row mb-3">
+      <label for="streamType">Stream Type:</label>
+      <select id="streamType" class="form-control">
+        <option value="0">Main Stream</option>
+        <option value="1">Sub Stream</option>
+      </select>
+    </div>
+
+    <!-- Enabled -->
+    <div class="form-row mb-3 d-flex align-items-center gap-3">
+      <label class="mb-0" for="videoEnabled">Enabled:</label>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="videoEnabled" />
+      </div>
+    </div>
+
+    <!-- Codec -->
+    <div class="form-row mb-3">
+      <label for="videoCodec">Video Codec:</label>
+      <select id="videoCodec" class="form-control">
+        <option value="h264">H.264</option>
+        <option value="h265">H.265</option>
+      </select>
+    </div>
+
+    <!-- Resolution (size) -->
+    <div class="form-row mb-3">
+      <label for="videoSize">Resolution:</label>
+      <select id="videoSize" class="form-control">
+        <!-- options are populated dynamically based on stream/channel -->
+      </select>
+    </div>
+
+    <!-- FPS -->
+    <div class="form-row mb-3">
+      <label for="videoFps">Frame Rate (FPS):</label>
+      <select id="videoFps" class="form-control">
+        <!-- 1..60 will be populated dynamically -->
+      </select>
+    </div>
+
+    <!-- Bitrate control (rcMode) -->
+    <div class="form-row mb-3">
+      <label for="videoRcMode">Bitrate Control Mode:</label>
+      <select id="videoRcMode" class="form-control">
+        <option value="cbr">Constant (CBR)</option>
+        <option value="vbr">Variable (VBR)</option>
+        <option value="avbr">Average (AVBR)</option>
+      </select>
+    </div>
+
+    <!-- Bitrate -->
+    <div class="form-row mb-3">
+      <label class="label-select" for="videoBitrate">Max. Bitrate (Kbps):</label>
+      <input id="videoBitrate" class="form-control" type="number" min="128" max="10000" placeholder="e.g. 4096" />
+    </div>
+
+    <!-- Profile -->
+    <div class="form-row mb-3">
+      <label for="videoProfile">Profile:</label>
+      <select id="videoProfile" class="form-control">
+        <option value="base">Baseline</option>
+        <option value="main">Main</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <!-- GOP size (I-Frame interval) -->
+    <div class="form-row mb-3">
+      <label class="label-select" for="videoGopSize">I-Frame Interval (GOP Size):</label>
+      <input id="videoGopSize" class="form-control" type="number" min="1" max="200" placeholder="e.g. 50" />
+    </div>
+
+    <!-- Crop (free string as backend expects) -->
+    <div class="form-row mb-3">
+      <label class="label-select" for="videoCrop">Crop:</label>
+      <input id="videoCrop" class="form-control" type="text" placeholder="backend format (e.g. 0:500)" />
+    </div>
+
+    <!-- Channel-0 only extras -->
+    <div id="videoCh0Extras" class="border rounded p-3 mb-3" style="display:none;">
+      <div class="form-row mb-3">
+        <label for="videoGopMode">GOP Mode:</label>
+        <select id="videoGopMode" class="form-control">
+          <option value="normal">Normal</option>
+          <option value="dual">Dual</option>
+          <option value="smart">Smart</option>
+        </select>
+      </div>
+      <div class="form-row mb-0">
+        <label class="label-select" for="videoSliceUnits">Slice Units:</label>
+        <input id="videoSliceUnits" class="form-control" type="number" min="0" max="32" placeholder="e.g. 11" />
+      </div>
+    </div>
+
+    <hr />
+    <button
+      id="btnVideoSave"
+      type="button"
+      class="btn btn-danger px-4 py-2 fs-5 rounded shadow text-white"
+    >
+      <img
+        src="../icons/save.svg"
+        alt="Save"
+        width="20"
+        height="20"
+        class="me-2"
+      />
+      Save
+    </button>
+  </div>
+</div>
+
                   <div
                     class="global-tab-content global-box-shadow"
                     data-tab-content="audio"
@@ -1228,18 +1002,6 @@
                       Save
                     </button>
                   </div>
-                  <!-- <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="roi"
-                  >
-                    roi
-                  </div>
-                  <div
-                    class="global-tab-content global-box-shadow"
-                    data-tab-content="displayInfoOnStream"
-                  >
-                    displayInfoOnStream
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -1254,9 +1016,6 @@
                   <button class="global-tab-btn" data-tab="osd">
                     OSD Settings
                   </button>
-                  <!-- <button class="global-tab-btn" data-tab="privacy">
-                    Privacy Mask
-                  </button> -->
                 </div>
 
                 <!--* **** Content Box **** *-->
@@ -1990,6 +1749,9 @@
     <script src="../js/userManegmentModal.js"></script>
     <script src="../js/userManegment.js"></script>
 
+    <script src="../js/network.js"></script>
+
+    <script src="../js/video.js"></script>
     <script src="../js/configuration.js"></script>
   </body>
 </html>
