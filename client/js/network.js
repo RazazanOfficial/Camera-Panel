@@ -182,30 +182,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  btnPortSave?.addEventListener("click", async () => {
-    if (!validatePorts()) return;
+btnPortSave?.addEventListener("click", async () => {
+  if (!validatePorts()) return;
 
-    const body = {
-      http_port:  String(Number(httpPortEl.value)),
-      https_port: String(Number(httpsPortEl.value)),
-      rtsp_port:  String(Number(rtspPortEl.value)),
-    };
+  const body = {
+    http_port:  String(Number(httpPortEl.value)),
+    https_port: String(Number(httpsPortEl.value)),
+    rtsp_port:  String(Number(rtspPortEl.value)),
+  };
 
-    setSavingState(btnPortSave, true);
-    try {
-      await apiPost(API_ENDPOINTS.netPorts, body);
-      toast?.success?.("Ports saved");
-      // Caution: changing HTTP/HTTPS ports may affect current access path.
-      // We do NOT auto-reload here; consider informing the user:
-      toast?.info?.("If you changed HTTP/HTTPS ports, reconnect using the new port.");
-      await loadPorts();
-    } catch (e) {
-      console.error("[network] save Ports failed:", e);
-      toast?.error?.("Saving ports failed");
-    } finally {
-      setSavingState(btnPortSave, false);
-    }
-  });
+  setSavingState(btnPortSave, true);
+  try {
+    // 1) Save pending config
+    await apiPost(API_ENDPOINTS.netPorts, body);
+
+    // 2) Apply config so changes take effect
+    await apiPost(API_ENDPOINTS.appConfigApply, {});
+
+    toast?.success?.("Ports saved & applied");
+    // Changing HTTP/HTTPS ports may affect access path; don't auto-reload
+    toast?.info?.("If you changed HTTP/HTTPS ports, reconnect using the new port.");
+    await loadPorts();
+  } catch (e) {
+    console.error("[network] save/apply Ports failed:", e);
+    toast?.error?.("Saving or applying ports failed");
+  } finally {
+    setSavingState(btnPortSave, false);
+  }
+});
 
   // -------------------- Init --------------------
   (async function init() {

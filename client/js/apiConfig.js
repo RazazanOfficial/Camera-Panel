@@ -35,8 +35,11 @@ const API_ENDPOINTS = {
   netMtu: "/cgi-bin/api/net_mtu.cgi", // GET/POST
   netPorts: "/cgi-bin/api/appConfig_port.cgi",
 
-    // Video (channel-based GET/POST with ?channel=0|1)
+  // Video (channel-based GET/POST with ?channel=0|1)
   video: "/cgi-bin/api/appConfig_video.cgi",
+
+  // AppConfig apply (must be called after appConfig_* saves)
+  appConfigApply: "/cgi-bin/api/appConfig_apply.cgi",
 };
 
 function getFullUrl(endpoint) {

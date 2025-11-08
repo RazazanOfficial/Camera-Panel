@@ -86,10 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function validateForm(channel) {
-    // fps 1..60
+    // fps 1..25
     const fps = Number(fpsSel.value);
-    if (!Number.isInteger(fps) || fps < 1 || fps > 60) {
-      toast?.warning?.("FPS must be between 1 and 60");
+    if (!Number.isInteger(fps) || fps < 1 || fps > 25) {
+      toast?.warning?.("FPS must be between 1 and 25");
       return false;
     }
     // bitrate 128..10000
@@ -140,8 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sizes = SIZE_OPTIONS[String(channel)] || [];
     fillSelect(sizeSel, sizes, (s) => s.replace("x", "×"));
 
-    // FPS 1..60
-    const fpsList = Array.from({ length: 60 }, (_, i) => String(i + 1));
+    // FPS 1..25
+    const fpsList = Array.from({ length: 25 }, (_, i) => String(i + 1));
     fillSelect(fpsSel, fpsList, (v) => v);
 
     // Codec, rcMode, profile are already in HTML; keep as-is (just ensure value exist)
@@ -180,38 +180,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---- Save ---------------------------------------------------------------
-  async function saveChannel(channel) {
-    if (!validateForm(channel)) return;
+async function saveChannel(channel) {
+  if (!validateForm(channel)) return;
 
-    const body = {
-      enabled: enabledEl.checked,
-      codec: codecSel.value,
-      fps: Number(fpsSel.value),
-      bitrate: Number(bitrateEl.value),
-      rcMode: rcModeSel.value,
-      profile: profileSel.value,
-      gopSize: Number(gopSizeEl.value),
-      crop: String(cropEl.value || ""),
-      size: sizeSel.value,
-    };
+  const body = {
+    enabled: enabledEl.checked,
+    codec: codecSel.value,
+    fps: Number(fpsSel.value),
+    bitrate: Number(bitrateEl.value),
+    rcMode: rcModeSel.value,
+    profile: profileSel.value,
+    gopSize: Number(gopSizeEl.value),
+    crop: String(cropEl.value || ""),
+    size: sizeSel.value,
+  };
 
-    if (String(channel) === "0") {
-      body.gopMode = gopModeSel.value;
-      body.sliceUnits = Number(sliceUnitsEl.value || 0);
-    }
-
-    setSavingState(true);
-    try {
-      await apiPost(buildVideoEndpoint(channel), body);
-      toast?.success?.("Video settings saved");
-      await loadChannel(channel); // reload to reflect backend-normalized values
-    } catch (e) {
-      console.error("[video] saveChannel failed:", e);
-      toast?.error?.("Saving video settings failed");
-    } finally {
-      setSavingState(false);
-    }
+  if (String(channel) === "0") {
+    body.gopMode = gopModeSel.value;
+    body.sliceUnits = Number(sliceUnitsEl.value || 0);
   }
+
+  setSavingState(true);
+  try {
+    // 1) Save pending config for the current channel
+    await apiPost(buildVideoEndpoint(channel), body);
+
+    // 2) Apply to make it effective (affects all appConfig_* pending changes)
+    await apiPost(API_ENDPOINTS.appConfigApply, {});
+
+    toast?.success?.("Video settings saved & applied");
+    await loadChannel(channel); // reload to reflect applied/normalized values
+  } catch (e) {
+    console.error("[video] save/apply failed:", e);
+    toast?.error?.("Saving or applying video settings failed");
+  } finally {
+    setSavingState(false);
+  }
+}
+
 
   // ---- Events -------------------------------------------------------------
   streamSel.addEventListener("change", () => {

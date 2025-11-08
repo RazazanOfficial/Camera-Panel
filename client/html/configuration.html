@@ -808,7 +808,7 @@
                         height="20"
                         class="me-2"
                       />
-                      Save
+                      Save & Apply
                     </button>
                   </div>
                 </div>
@@ -845,8 +845,8 @@
     <!-- Enabled -->
     <div class="form-row mb-3 d-flex align-items-center gap-3">
       <label class="mb-0" for="videoEnabled">Enabled:</label>
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="videoEnabled" />
+      <div class="form-check form-switch ps-0">
+        <input class="form-check-input m-2" type="checkbox" id="videoEnabled" />
       </div>
     </div>
 
@@ -908,13 +908,13 @@
     </div>
 
     <!-- Crop (free string as backend expects) -->
-    <div class="form-row mb-3">
+    <div class="form-row mb-3 d-none">
       <label class="label-select" for="videoCrop">Crop:</label>
       <input id="videoCrop" class="form-control" type="text" placeholder="backend format (e.g. 0:500)" />
     </div>
 
     <!-- Channel-0 only extras -->
-    <div id="videoCh0Extras" class="border rounded p-3 mb-3" style="display:none;">
+    <div id="videoCh0Extras" class="mb-3" style="display:none;">
       <div class="form-row mb-3">
         <label for="videoGopMode">GOP Mode:</label>
         <select id="videoGopMode" class="form-control">
@@ -942,7 +942,7 @@
         height="20"
         class="me-2"
       />
-      Save
+      Save & Apply
     </button>
   </div>
 </div>
