@@ -68,3 +68,33 @@ async function apiPost(endpoint, data = {}) {
     throw error;
   }
 }
+
+// ---------- Global MJPEG refresh helper ----------
+// Expose as a safe global. Usable by image.js, dayNight.js, osd.js, etc.
+window.refreshMjpegStream = function refreshMjpegStream(selectorOrEl = "#mjpegStream") {
+  try {
+    const img = (typeof selectorOrEl === "string")
+      ? document.querySelector(selectorOrEl)
+      : selectorOrEl;
+
+    if (!img || !img.tagName || img.tagName.toLowerCase() !== "img") return;
+
+    // Build a cache-busted URL
+    let nextSrc = "";
+    try {
+      const url = new URL(img.src, window.location.href);
+      url.searchParams.set("_t", Date.now().toString());
+      nextSrc = url.toString();
+    } catch {
+      // Fallback if src is not a full URL
+      const base = (img.src || "").split("?")[0];
+      nextSrc = base + "?_t=" + Date.now();
+    }
+
+    // Hard reset stream connection (drop current, then re-set on next frame)
+    img.src = "";
+    requestAnimationFrame(() => { img.src = nextSrc; });
+  } catch (e) {
+    console.warn("[refreshMjpegStream] failed:", e);
+  }
+};

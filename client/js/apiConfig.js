@@ -2,8 +2,8 @@ const DEVICE_IP = "192.168.1.142:80";
 
 const API_ENDPOINTS = {
   // Auth
-  login: "/cgi-bin/api/login.cgi", // POST ?user={username}
-  loginToken: "/cgi-bin/api/login_token.cgi", // POST ?credit={md5}
+  login: "/cgi-bin/api/login.cgi",
+  loginToken: "/cgi-bin/api/login_token.cgi",
 
   // Others (sample)
   systemInfo: "/cgi-bin/api/system_info.cgi",
@@ -30,15 +30,26 @@ const API_ENDPOINTS = {
   userDelete: "/cgi-bin/api/user_delete.cgi",
 
   // Network
-  netIPv4: "/cgi-bin/api/net_ipv4.cgi", // GET/POST
-  netMac: "/cgi-bin/api/net_mac.cgi", // GET only
-  netMtu: "/cgi-bin/api/net_mtu.cgi", // GET/POST
+  netIPv4: "/cgi-bin/api/net_ipv4.cgi",
+  netMac: "/cgi-bin/api/net_mac.cgi",
+  netMtu: "/cgi-bin/api/net_mtu.cgi",
+
+  // Ports (appConfig)
   netPorts: "/cgi-bin/api/appConfig_port.cgi",
 
-  // Video (channel-based GET/POST with ?channel=0|1)
+  // Video (appConfig) - both channel & protocol live on this endpoint
   video: "/cgi-bin/api/appConfig_video.cgi",
+  // Audio (appConfig)
+  audio: "/cgi-bin/api/appConfig_audio.cgi",
 
-  // AppConfig apply (must be called after appConfig_* saves)
+  // Image
+  image: "/cgi-bin/api/appConfig_image.cgi",
+  // Day/Night (appConfig)
+  night: "/cgi-bin/api/appConfig_night.cgi",
+  // OSD (appConfig)
+  osd: "/cgi-bin/api/appConfig_osd.cgi",
+  
+  // Apply for appConfig_* endpoints
   appConfigApply: "/cgi-bin/api/appConfig_apply.cgi",
 };
 
