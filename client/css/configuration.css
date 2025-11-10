@@ -161,7 +161,7 @@ input[type="checkbox" i] {
 }
 /*! =-=-=-=-=-= Image Section =-=-=-=-=-= !*/
 .image-sec .image-form-box {
-  width: 70%;
+  width: 100%;
 }
 .image-sec .label-select {
   width: 159px !important;
@@ -216,13 +216,13 @@ input[type="checkbox" i] {
   display: block;
 }
 .image-sec .image-preview-box {
-  width: 33%;
+  /* width: 33%; */
   height: fit-content;
   position: relative;
   aspect-ratio: 16 / 9;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 8px;
+  /* background-color: #d4edda; */
+  /* border: 1px solid #c3e6cb; */
+  /* border-radius: 8px; */
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -238,6 +238,12 @@ input[type="checkbox" i] {
   justify-content: center;
 }
 
+#dayNight label {
+  font-size: 0.85rem;
+  color: #444;
+  font-weight: bold;
+  width: 250px !important;
+}
 /*! =-=-=-=-=-= NetWork Section =-=-=-=-=-= !*/
 .network-sec label {
   font-weight: bold;
