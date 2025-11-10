@@ -1,0 +1,20 @@
+meta {
+  name: appConfig_OSD
+  type: http
+  seq: 40
+}
+
+get {
+  url: {{device_ip}}/cgi-bin/api/appConfig_osd.cgi?token=27707d4bacec5ce56a27c5663ce10b3c6f3282fe
+  body: none
+  auth: inherit
+}
+
+params:query {
+  token: 27707d4bacec5ce56a27c5663ce10b3c6f3282fe
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
