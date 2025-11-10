@@ -2,7 +2,7 @@ body {
   overflow-y: auto !important;
 }
 main {
-  height: 85vh;
+  min-height: 85vh;
   background-color: #ababab;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
@@ -169,4 +169,23 @@ input[type="range"]::-webkit-slider-runnable-track {
   #videoTools button {
     border-radius: 30%;
   }
+}
+
+/* Fallback placeholder when MJPEG is unavailable */
+.stream-fallback {
+  border: 2px dashed white;
+  border-radius: 12px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stream-fallback h5 {
+  font-weight: 600;
+}
+
+.stream-fallback .btn {
+  min-width: 200px;
 }

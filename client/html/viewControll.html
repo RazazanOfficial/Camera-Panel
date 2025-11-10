@@ -87,29 +87,75 @@
     </header>
 
     <main class="row flex-lg-nowrap m-3 px-2 py-4">
-      <!-- Left: Stream + Controls -->
-      <div
-        id="videoContainer"
-        class="col-lg-9 py-0 px-3 d-flex flex-column align-items-center justify-content-center position-relative"
-      >
-        <!-- MJPEG Stream -->
-        <img
-          id="mjpegStream"
-          class="w-100 h-100 stream-media"
-          alt="MJPEG Stream"
-          src="http://192.168.1.142/mjpeg"
-        />
+<!-- Left: Stream + Controls -->
+<div
+  id="videoContainer"
+  class="col-lg-9 py-0 px-3 d-flex flex-column align-items-center justify-content-center position-relative"
+>
+  <!-- MJPEG Stream -->
+  <img
+    id="mjpegStream"
+    class="w-100 h-100 stream-media"
+    alt="MJPEG Stream"
+    src="http://192.168.1.142/mjpeg"
+  />
 
-        <!-- Controls -->
-        <div id="videoTools" class="d-flex justify-content-center w-100 px-5">
-          <div
-            class="d-flex justify-content-center align-items-center gap-2 my-2"
-          >
-            <button id="playPauseBtn">Pause</button>
-            <button id="fullscreenBtn">Fullscreen</button>
-          </div>
-        </div>
+  <!-- Fallback (hidden by default) -->
+  <div id="streamFallback" class="stream-fallback d-none text-center p-4">
+    <h5 class="mb-2 overflow-y-hidden">Live preview is unavailable</h5>
+    <p class="text-muted mb-3">
+      To enable the preview, please turn ON <b>JPEG protocol</b> and turn OFF <b>Sub Stream</b>.
+    </p>
+    <button id="btnOpenFixModal" type="button" class="btn btn-danger px-4">
+      Activate Camera
+    </button>
+  </div>
+</div>
+
+<!-- Fix modal -->
+<div class="modal fade" id="streamFixModal" tabindex="-1" aria-labelledby="streamFixTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-header">
+        <h5 id="streamFixTitle" class="modal-title">Enable Live Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
+      <div class="modal-body" style="font-weight: bold;">
+        <p class="mb-3">
+          To show the live <strong class="text-danger">MJPEG</strong> preview, the following must be configured:
+        </p>
+
+        <ul class="list-unstyled mb-3">
+          <li class="mb-2 d-flex">
+            <span class="me-2" style="width: 121px; display: inline-block;">• JPEG protocol:</span>
+            <button id="btnEnableJpeg" type="button" class="btn btn-sm btn-outline-secondary align-text-top">
+              Enable JPEG
+            </button>
+          </li>
+          <li class="mb-2 d-flex">
+            <span class="me-2" style="width: 121px; display: inline-block;" >• Sub Stream:</span>
+            <button id="btnDisableSub" type="button" class="btn btn-sm btn-outline-secondary align-text-top">
+              Disable Sub Stream
+            </button>
+          </li>
+        </ul>
+
+        <small class="text-muted d-block">
+          Changes are applied immediately (camera settings are saved &amp; applied).  
+          Close or click outside to refresh this page.
+        </small>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnFixClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close &amp; Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <!-- Right: Side menu -->
       <div
@@ -397,12 +443,13 @@
       </div>
     </main>
 
-    <script src="../js/toasti.js"></script>
-    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../js/apiConfig.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/apiService.js"></script>
-    <script src="../js/middleware.js"></script>
-    <script src="../js/viewControll.js"></script>
+<script src="../js/toasti.js"></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/apiConfig.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/apiService.js"></script>
+<script src="../js/middleware.js"></script>
+<script src="../js/viewControll.js"></script>
+
   </body>
 </html>
