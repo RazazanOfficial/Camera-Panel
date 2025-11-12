@@ -8,45 +8,91 @@
   const PROD_TTL_MS = 5 * 60 * 1000;
   const TOKEN_TTL_MS = PROD_TTL_MS; // در محصول نهایی بگذارید PROD_TTL_MS
 
-  // ---------- Cookie helpers ----------
-  function setCookie(name, value, maxAgeSeconds, path = "/") {
-    // اگر HTTPS دارید، Secure رو هم اضافه کنید
-    document.cookie =
-      `${encodeURIComponent(name)}=${encodeURIComponent(value)}; ` +
-      `Max-Age=${maxAgeSeconds}; Path=${path}; SameSite=Lax`;
-  }
-  function getCookie(name) {
-    const cookies = document.cookie ? document.cookie.split("; ") : [];
-    for (let i = 0; i < cookies.length; i++) {
-      const parts = cookies[i].split("=");
-      const k = decodeURIComponent(parts.shift());
-      const v = parts.join("=");
-      if (k === name) return decodeURIComponent(v);
+  // ---------- Storage adapter: Cookie OR localStorage (for file://) ----------
+  function shouldUseLocalStorage() {
+    // روی file:// یا وقتی کوکی‌ها بلاک هستند، از localStorage استفاده کن
+    if (location.protocol === "file:") return true;
+    try {
+      document.cookie = "ck.test=1; Max-Age=1; Path=/; SameSite=Lax";
+      const ok = document.cookie.includes("ck.test=1");
+      // cleanup
+      document.cookie = "ck.test=; Max-Age=0; Path=/; SameSite=Lax";
+      return !ok;
+    } catch {
+      return true;
     }
-    return null;
   }
-  function removeCookie(name, path = "/") {
-    // حذف قطعی با Max-Age=0
-    document.cookie =
-      `${encodeURIComponent(name)}=; Max-Age=0; Path=${path}; SameSite=Lax`;
-  }
+
+  const cookieStore = {
+    set(name, value, maxAgeSeconds, path = "/") {
+      // اگر HTTPS داری، Secure رو هم اضافه کن
+      document.cookie =
+        `${encodeURIComponent(name)}=${encodeURIComponent(value)}; ` +
+        `Max-Age=${maxAgeSeconds}; Path=${path}; SameSite=Lax`;
+    },
+    get(name) {
+      const cookies = document.cookie ? document.cookie.split("; ") : [];
+      for (let i = 0; i < cookies.length; i++) {
+        const parts = cookies[i].split("=");
+        const k = decodeURIComponent(parts.shift());
+        const v = parts.join("=");
+        if (k === name) return decodeURIComponent(v);
+      }
+      return null;
+    },
+    remove(name, path = "/") {
+      document.cookie =
+        `${encodeURIComponent(name)}=; Max-Age=0; Path=${path}; SameSite=Lax`;
+    },
+  };
+
+  // localStorage با تاریخ انقضا
+  const lsStore = {
+    set(name, value, maxAgeSeconds) {
+      const e = Date.now() + maxAgeSeconds * 1000;
+      localStorage.setItem(name, JSON.stringify({ v: value, e }));
+    },
+    get(name) {
+      const raw = localStorage.getItem(name);
+      if (!raw) return null;
+      try {
+        const { v, e } = JSON.parse(raw);
+        if (e && Date.now() > e) {
+          localStorage.removeItem(name);
+          return null;
+        }
+        return v ?? null;
+      } catch {
+        localStorage.removeItem(name);
+        return null;
+      }
+    },
+    remove(name) {
+      localStorage.removeItem(name);
+    },
+  };
+
+  const store = shouldUseLocalStorage() ? lsStore : cookieStore;
 
   // ---------- Token API ----------
   function setToken(token, ttlMs = TOKEN_TTL_MS) {
     const maxAgeSeconds = Math.floor(ttlMs / 1000);
-    setCookie(TOKEN_COOKIE_NAME, token, maxAgeSeconds);
+    store.set(TOKEN_COOKIE_NAME, token, maxAgeSeconds);
     setupExpiryTimeout(ttlMs); // فقط برای UX (اتو-لاگ‌اوت درون تب)
   }
+
   function getToken() {
-    return getCookie(TOKEN_COOKIE_NAME);
+    return store.get(TOKEN_COOKIE_NAME);
   }
+
   function clearToken() {
-    removeCookie(TOKEN_COOKIE_NAME);
+    store.remove(TOKEN_COOKIE_NAME);
     clearExpiryTimeout();
   }
 
   // ---------- In-tab UX auto-logout ----------
   let expiryTimeoutId = null;
+
   function setupExpiryTimeout(ttlMs) {
     clearExpiryTimeout();
     expiryTimeoutId = setTimeout(() => {
@@ -55,9 +101,11 @@
       if (window.toast?.warning) {
         toast.warning("Session expired. Please log in again.");
       }
+      // از همون روتی که صفحات protected انتظار دارن
       window.location.replace("./login.html");
     }, ttlMs);
   }
+
   function clearExpiryTimeout() {
     if (expiryTimeoutId) {
       clearTimeout(expiryTimeoutId);
@@ -75,7 +123,7 @@
       window.location.replace(redirectLogin);
       return false;
     }
-    // چون expiry کوکی رو از JS نمی‌خونیم، تایمر UX رو مجدد مسلح می‌کنیم
+    // چون expiry از روی storage می‌آد، تایمر UX رو مجدد مسلح می‌کنیم
     setupExpiryTimeout(TOKEN_TTL_MS);
     return true;
   }

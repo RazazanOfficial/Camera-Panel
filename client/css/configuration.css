@@ -287,9 +287,6 @@ input[type="checkbox" i] {
   width: 30%;
 }
 
-.video-audio-sec {
-}
-
 /*! =-=-=-=-=-= Modal Section =-=-=-=-=-= !*/
 .tz-modal-backdrop {
   border-radius: 10px;
@@ -314,5 +311,21 @@ input[type="checkbox" i] {
 @media (max-width: 600px) {
   .global-sec .global-tab-content.active {
     width: 100%;
+  }
+
+}
+@media (max-width: 500px) {
+      /* .global-sec .form-row label{
+    width: 130px;
+  } */
+  .global-sec .form-row{
+    flex-direction: column;
+    align-items: start;
+  }
+  .global-sec .global-tab-btn{
+    font-size: .8rem;
+  }
+  #main-content{
+    padding: 0px !important;
   }
 }
