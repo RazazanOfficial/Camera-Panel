@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Controll - SHAAHAB</title>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/viewControll.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="icon" type="image/x-icon" href="../imgs/Shahaab-Logo.webp" />
+  </head>
+  <body class="bg-dark-subtle">
+    <!-- TODO: Header Section -->
+    <header>
+      <nav class="cnav navbar navbar-expand-lg bg-dark-subtle py-0">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center gap-2"
+            href="./viewControll.html"
+          >
+            <img
+              src="../imgs/Shahaab-Logo.webp"
+              alt="logo"
+              width="38"
+              height="38"
+            />
+            <h3 class="fst-italic company-name">SHAAHAB</h3>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-5" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center activeLink">
+                <img
+                  src="../icons/live.svg"
+                  alt="live"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="#">Live View</a>
+              </li>
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/config.svg"
+                  alt="config"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="./configuration.html"
+                  >Configuration</a
+                >
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/help.svg"
+                  alt="help"
+                  width="27"
+                  height="27"
+                />
+                <a class="nav-link" href="./Help.html">Help</a>
+              </li>
+              <li class="nav-item d-flex align-items-center normalLink">
+                <img
+                  src="../icons/logout.svg"
+                  alt="logout"
+                  width="20"
+                  height="20"
+                />
+                <a class="nav-link" href="#" onclick="Auth.logout(); return false;">Logout</a>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="row flex-lg-nowrap m-3 px-2 py-4">
+<!-- Left: Stream + Controls -->
+<div
+  id="videoContainer"
+  class="col-lg-9 py-0 px-3 d-flex flex-column align-items-center justify-content-center position-relative"
+>
+  <!-- MJPEG Stream -->
+  <img
+    id="mjpegStream"
+    class="w-100 h-100 stream-media"
+    alt="MJPEG Stream"
+  />
+
+  <!-- Fallback (hidden by default) -->
+  <div id="streamFallback" class="stream-fallback d-none text-center p-4">
+    <h5 class="mb-2 overflow-y-hidden">Live preview is unavailable</h5>
+    <p class="text-muted mb-3">
+      To enable the preview, please turn ON <b>JPEG protocol</b> and turn OFF <b>Sub Stream</b>.
+    </p>
+    <button id="btnOpenFixModal" type="button" class="btn btn-danger px-4">
+      Activate Camera
+    </button>
+  </div>
+</div>
+
+<!-- Fix modal -->
+<div class="modal fade" id="streamFixModal" tabindex="-1" aria-labelledby="streamFixTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow">
+      <div class="modal-header">
+        <h5 id="streamFixTitle" class="modal-title">Enable Live Preview</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body" style="font-weight: bold;">
+        <p class="mb-3">
+          To show the live <strong class="text-danger">MJPEG</strong> preview, the following must be configured:
+        </p>
+
+        <ul class="list-unstyled mb-3">
+          <li class="mb-2 d-flex">
+            <span class="me-2" style="width: 121px; display: inline-block;">• JPEG protocol:</span>
+            <button id="btnEnableJpeg" type="button" class="btn btn-sm btn-outline-secondary align-text-top">
+              Enable JPEG
+            </button>
+          </li>
+          <li class="mb-2 d-flex">
+            <span class="me-2" style="width: 121px; display: inline-block;" >• Sub Stream:</span>
+            <button id="btnDisableSub" type="button" class="btn btn-sm btn-outline-secondary align-text-top">
+              Disable Sub Stream
+            </button>
+          </li>
+        </ul>
+
+        <small class="text-muted d-block">
+          Changes are applied immediately (camera settings are saved &amp; applied).  
+          Close or click outside to refresh this page.
+        </small>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnFixClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close &amp; Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Right: Side menu -->
+<div
+  class="col-lg-3 p-0 d-lg-flex d-none flex-column text-center side-menu gap-1"
+>
+  <!-- Div One  -->
+  <div class="w-100">
+    <div class="m-1 px-4 py-2 box mx-2 mt-2">
+      <p>Camera rotation</p>
+      <div>
+        <!-- Top -->
+        <div class="d-flex justify-content-center gap-2 mb-2">
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowLeftTop.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowUp.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowRightTop.svg" width="40" alt="" />
+          </button>
+        </div>
+
+        <!-- Mid -->
+        <div class="d-flex justify-content-center gap-2 mb-2">
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowLeftMid.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowRotate.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowRightMid.svg" width="40" alt="" />
+          </button>
+        </div>
+
+        <!-- Bottom -->
+        <div class="d-flex justify-content-center gap-2">
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowLeftBottom.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowDown.svg" width="40" alt="" />
+          </button>
+          <button class="btns" disabled aria-disabled="true">
+            <img src="../icons/arrowRightBottom.svg" width="40" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Div Two -->
+  <div class="w-100 adjustment-group" data-group="lenz">
+    <div class="m-1 py-1 px-3 box mx-2">
+      <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
+      <div class="slider-container mt-2">
+        <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+        <input
+          type="range"
+          class="rangeSlider"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+        <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+      </div>
+      <div class="mt-2">
+        <label class="form-label">Variable value (from 1 to 4000)</label>
+        <input
+          type="number"
+          class="stepInput form-control form-control-sm"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Div Three -->
+  <div class="w-100 adjustment-group" data-group="zoom">
+    <div class="m-1 py-1 px-3 box mx-2">
+      <p class="overflow-y-hidden mb-1">Zoom adjustment</p>
+      <div class="slider-container mt-2">
+        <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+        <input
+          type="range"
+          class="rangeSlider"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+        <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+      </div>
+      <div class="mt-2">
+        <label class="form-label">Variable value (from 1 to 4000)</label>
+        <input
+          type="number"
+          class="stepInput form-control form-control-sm"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Div Four -->
+  <div class="w-100 adjustment-group" data-group="diaphragm">
+    <div class="m-1 py-1 px-3 box mx-2">
+      <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
+      <div class="slider-container mt-2">
+        <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+        <input
+          type="range"
+          class="rangeSlider"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+        <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+      </div>
+      <div class="mt-2">
+        <label class="form-label">Variable value (from 1 to 4000)</label>
+        <input
+          type="number"
+          class="stepInput form-control form-control-sm"
+          min="1"
+          max="4000"
+          value="200"
+          disabled
+          aria-disabled="true"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hamburger for smaller screens -->
+<div class="d-lg-none col-12 p-0">
+  <button
+    class="btn btn-danger w-100"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#mobilePanel"
+  >
+    Show the menu
+  </button>
+  <div class="collapse side-menu" id="mobilePanel">
+    <!-- Lenz -->
+    <div class="w-100 adjustment-group" data-group="lenz">
+      <div class="m-1 py-1 px-3 box mx-2">
+        <p class="overflow-y-hidden mb-1">Lenz adjustment</p>
+        <div class="slider-container mt-2">
+          <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+          <input
+            type="range"
+            class="rangeSlider"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+          <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+        </div>
+        <div class="mt-2">
+          <label class="form-label"
+            >Variable value (from 1 to 4000)</label
+          >
+          <input
+            type="number"
+            class="stepInput form-control form-control-sm"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Zoom -->
+    <div class="w-100 adjustment-group" data-group="zoom">
+      <div class="m-1 py-1 px-3 box mx-2">
+        <p class="overflow-y-hidden mb-1">Zoom</p>
+        <div class="slider-container mt-2">
+          <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+          <input
+            type="range"
+            class="rangeSlider"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+          <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+        </div>
+        <div class="mt-2">
+          <label class="form-label"
+            >Variable value (from 1 to 4000)</label
+          >
+          <input
+            type="number"
+            class="stepInput form-control form-control-sm"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Diaphragm -->
+    <div class="w-100 adjustment-group" data-group="diaphragm">
+      <div class="m-1 py-1 px-3 box mx-2">
+        <p class="overflow-y-hidden mb-1">Diaphragm adjustment</p>
+        <div class="slider-container mt-2">
+          <button class="decreaseBtn btn btn-danger btn" disabled aria-disabled="true">−</button>
+          <input
+            type="range"
+            class="rangeSlider"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+          <button class="increaseBtn btn btn-success btn" disabled aria-disabled="true">+</button>
+        </div>
+        <div class="mt-2">
+          <label class="form-label"
+            >Variable value (from 1 to 4000)</label
+          >
+          <input
+            type="number"
+            class="stepInput form-control form-control-sm"
+            min="1"
+            max="4000"
+            value="200"
+            disabled
+            aria-disabled="true"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Camera rotation -->
+    <div class="w-100">
+      <div class="m-1 px-4 py-2 box mx-2 mt-2">
+        <p>Camera rotation</p>
+        <div>
+          <div class="d-flex justify-content-center gap-2 mb-2">
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowLeftTop.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowUp.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowRightTop.svg" width="40" alt="" />
+            </button>
+          </div>
+          <div class="d-flex justify-content-center gap-2 mb-2">
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowLeftMid.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowRotate.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowRightMid.svg" width="40" alt="" />
+            </button>
+          </div>
+          <div class="d-flex justify-content-center gap-2">
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowLeftBottom.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img src="../icons/arrowDown.svg" width="40" alt="" />
+            </button>
+            <button class="btns" disabled aria-disabled="true">
+              <img
+                src="../icons/arrowRightBottom.svg"
+                width="40"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+<script src="../js/toasti.js"></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../js/apiConfig.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/apiService.js"></script>
+<script src="../js/middleware.js"></script>
+<script src="../js/viewControll.js"></script>
+<script>
+  (function () {
+    const img = document.getElementById("mjpegStream");
+    if (!img) {
+      console.warn("mjpegStream element not found");
+      return;
+    }
+    // مطمئن بشیم DEVICE_ORIGIN از apiConfig.js در دسترسه
+    if (typeof DEVICE_ORIGIN === "undefined") {
+      console.error("DEVICE_ORIGIN is not defined");
+      return;
+    }
+    img.src = `${DEVICE_ORIGIN}/mjpeg`;
+  })();
+</script>
+
+  </body>
+</html>

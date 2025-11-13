@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",(()=>{window.Auth.requireAuth("./login.html")&&initPage()}));

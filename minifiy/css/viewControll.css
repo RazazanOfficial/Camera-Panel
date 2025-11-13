@@ -1,0 +1,191 @@
+body {
+  overflow-y: auto !important;
+}
+main {
+  min-height: 85vh;
+  background-color: #ababab;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+}
+
+/* با MJPEG از <img> استفاده می‌کنیم */
+.stream-media {
+  object-fit: contain;
+}
+
+/* Controls */
+#videoTools {
+  position: relative;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+#videoTools button {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  overflow-y: hidden;
+}
+#videoTools button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+#videoTools button:active {
+  background-color: #d0d0d0;
+  transform: translateY(0);
+}
+#videoTools div {
+  overflow-y: hidden;
+}
+
+/* حذف کامل استایل‌های مربوط به ولوم/میوت/اسلایدر (دیگه وجود ندارن) */
+/* — nothing — */
+
+/* Buttons (side menu) */
+.btns {
+  background: #cfcfcf99;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  overflow-y: hidden;
+}
+/* .btns:hover {
+  background-color: #c9c9c9;
+  color: rgb(92, 92, 92);
+  border: 1px solid black;
+  transform: scale(0.9);
+} */
+.btn-rotate {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border: 2px solid #495057;
+  overflow-y: hidden;
+}
+.btn-rotate svg {
+  pointer-events: none;
+  transition: all 0.2s ease;
+  color: #495057;
+}
+.btn-rotate:hover svg {
+  background-color: #c9c9c9;
+  color: rgb(92, 92, 92);
+  border: 1px solid black;
+  transform: scale(1.1);
+}
+
+.side-menu {
+  background-color: #e7e2e2;
+  border: 2px solid #888;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+}
+.side-menu p {
+  color: #495057;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.side-menu label {
+  color: #495057;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+.side-menu div {
+  overflow-y: hidden;
+}
+.box {
+  border: 2px solid #495057;
+  border-radius: 10px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.slider-container * {
+  overflow-y: hidden;
+}
+
+input[type="range"] {
+  flex: 1;
+  appearance: none;
+  height: 8px;
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    crimson 0%,
+    crimson var(--val, 0%),
+    #ccc var(--val, 0%),
+    #ccc 100%
+  );
+}
+
+@media (max-width: 630px) {
+  #videoTools {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  #videoTools > div {
+    justify-content: center;
+  }
+  #videoTools button {
+    border-radius: 30%;
+  }
+}
+
+/* Fallback placeholder when MJPEG is unavailable */
+.stream-fallback {
+  border: 2px dashed white;
+  border-radius: 12px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stream-fallback h5 {
+  font-weight: 600;
+}
+
+.stream-fallback .btn {
+  min-width: 200px;
+}
